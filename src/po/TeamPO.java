@@ -9,19 +9,28 @@ import java.util.ArrayList;
 
 public class TeamPO {
 	
+	private ArrayList<String> onCourtPlayerList;
+	private ArrayList<String> allPlayersNameList;
 	private String teamName;
 	private String abbreviation;
-	private String city;
-	private Conference conference;
-	private Division division;
 	private String homeField;
-	private String birthYear;
-	private String imgPath;
-	
-	private ArrayList<String> currentPlayersNameList;//current
-	
-	private ArrayList<TeamPerformance> seansonTeamPerformance;//sudo
-	
+	private String shootRatio;
+	private String threePointShootRatio;
+	private String freeThrowRatio;
+	private String rebound;
+	private String asist;
+	public ArrayList<String> getOnCourtPlayerList() {
+		return onCourtPlayerList;
+	}
+	public void setOnCourtPlayerList(ArrayList<String> onCourtPlayerList) {
+		this.onCourtPlayerList = onCourtPlayerList;
+	}
+	public ArrayList<String> getAllPlayersNameList() {
+		return allPlayersNameList;
+	}
+	public void setAllPlayersNameList(ArrayList<String> allPlayersNameList) {
+		this.allPlayersNameList = allPlayersNameList;
+	}
 	public String getTeamName() {
 		return teamName;
 	}
@@ -34,53 +43,42 @@ public class TeamPO {
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public Conference getConference() {
-		return conference;
-	}
-	public void setConference(Conference conf) {
-		this.conference = conf;
-	}
-	public Division getDivision() {
-		return division;
-	}
-	public void setDivision(Division div) {
-		this.division = div;
-	}
 	public String getHomeField() {
 		return homeField;
 	}
 	public void setHomeField(String homeField) {
 		this.homeField = homeField;
 	}
-	public String getBirthYear() {
-		return birthYear;
+	public String getShootRatio() {
+		return shootRatio;
 	}
-	public void setBirthYear(String birthYear) {
-		this.birthYear = birthYear;
+	public void setShootRatio(String shootRatio) {
+		this.shootRatio = shootRatio;
 	}
-	public String getImgPath() {
-		return imgPath;
+	public String getThreePointShootRatio() {
+		return threePointShootRatio;
 	}
-	public void setImgPath(String imgPath) {
-		this.imgPath = imgPath;
+	public void setThreePointShootRatio(String threePointShootRatio) {
+		this.threePointShootRatio = threePointShootRatio;
 	}
-	public ArrayList<String> getCurrentPlayersNameList() {
-		return currentPlayersNameList;
+	public String getFreeThrowRatio() {
+		return freeThrowRatio;
 	}
-	public void setCurrentPlayersNameList(ArrayList<String> playersNameList) {
-		this.currentPlayersNameList = playersNameList;
+	public void setFreeThrowRatio(String freeThrowRatio) {
+		this.freeThrowRatio = freeThrowRatio;
 	}
-	public ArrayList<TeamPerformance> getSeansonTeamPerformance() {
-		return seansonTeamPerformance;
+	public String getRebound() {
+		return rebound;
 	}
-	public void setSeansonTeamPerformance(ArrayList<TeamPerformance> seansonTeamPerformance) {
-		this.seansonTeamPerformance = seansonTeamPerformance;
+	public void setRebound(String rebound) {
+		this.rebound = rebound;
 	}
+	public String getAsist() {
+		return asist;
+	}
+	public void setAsist(String asist) {
+		this.asist = asist;
+	}
+
 	
 }
