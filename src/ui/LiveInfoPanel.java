@@ -261,7 +261,7 @@ public class LiveInfoPanel extends JPanel {
 
 		gameDataLive(gamePO);
 
-		currentState="live";
+		currentState = "live";
 		live(liveTextList);
 		VisionController("live");
 		mainFrame.getContentPane().add(this);
@@ -270,8 +270,8 @@ public class LiveInfoPanel extends JPanel {
 
 	public void gameDataLive(GamePO gamePO) {
 
-		
-		
+		this.gamePO = gamePO;
+
 		int spaceX = 565;
 		int spaceY = 50;
 		int tempX = 30;
@@ -446,11 +446,10 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(hostScoreSum);
 
 		VisionController("live");
-		
+
 	}
 
-	
-	public void courtLive(GamePO gamePO){
+	public void courtLive(GamePO gamePO) {
 		if (courtlbl != null) {
 			courtlbl.setVisible(false);
 		}
@@ -587,13 +586,10 @@ public class LiveInfoPanel extends JPanel {
 		courtlbl.add(btnH5);
 
 		bgLabel.add(courtlbl);
-		
-		
-	}
-	
-	
-	public void live(ArrayList<LiveTextPO> liveTextList) {
 
+	}
+
+	public void live(ArrayList<LiveTextPO> liveTextList) {
 
 		// ---------------------------------------Steve
 		// Jin(在场队员）liveText里须加属性：是否为替换队员，我才能替换掉在场队员！！！--------------------------------------------
@@ -601,11 +597,11 @@ public class LiveInfoPanel extends JPanel {
 		if (liveTextlbl != null) {
 			liveTextlbl.setVisible(false);
 		}
-		
+
 		if (liveScrollPane != null) {
 			liveScrollPane.setVisible(false);
 		}
-		
+
 		liveTextlbl = new MyLabel();
 		liveTextlbl.setHorizontalAlignment(SwingConstants.CENTER);
 		liveTextlbl.setBounds(X * 210 / 1366, Y * 670 / 768, X * 430 / 1366,
@@ -643,17 +639,7 @@ public class LiveInfoPanel extends JPanel {
 		column.add("球队");
 		column.add("参与球员");
 		column.add("文字直播");
-		/*
-		 * DefaultTableModel dtm = new DefaultTableModel(liveRowData, column) {
-		 * 
-		 * private static final long serialVersionUID = 1L;
-		 * 
-		 * public boolean isCellEditable(int row, int column) { return false; }
-		 * };
-		 * 
-		 * if (liveTable != null) { liveTable.setVisible(false); } liveTable =
-		 * new JTable(dtm);
-		 */
+
 		liveTable = new JTable(liveRowData, column);
 		JTableHeader header = liveTable.getTableHeader();
 		header.setDefaultRenderer(new DefaultTableCellRenderer() {
@@ -708,6 +694,21 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(liveTextlbl);
 		bgLabel.add(liveScrollPane);
 
+		if (liveTextList != null && gamePO != null) {
+			for (int i = 0; i < gamePO.getGuestPlayersNameList().size(); i++) {
+				if (gamePO.getGuestPlayersNameList().get(i)
+						.equals(liveTextList.get(0).getPlayerName())) {
+					PlayerButtonHighLight("guest", i);
+				}
+			}
+
+			for (int i = 0; i < gamePO.getHomePlayersNameList().size(); i++) {
+				if (gamePO.getHomePlayersNameList().get(i)
+						.equals(liveTextList.get(0).getPlayerName())) {
+					PlayerButtonHighLight("home", i);
+				}
+			}
+		}
 		VisionController(currentState);
 
 	}
@@ -1190,7 +1191,7 @@ public class LiveInfoPanel extends JPanel {
 				a.add("");
 				a.add(hostPlayerDataList.get(i).getName());
 				a.add(hostPlayerDataList.get(i).getPosition());
-				a.add(hostPlayerDataList.get(i).get);
+				a.add(hostPlayerDataList.get(i).);
 				a.add(hostPlayerDataList.get(i).get);
 				a.add("");
 				a.add("");
@@ -1311,7 +1312,7 @@ public class LiveInfoPanel extends JPanel {
 
 	public void VisionController(String label) {
 		if (label.equals("live")) {
-			
+
 			if (courtlbl != null) {
 				courtlbl.setVisible(true);
 			}
@@ -1328,7 +1329,7 @@ public class LiveInfoPanel extends JPanel {
 				datalbl.setVisible(false);
 			}
 		} else if (label.equals("playerDataLive")) {
-			
+
 			if (courtlbl != null) {
 				courtlbl.setVisible(false);
 			}
@@ -1585,7 +1586,7 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	public class CourtLiveObserver implements Observer{
+	public class CourtLiveObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
@@ -1593,10 +1594,9 @@ public class LiveInfoPanel extends JPanel {
 			gamePO = (GamePO) arg;
 			courtLive(gamePO);
 		}
-	
-    }
-      
-	
+
+	}
+
 	public class LiveTextObserver implements Observer {
 
 		@Override
@@ -1634,10 +1634,181 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void PlayerButtonHighLight(String gorh, int i) {
+		ImageIcon initialPlayerPortraitG1 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getGuestPlayersNameList().get(0) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnG1.setIcon(initialPlayerPortraitG1);
 
+		ImageIcon initialPlayerPortraitG2 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getGuestPlayersNameList().get(1) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnG2.setIcon(initialPlayerPortraitG2);
+
+		ImageIcon initialPlayerPortraitG3 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getGuestPlayersNameList().get(2) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnG3.setIcon(initialPlayerPortraitG3);
+
+		ImageIcon initialPlayerPortraitG4 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getGuestPlayersNameList().get(3) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnG4.setIcon(initialPlayerPortraitG4);
+
+		ImageIcon initialPlayerPortraitG5 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getGuestPlayersNameList().get(4) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnG5.setIcon(initialPlayerPortraitG5);
+
+		ImageIcon initialPlayerPortraitH1 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getHomePlayersNameList().get(0) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnH1.setIcon(initialPlayerPortraitH1);
+
+		ImageIcon initialPlayerPortraitH2 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getHomePlayersNameList().get(1) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnH2.setIcon(initialPlayerPortraitH2);
+
+		ImageIcon initialPlayerPortraitH3 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getHomePlayersNameList().get(2) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnH3.setIcon(initialPlayerPortraitH3);
+
+		ImageIcon initialPlayerPortraitH4 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getHomePlayersNameList().get(3) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnH4.setIcon(initialPlayerPortraitH4);
+
+		ImageIcon initialPlayerPortraitH5 = new ImageIcon(new ImageIcon(
+				"CSEdata/players/portrait/"
+						+ gamePO.getHomePlayersNameList().get(4) + ".png")
+				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+						Image.SCALE_AREA_AVERAGING));
+		btnH5.setIcon(initialPlayerPortraitH5);
+
+		if (gorh.equals("guest")) {
+			if (i == 1) {
+				ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
+						"CSEdata/players/portrait/"
+								+ gamePO.getGuestPlayersNameList().get(0)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnG1.setIcon(playerPortraitG1);
+
+			} else if (i == 2) {
+
+				ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
+						"CSEdata/players/portrait/"
+								+ gamePO.getGuestPlayersNameList().get(1)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnG2.setIcon(playerPortraitG2);
+
+			} else if (i == 3) {
+
+				ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
+						"CSEdata/players/portrait/"
+								+ gamePO.getGuestPlayersNameList().get(2)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnG3.setIcon(playerPortraitG3);
+
+			} else if (i == 4) {
+
+				ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
+						"CSEdata/players/portrait/"
+								+ gamePO.getGuestPlayersNameList().get(3)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnG4.setIcon(playerPortraitG4);
+
+			} else if (i == 5) {
+
+				ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
+						"CSEdata/players/portrait/"
+								+ gamePO.getGuestPlayersNameList().get(4)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnG5.setIcon(playerPortraitG5);
+
+			} else if (gorh.equals("home")) {
+				if (i == 1) {
+
+					ImageIcon playerPortraitH1 = new ImageIcon(new ImageIcon(
+							"CSEdata/players/portrait/"
+									+ gamePO.getHomePlayersNameList().get(0)
+									+ ".png").getImage().getScaledInstance(
+							X * 60 / 1366, Y * 60 / 768,
+							Image.SCALE_AREA_AVERAGING));
+					btnH1.setIcon(playerPortraitH1);
+
+				} else if (i == 2) {
+
+					ImageIcon playerPortraitH2 = new ImageIcon(new ImageIcon(
+							"CSEdata/players/portrait/"
+									+ gamePO.getHomePlayersNameList().get(1)
+									+ ".png").getImage().getScaledInstance(
+							X * 60 / 1366, Y * 60 / 768,
+							Image.SCALE_AREA_AVERAGING));
+					btnH2.setIcon(playerPortraitH2);
+
+				} else if (i == 3) {
+
+					ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
+							"CSEdata/players/portrait/"
+									+ gamePO.getHomePlayersNameList().get(2)
+									+ ".png").getImage().getScaledInstance(
+							X * 60 / 1366, Y * 60 / 768,
+							Image.SCALE_AREA_AVERAGING));
+					btnH3.setIcon(playerPortraitH3);
+
+				} else if (i == 4) {
+
+					ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
+							"CSEdata/players/portrait/"
+									+ gamePO.getHomePlayersNameList().get(3)
+									+ ".png").getImage().getScaledInstance(
+							X * 60 / 1366, Y * 60 / 768,
+							Image.SCALE_AREA_AVERAGING));
+					btnH4.setIcon(playerPortraitH4);
+
+				} else if (i == 5) {
+
+					ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
+							"CSEdata/players/portrait/"
+									+ gamePO.getHomePlayersNameList().get(4)
+									+ ".png").getImage().getScaledInstance(
+							X * 60 / 1366, Y * 60 / 768,
+							Image.SCALE_AREA_AVERAGING));
+					btnH5.setIcon(playerPortraitH5);
+				}
+			}
+
+		}
+
+	}
 }
