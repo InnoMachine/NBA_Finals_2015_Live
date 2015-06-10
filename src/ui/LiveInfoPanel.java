@@ -468,7 +468,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(0) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(0) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_SMOOTH));
 		btnG1.setOpaque(false);
@@ -480,7 +480,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(1) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(1) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG2.setIcon(playerPortraitG2);
@@ -492,7 +492,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(2) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(2) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG3.setIcon(playerPortraitG3);
@@ -504,7 +504,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(3) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(3) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG4.setIcon(playerPortraitG4);
@@ -516,7 +516,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(4) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(4) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG5.setIcon(playerPortraitG5);
@@ -528,7 +528,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitH1 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(0) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(0) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH1.setIcon(playerPortraitH1);
@@ -540,7 +540,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitH2 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(1) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(1) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH2.setIcon(playerPortraitH2);
@@ -552,7 +552,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(2) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(2) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH3.setIcon(playerPortraitH3);
@@ -567,7 +567,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(3) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(3) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH4.setIcon(playerPortraitH4);
@@ -579,7 +579,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(4) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(4) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH5.setIcon(playerPortraitH5);
@@ -695,15 +695,15 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(liveScrollPane);
 
 		if (liveTextList != null && gamePO != null) {
-			for (int i = 0; i < gamePO.getGuestPlayersNameList().size(); i++) {
-				if (gamePO.getGuestPlayersNameList().get(i)
-						.equals(liveTextList.get(0).getPlayerName())) {
+			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getGuestOnCourtPlayerLsit().equals(
+						liveTextList.get(0).getPlayerName())) {
 					PlayerButtonHighLight("guest", i);
 				}
 			}
 
-			for (int i = 0; i < gamePO.getHomePlayersNameList().size(); i++) {
-				if (gamePO.getHomePlayersNameList().get(i)
+			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
 						.equals(liveTextList.get(0).getPlayerName())) {
 					PlayerButtonHighLight("home", i);
 				}
@@ -766,15 +766,15 @@ public class LiveInfoPanel extends JPanel {
 						X
 								* (607 - Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(Double.parseDouble(guestTeamPo.getShootRatio()))) * 3)
 								/ 1366,
 						Y * 120 / 768,
 						X
 								* (Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(Double.parseDouble(guestTeamPo.getShootRatio()))) * 3)
 								/ 1366, Y * 28 / 768);
-		if (>=) {
+		if (Double.parseDouble(guestTeamPo.getShootRatio())>=Double.parseDouble(hostTeamPo.getShootRatio())) {
 			lblGuestHitRate.setBackground(Color.BLUE);
 		} else {
 			lblGuestHitRate.setBackground(Color.LIGHT_GRAY);
@@ -789,8 +789,8 @@ public class LiveInfoPanel extends JPanel {
 				Y * 120 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(hostTeamPo)) * 3) / 1366, Y * 28 / 768);
-		if (>=) {
+								.format(Double.parseDouble(hostTeamPo.getShootRatio()))) * 3) / 1366, Y * 28 / 768);
+		if (Double.parseDouble(guestTeamPo.getShootRatio())>=Double.parseDouble(hostTeamPo.getShootRatio())) {
 			lblHostHitRate.setBackground(Color.LIGHT_GRAY);
 		} else {
 			lblHostHitRate.setBackground(Color.BLUE);
@@ -805,15 +805,15 @@ public class LiveInfoPanel extends JPanel {
 						X
 								* (607 - Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(Double.parseDouble(guestTeamPo.getThreePointShootRatio()))) * 3)
 								/ 1366,
 						Y * 188 / 768,
 						X
 								* (Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(Double.parseDouble(guestTeamPo.getThreePointShootRatio()))) * 3)
 								/ 1366, Y * 28 / 768);
-		if (>=) {
+		if (Double.parseDouble(guestTeamPo.getThreePointShootRatio())>=Double.parseDouble(hostTeamPo.getThreePointShootRatio())) {
 			lblGuestThreePointHitRate.setBackground(Color.BLUE);
 		} else {
 			lblGuestThreePointHitRate.setBackground(Color.LIGHT_GRAY);
@@ -828,8 +828,8 @@ public class LiveInfoPanel extends JPanel {
 				Y * 188 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(hostTeamPo)) * 3) / 1366, Y * 28 / 768);
-		if (>=) {
+								.format(Double.parseDouble(hostTeamPo.getThreePointShootRatio()))) * 3) / 1366, Y * 28 / 768);
+		if (Double.parseDouble(guestTeamPo.getThreePointShootRatio())>=Double.parseDouble(hostTeamPo.getThreePointShootRatio())) {
 			lblHostThreePointHitRate.setBackground(Color.LIGHT_GRAY);
 		} else {
 			lblHostThreePointHitRate.setBackground(Color.BLUE);
@@ -844,15 +844,15 @@ public class LiveInfoPanel extends JPanel {
 						X
 								* (607 - Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(Double.parseDouble(guestTeamPo.getFreeThrowRatio()))) * 3)
 								/ 1366,
 						Y * 256 / 768,
 						X
 								* (Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(Double.parseDouble(guestTeamPo.getFreeThrowRatio()))) * 3)
 								/ 1366, Y * 28 / 768);
-		if (>=) {
+		if (Double.parseDouble(guestTeamPo.getFreeThrowRatio())>=Double.parseDouble(hostTeamPo.getFreeThrowRatio())) {
 			lblGuestFreeThrowHitRate.setBackground(Color.BLUE);
 		} else {
 			lblGuestFreeThrowHitRate.setBackground(Color.LIGHT_GRAY);
@@ -867,8 +867,8 @@ public class LiveInfoPanel extends JPanel {
 				Y * 256 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(hostTeamPo)) * 3) / 1366, Y * 28 / 768);
-		if (>=) {
+								.format(Double.parseDouble(hostTeamPo.getFreeThrowRatio()))) * 3) / 1366, Y * 28 / 768);
+		if (Double.parseDouble(guestTeamPo.getFreeThrowRatio())>=Double.parseDouble(hostTeamPo.getFreeThrowRatio())) {
 			lblHostFreeThrowHitRate.setBackground(Color.LIGHT_GRAY);
 		} else {
 			lblHostFreeThrowHitRate.setBackground(Color.BLUE);
@@ -883,15 +883,15 @@ public class LiveInfoPanel extends JPanel {
 						X
 								* (607 - Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(guestTeamPo.getRebound())) * 3)
 								/ 1366,
 						Y * 324 / 768,
 						X
 								* (Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(guestTeamPo.getRebound())) * 3)
 								/ 1366, Y * 28 / 768);
-		if (>=) {
+		if (Double.parseDouble(guestTeamPo.getRebound())>=Double.parseDouble(hostTeamPo.getRebound())) {
 			lblGuestRebound.setBackground(Color.BLUE);
 		} else {
 			lblGuestRebound.setBackground(Color.LIGHT_GRAY);
@@ -906,8 +906,8 @@ public class LiveInfoPanel extends JPanel {
 				Y * 324 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(hostTeamPo)) * 3) / 1366, Y * 28 / 768);
-		if (>=) {
+								.format(hostTeamPo.getRebound())) * 3) / 1366, Y * 28 / 768);
+		if (Double.parseDouble(guestTeamPo.getRebound())>=Double.parseDouble(hostTeamPo.getRebound())) {
 			lblHostRebound.setBackground(Color.LIGHT_GRAY);
 		} else {
 			lblHostRebound.setBackground(Color.BLUE);
@@ -922,15 +922,15 @@ public class LiveInfoPanel extends JPanel {
 						X
 								* (607 - Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(guestTeamPo.getAsist())) * 3)
 								/ 1366,
 						Y * 324 / 768,
 						X
 								* (Integer
 										.parseInt(new java.text.DecimalFormat(
-												"0").format(guestTeamPo)) * 3)
+												"0").format(guestTeamPo.getAsist())) * 3)
 								/ 1366, Y * 28 / 768);
-		if (>=) {
+		if (Double.parseDouble(guestTeamPo.getAsist())>=Double.parseDouble(hostTeamPo.getAsist())) {
 			lblGuestAssistance.setBackground(Color.BLUE);
 		} else {
 			lblGuestAssistance.setBackground(Color.LIGHT_GRAY);
@@ -945,8 +945,8 @@ public class LiveInfoPanel extends JPanel {
 				Y * 324 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(hostTeamPo)) * 3) / 1366, Y * 28 / 768);
-		if (>=) {
+								.format(hostTeamPo.getAsist())) * 3) / 1366, Y * 28 / 768);
+		if (Double.parseDouble(guestTeamPo.getAsist())>=Double.parseDouble(hostTeamPo.getAsist())) {
 			lblHostAssistance.setBackground(Color.LIGHT_GRAY);
 		} else {
 			lblHostAssistance.setBackground(Color.BLUE);
@@ -965,7 +965,7 @@ public class LiveInfoPanel extends JPanel {
 		if (datalbl != null) {
 			datalbl.setVisible(false);
 		}
-		
+
 		datalbl = new JLabel();
 		datalbl.setHorizontalAlignment(SwingConstants.CENTER);
 		datalbl.setBounds(X * 0 / 1366, Y * 194 / 768, X * 1331 / 1366,
@@ -1030,27 +1030,27 @@ public class LiveInfoPanel extends JPanel {
 				// -------------------steven Jin!!!------------------
 				Vector<String> a = new Vector<String>();
 				a.add("");
-				a.add(guestPlayerDataList.get(i).getName());
+				a.add(guestPlayerDataList.get(i).getCnName());
 				a.add(guestPlayerDataList.get(i).getPosition());
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
+				a.add(guestPlayerDataList.get(i).getTimeOnCourt());
+				a.add(guestPlayerDataList.get(i).getShootInRatio());
+				a.add(guestPlayerDataList.get(i).getShootInNum());
+				a.add(guestPlayerDataList.get(i).getShootTotalNum());
+				a.add(guestPlayerDataList.get(i).getShootThreeInRatio());
+				a.add(guestPlayerDataList.get(i).getShootThreeInNum());
+				a.add(guestPlayerDataList.get(i).getShootThreeTotalNum());
+				a.add(guestPlayerDataList.get(i).getFreethrowInRatio());
+				a.add(guestPlayerDataList.get(i).getFreeThrowInNum());
+				a.add(guestPlayerDataList.get(i).getFreeThrowTotalNum());
+				a.add(guestPlayerDataList.get(i).getForwardRebound());
+				a.add(guestPlayerDataList.get(i).getBackRebound());
+				a.add(guestPlayerDataList.get(i).getTotalRebound());
+				a.add(guestPlayerDataList.get(i).getAsist());
+				a.add(guestPlayerDataList.get(i).getFoul());
+				a.add(guestPlayerDataList.get(i).getSteal());
+				a.add(guestPlayerDataList.get(i).getTurnover());
+				a.add(guestPlayerDataList.get(i).getBlock());
+				a.add(guestPlayerDataList.get(i).getScore());
 				// ------------------------------------------------
 				/*
 				 * a.add(String.valueOf(guestPlayerDataList.get(i).getName()));
@@ -1189,27 +1189,27 @@ public class LiveInfoPanel extends JPanel {
 				Vector<String> a = new Vector<String>();
 				// -------------------steven Jin!!!------------------
 				a.add("");
-				a.add(hostPlayerDataList.get(i).getName());
+				a.add(hostPlayerDataList.get(i).getCnName());
 				a.add(hostPlayerDataList.get(i).getPosition());
-				a.add(hostPlayerDataList.get(i).);
-				a.add(hostPlayerDataList.get(i).get);
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
-				a.add("");
+				a.add(hostPlayerDataList.get(i).getTimeOnCourt());
+				a.add(hostPlayerDataList.get(i).getShootInRatio());
+				a.add(hostPlayerDataList.get(i).getShootInNum());
+				a.add(hostPlayerDataList.get(i).getShootTotalNum());
+				a.add(hostPlayerDataList.get(i).getShootThreeInRatio());
+				a.add(hostPlayerDataList.get(i).getShootThreeInNum());
+				a.add(hostPlayerDataList.get(i).getShootThreeTotalNum());
+				a.add(hostPlayerDataList.get(i).getFreethrowInRatio());
+				a.add(hostPlayerDataList.get(i).getFreeThrowInNum());
+				a.add(hostPlayerDataList.get(i).getFreeThrowTotalNum());
+				a.add(hostPlayerDataList.get(i).getForwardRebound());
+				a.add(hostPlayerDataList.get(i).getBackRebound());
+				a.add(hostPlayerDataList.get(i).getTotalRebound());
+				a.add(hostPlayerDataList.get(i).getAsist());
+				a.add(hostPlayerDataList.get(i).getFoul());
+				a.add(hostPlayerDataList.get(i).getSteal());
+				a.add(hostPlayerDataList.get(i).getTurnover());
+				a.add(hostPlayerDataList.get(i).getBlock());
+				a.add(hostPlayerDataList.get(i).getScore());
 				// -----------------------------------------------
 				/*
 				 * a.add(String.valueOf(hostPlayerVos.get(i).getName()));
@@ -1637,70 +1637,70 @@ public class LiveInfoPanel extends JPanel {
 	public void PlayerButtonHighLight(String gorh, int i) {
 		ImageIcon initialPlayerPortraitG1 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(0) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(0) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG1.setIcon(initialPlayerPortraitG1);
 
 		ImageIcon initialPlayerPortraitG2 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(1) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(1) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG2.setIcon(initialPlayerPortraitG2);
 
 		ImageIcon initialPlayerPortraitG3 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(2) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(2) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG3.setIcon(initialPlayerPortraitG3);
 
 		ImageIcon initialPlayerPortraitG4 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(3) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(3) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG4.setIcon(initialPlayerPortraitG4);
 
 		ImageIcon initialPlayerPortraitG5 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getGuestPlayersNameList().get(4) + ".png")
+						+ gamePO.getGuestOnCourtPlayerLsit().get(4) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnG5.setIcon(initialPlayerPortraitG5);
 
 		ImageIcon initialPlayerPortraitH1 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(0) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(0) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH1.setIcon(initialPlayerPortraitH1);
 
 		ImageIcon initialPlayerPortraitH2 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(1) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(1) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH2.setIcon(initialPlayerPortraitH2);
 
 		ImageIcon initialPlayerPortraitH3 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(2) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(2) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH3.setIcon(initialPlayerPortraitH3);
 
 		ImageIcon initialPlayerPortraitH4 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(3) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(3) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH4.setIcon(initialPlayerPortraitH4);
 
 		ImageIcon initialPlayerPortraitH5 = new ImageIcon(new ImageIcon(
 				"CSEdata/players/portrait/"
-						+ gamePO.getHomePlayersNameList().get(4) + ".png")
+						+ gamePO.getHomeOnCourtPlayerLsit().get(4) + ".png")
 				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 						Image.SCALE_AREA_AVERAGING));
 		btnH5.setIcon(initialPlayerPortraitH5);
@@ -1709,7 +1709,7 @@ public class LiveInfoPanel extends JPanel {
 			if (i == 1) {
 				ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
 						"CSEdata/players/portrait/"
-								+ gamePO.getGuestPlayersNameList().get(0)
+								+ gamePO.getGuestOnCourtPlayerLsit().get(0)
 								+ ".png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
@@ -1719,7 +1719,7 @@ public class LiveInfoPanel extends JPanel {
 
 				ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
 						"CSEdata/players/portrait/"
-								+ gamePO.getGuestPlayersNameList().get(1)
+								+ gamePO.getGuestOnCourtPlayerLsit().get(1)
 								+ ".png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
@@ -1729,7 +1729,7 @@ public class LiveInfoPanel extends JPanel {
 
 				ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
 						"CSEdata/players/portrait/"
-								+ gamePO.getGuestPlayersNameList().get(2)
+								+ gamePO.getGuestOnCourtPlayerLsit().get(2)
 								+ ".png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
@@ -1739,7 +1739,7 @@ public class LiveInfoPanel extends JPanel {
 
 				ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
 						"CSEdata/players/portrait/"
-								+ gamePO.getGuestPlayersNameList().get(3)
+								+ gamePO.getGuestOnCourtPlayerLsit().get(3)
 								+ ".png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
@@ -1749,7 +1749,7 @@ public class LiveInfoPanel extends JPanel {
 
 				ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
 						"CSEdata/players/portrait/"
-								+ gamePO.getGuestPlayersNameList().get(4)
+								+ gamePO.getGuestOnCourtPlayerLsit().get(4)
 								+ ".png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
@@ -1760,7 +1760,7 @@ public class LiveInfoPanel extends JPanel {
 
 					ImageIcon playerPortraitH1 = new ImageIcon(new ImageIcon(
 							"CSEdata/players/portrait/"
-									+ gamePO.getHomePlayersNameList().get(0)
+									+ gamePO.getHomeOnCourtPlayerLsit().get(0)
 									+ ".png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
@@ -1770,7 +1770,7 @@ public class LiveInfoPanel extends JPanel {
 
 					ImageIcon playerPortraitH2 = new ImageIcon(new ImageIcon(
 							"CSEdata/players/portrait/"
-									+ gamePO.getHomePlayersNameList().get(1)
+									+ gamePO.getHomeOnCourtPlayerLsit().get(1)
 									+ ".png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
@@ -1780,7 +1780,7 @@ public class LiveInfoPanel extends JPanel {
 
 					ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
 							"CSEdata/players/portrait/"
-									+ gamePO.getHomePlayersNameList().get(2)
+									+ gamePO.getHomeOnCourtPlayerLsit().get(2)
 									+ ".png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
@@ -1790,7 +1790,7 @@ public class LiveInfoPanel extends JPanel {
 
 					ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
 							"CSEdata/players/portrait/"
-									+ gamePO.getHomePlayersNameList().get(3)
+									+ gamePO.getHomeOnCourtPlayerLsit().get(3)
 									+ ".png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
@@ -1800,7 +1800,7 @@ public class LiveInfoPanel extends JPanel {
 
 					ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
 							"CSEdata/players/portrait/"
-									+ gamePO.getHomePlayersNameList().get(4)
+									+ gamePO.getHomeOnCourtPlayerLsit().get(4)
 									+ ".png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
