@@ -1705,7 +1705,7 @@ public class LiveInfoPanel extends JPanel {
 				ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
 						"images/player_img/"
 								+ gamePO.getGuestOnCourtPlayerLsit().get(0)
-								+ ".png").getImage()
+								+ "HL.png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
 				btnG1.setIcon(playerPortraitG1);
@@ -1715,7 +1715,7 @@ public class LiveInfoPanel extends JPanel {
 				ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
 						"images/player_img/"
 								+ gamePO.getGuestOnCourtPlayerLsit().get(1)
-								+ ".png").getImage()
+								+ "HL.png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
 				btnG2.setIcon(playerPortraitG2);
@@ -1725,7 +1725,7 @@ public class LiveInfoPanel extends JPanel {
 				ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
 						"images/player_img/"
 								+ gamePO.getGuestOnCourtPlayerLsit().get(2)
-								+ ".png").getImage()
+								+ "HL.png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
 				btnG3.setIcon(playerPortraitG3);
@@ -1735,7 +1735,7 @@ public class LiveInfoPanel extends JPanel {
 				ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
 						"images/player_img/"
 								+ gamePO.getGuestOnCourtPlayerLsit().get(3)
-								+ ".png").getImage()
+								+ "HL.png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
 				btnG4.setIcon(playerPortraitG4);
@@ -1745,7 +1745,7 @@ public class LiveInfoPanel extends JPanel {
 				ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
 						"images/player_img/"
 								+ gamePO.getGuestOnCourtPlayerLsit().get(4)
-								+ ".png").getImage()
+								+ "HL.png").getImage()
 						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
 								Image.SCALE_AREA_AVERAGING));
 				btnG5.setIcon(playerPortraitG5);
@@ -1756,7 +1756,7 @@ public class LiveInfoPanel extends JPanel {
 					ImageIcon playerPortraitH1 = new ImageIcon(new ImageIcon(
 							"images/player_img/"
 									+ gamePO.getHomeOnCourtPlayerLsit().get(0)
-									+ ".png").getImage().getScaledInstance(
+									+ "HL.png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
 					btnH1.setIcon(playerPortraitH1);
@@ -1766,7 +1766,7 @@ public class LiveInfoPanel extends JPanel {
 					ImageIcon playerPortraitH2 = new ImageIcon(new ImageIcon(
 							"images/player_img/"
 									+ gamePO.getHomeOnCourtPlayerLsit().get(1)
-									+ ".png").getImage().getScaledInstance(
+									+ "HL.png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
 					btnH2.setIcon(playerPortraitH2);
@@ -1776,7 +1776,7 @@ public class LiveInfoPanel extends JPanel {
 					ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
 							"images/player_img/"
 									+ gamePO.getHomeOnCourtPlayerLsit().get(2)
-									+ ".png").getImage().getScaledInstance(
+									+ "HL.png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
 					btnH3.setIcon(playerPortraitH3);
@@ -1786,7 +1786,7 @@ public class LiveInfoPanel extends JPanel {
 					ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
 							"images/player_img/"
 									+ gamePO.getHomeOnCourtPlayerLsit().get(3)
-									+ ".png").getImage().getScaledInstance(
+									+ "HL.png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
 					btnH4.setIcon(playerPortraitH4);
@@ -1796,7 +1796,7 @@ public class LiveInfoPanel extends JPanel {
 					ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
 							"images/player_img/"
 									+ gamePO.getHomeOnCourtPlayerLsit().get(4)
-									+ ".png").getImage().getScaledInstance(
+									+ "HL.png").getImage().getScaledInstance(
 							X * 60 / 1366, Y * 60 / 768,
 							Image.SCALE_AREA_AVERAGING));
 					btnH5.setIcon(playerPortraitH5);
