@@ -758,53 +758,180 @@ public class LiveInfoPanel extends JPanel {
 			if (liveScrollPane1 != null) {
 				liveScrollPane1.setVisible(true);
 			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
+			}
+			
 		});
 		livelbl.add(firstPeriod);
 		
 		secondPeriod.setVisible(true);
 		secondPeriod.addActionListener(e->{
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
 			if (liveScrollPane2 != null) {
-				liveScrollPane2.setVisible(false);
+				liveScrollPane2.setVisible(true);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
 			}
 		});
 		livelbl.add(secondPeriod);
 		
 		thirdPeriod.setVisible(true);
 		thirdPeriod.addActionListener(e->{
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
 			if (liveScrollPane3 != null) {
-				liveScrollPane3.setVisible(false);
+				liveScrollPane3.setVisible(true);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
 			}
 		});
 		livelbl.add(thirdPeriod);
 		
 		fourthPeriod.setVisible(true);
 		fourthPeriod.addActionListener(e->{
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
 			if (liveScrollPane4 != null) {
-				liveScrollPane4.setVisible(false);
+				liveScrollPane4.setVisible(true);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
 			}
 		});
 		livelbl.add(fourthPeriod);
 
 		extraPeriod1.setVisible(false);
 		extraPeriod1.addActionListener(e->{
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
 			if (liveScrollPane5 != null) {
-				liveScrollPane5.setVisible(false);
+				liveScrollPane5.setVisible(true);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
 			}
 		});
 		livelbl.add(extraPeriod1);
 
 		extraPeriod2.setVisible(false);
 		extraPeriod2.addActionListener(e->{
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
 			if (liveScrollPane6 != null) {
-				liveScrollPane6.setVisible(false);
+				liveScrollPane6.setVisible(true);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
 			}
 		});
 		livelbl.add(extraPeriod2);
 
 		extraPeriod3.setVisible(false);
 		extraPeriod3.addActionListener(e->{
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
 			if (liveScrollPane7 != null) {
-				liveScrollPane7.setVisible(false);
+				liveScrollPane7.setVisible(true);
 			}
 		});
 		livelbl.add(extraPeriod3);
@@ -942,6 +1069,7 @@ public class LiveInfoPanel extends JPanel {
 					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			liveScrollPane1.getViewport().setOpaque(false);
 			liveScrollPane1.setOpaque(false);
+			liveScrollPane1.setVisible(true);
 			livelbl.add(liveScrollPane1);
 
 		} else if (gamePO.getCurrentPeriod().equals("2")) {
@@ -959,6 +1087,7 @@ public class LiveInfoPanel extends JPanel {
 					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			liveScrollPane2.getViewport().setOpaque(false);
 			liveScrollPane2.setOpaque(false);
+			liveScrollPane2.setVisible(true);
 			livelbl.add(liveScrollPane2);
 		} else if (gamePO.getCurrentPeriod().equals("3")) {
 			if (liveScrollPane3 != null) {
@@ -975,6 +1104,7 @@ public class LiveInfoPanel extends JPanel {
 					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			liveScrollPane3.getViewport().setOpaque(false);
 			liveScrollPane3.setOpaque(false);
+			liveScrollPane3.setVisible(true);
 			livelbl.add(liveScrollPane3);
 		} else if (gamePO.getCurrentPeriod().equals("4")) {
 			if (liveScrollPane4 != null) {
@@ -991,6 +1121,7 @@ public class LiveInfoPanel extends JPanel {
 					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			liveScrollPane4.getViewport().setOpaque(false);
 			liveScrollPane4.setOpaque(false);
+			liveScrollPane4.setVisible(true);
 			livelbl.add(liveScrollPane4);
 		} else if (gamePO.getCurrentPeriod().equals("5")) {
 			if (liveScrollPane5 != null) {
@@ -1007,6 +1138,7 @@ public class LiveInfoPanel extends JPanel {
 					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			liveScrollPane5.getViewport().setOpaque(false);
 			liveScrollPane5.setOpaque(false);
+			liveScrollPane5.setVisible(true);
 			livelbl.add(liveScrollPane5);
 		} else if (gamePO.getCurrentPeriod().equals("6")) {
 			if (liveScrollPane6 != null) {
@@ -1023,6 +1155,7 @@ public class LiveInfoPanel extends JPanel {
 					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			liveScrollPane6.getViewport().setOpaque(false);
 			liveScrollPane6.setOpaque(false);
+			liveScrollPane6.setVisible(true);
 			livelbl.add(liveScrollPane6);
 		} else if (gamePO.getCurrentPeriod().equals("4")) {
 			if (liveScrollPane6 != null) {
@@ -1039,6 +1172,7 @@ public class LiveInfoPanel extends JPanel {
 					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			liveScrollPane7.getViewport().setOpaque(false);
 			liveScrollPane7.setOpaque(false);
+			liveScrollPane7.setVisible(true);
 			livelbl.add(liveScrollPane7);
 		}
 
