@@ -1188,8 +1188,8 @@ public class LiveInfoPanel extends JPanel {
 		guestTable.setVisible(true);
 		guestTable.setCellSelectionEnabled(true);
 		guestTable.setOpaque(false);
-		guestTable.getColumnModel().getColumn(0)
-				.setCellRenderer(new PlayerRenderer("guest"));
+//		guestTable.getColumnModel().getColumn(0)
+//				.setCellRenderer(new PlayerRenderer("guest"));
 
 		guestScrollPane = new JScrollPane(guestTable);
 		guestScrollPane.getVerticalScrollBar().setUI(
@@ -1343,8 +1343,8 @@ public class LiveInfoPanel extends JPanel {
 		hostTable.setVisible(true);
 		hostTable.setCellSelectionEnabled(true);
 		hostTable.setOpaque(false);
-		hostTable.getColumnModel().getColumn(0)
-				.setCellRenderer(new PlayerRenderer("host"));
+//		hostTable.getColumnModel().getColumn(0)
+//				.setCellRenderer(new PlayerRenderer("host"));
 
 		hostScrollPane = new JScrollPane(hostTable);
 		hostScrollPane.getVerticalScrollBar().setUI(
@@ -1440,11 +1440,9 @@ public class LiveInfoPanel extends JPanel {
 		}
 
 	}
-
+/*
 	class PlayerRenderer extends JButton implements TableCellRenderer {
-		/**
-		 * 
-		 */
+		
 		private static final long serialVersionUID = 1L;
 		String name;
 		boolean isGuest;
@@ -1477,22 +1475,16 @@ public class LiveInfoPanel extends JPanel {
 			this.setContentAreaFilled(false);
 			this.setBorderPainted(false);
 			if (isSelected) {
-				// previousPanel.setVisible(false);
-				/*
-				 * PlayerInfoPanel playerInfoPanel = new PlayerInfoPanel(
-				 * this.name, mainFrame, getSelf(), previouspanel);
-				 * MainFrame.currentPanel = "PlayerInfoPanel"; selfClose();
-				 */
+				
 			}
 			return this;
 		}
 
 	}
+	*/
 
 	public class MyTableRenderer extends DefaultTableCellRenderer {
-		/**
-		 * 
-		 */
+		
 		private static final long serialVersionUID = 1L;
 
 		public Component getTableCellRendererComponent(JTable table,
@@ -1509,6 +1501,7 @@ public class LiveInfoPanel extends JPanel {
 			return this;
 		}
 	}
+	
 
 	class MyButton extends JButton {
 
