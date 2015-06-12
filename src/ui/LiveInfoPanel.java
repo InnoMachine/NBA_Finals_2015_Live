@@ -48,10 +48,31 @@ public class LiveInfoPanel extends JPanel {
 
 	TeamPO guestTeamPo = null;
 	TeamPO hostTeamPo = null;
-
+	
+	JButton firstPeriod;
+	JButton secondPeriod;
+	JButton thirdPeriod;
+	JButton fourthPeriod;
+	JButton extraPeriod1;
+	JButton extraPeriod2;
+	JButton extraPeriod3;
+	
 	private JTable liveTable;
-	private JScrollPane liveScrollPane;
-	Vector<Vector<String>> liveRowData;
+	private JScrollPane liveScrollPane1;
+	private JScrollPane liveScrollPane2;
+	private JScrollPane liveScrollPane3;
+	private JScrollPane liveScrollPane4;
+	private JScrollPane liveScrollPane5;
+	private JScrollPane liveScrollPane6;
+	private JScrollPane liveScrollPane7;
+
+	Vector<Vector<String>> liveRowData1;
+	Vector<Vector<String>> liveRowData2;
+	Vector<Vector<String>> liveRowData3;
+	Vector<Vector<String>> liveRowData4;
+	Vector<Vector<String>> liveRowData5;
+	Vector<Vector<String>> liveRowData6;
+	Vector<Vector<String>> liveRowData7;
 
 	static int X;
 	static int Y;
@@ -81,6 +102,7 @@ public class LiveInfoPanel extends JPanel {
 	private JTextField hostScore4;
 	private JTextField hostScoreSum;
 	private JLabel courtlbl;
+	private JLabel livelbl;
 	private JLabel liveTextlbl;
 	private JButton btnG1;
 	private JButton btnG2;
@@ -493,8 +515,6 @@ public class LiveInfoPanel extends JPanel {
 					.getHomeScore()));
 		}
 
-		
-
 		VisionController("live");
 
 	}
@@ -640,16 +660,75 @@ public class LiveInfoPanel extends JPanel {
 	}
 
 	public void live(ArrayList<LiveTextPO> liveTextList) {
+		if (livelbl == null) {
+			livelbl = new MyLabel();
+			livelbl.setHorizontalAlignment(SwingConstants.CENTER);
+			livelbl.setBounds(X * 865 / 1366, Y * 190 / 768, X * 485 / 1366,
+					Y * 530 / 768);
+		}
 
-		// ---------------------------------------Steve
-		// Jin(在场队员）liveText里须加属性：是否为替换队员，我才能替换掉在场队员！！！--------------------------------------------
+
+		firstPeriod = new JButton();
+		firstPeriod.setBounds(X * 865 / 1366, Y * 190 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		firstPeriod.setText("第一节");
+		firstPeriod.setBackground(Color.GRAY);
+		firstPeriod.setForeground(Color.WHITE);
+		livelbl.add(firstPeriod);
+
+		secondPeriod = new JButton();
+		secondPeriod.setBounds(X * 915 / 1366, Y * 190 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		secondPeriod.setText("第二节");
+		secondPeriod.setBackground(Color.GRAY);
+		secondPeriod.setForeground(Color.WHITE);
+		livelbl.add(secondPeriod);
+
+		thirdPeriod = new JButton();
+		thirdPeriod.setBounds(X * 965 / 1366, Y * 190 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		thirdPeriod.setText("第三节");
+		thirdPeriod.setBackground(Color.GRAY);
+		thirdPeriod.setForeground(Color.WHITE);
+		livelbl.add(thirdPeriod);
+
+		fourthPeriod = new JButton();
+		fourthPeriod.setBounds(X * 1015 / 1366, Y * 190 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		fourthPeriod.setText("第四节");
+		fourthPeriod.setBackground(Color.GRAY);
+		fourthPeriod.setForeground(Color.WHITE);
+		livelbl.add(fourthPeriod);
+
+		extraPeriod1 = new JButton();
+		extraPeriod1.setBounds(X * 1065 / 1366, Y * 190 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		extraPeriod1.setText("1");
+		extraPeriod1.setBackground(Color.GRAY);
+		extraPeriod1.setForeground(Color.WHITE);
+		extraPeriod1.setVisible(false);
+		livelbl.add(extraPeriod1);
+		
+		extraPeriod2 = new JButton();
+		extraPeriod2.setBounds(X * 1115 / 1366, Y * 190 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		extraPeriod2.setText("2");
+		extraPeriod2.setBackground(Color.GRAY);
+		extraPeriod2.setForeground(Color.WHITE);
+		extraPeriod2.setVisible(false);
+		livelbl.add(extraPeriod2);
+		
+		extraPeriod3 = new JButton();
+		extraPeriod3.setBounds(X * 1165 / 1366, Y * 190 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		extraPeriod3.setText("3");
+		extraPeriod3.setBackground(Color.GRAY);
+		extraPeriod3.setForeground(Color.WHITE);
+		extraPeriod3.setVisible(false);
+		livelbl.add(extraPeriod3);		
 
 		if (liveTextlbl != null) {
 			liveTextlbl.setVisible(false);
-		}
-
-		if (liveScrollPane != null) {
-			liveScrollPane.setVisible(false);
 		}
 
 		liveTextlbl = new MyLabel();
@@ -657,20 +736,31 @@ public class LiveInfoPanel extends JPanel {
 		liveTextlbl.setBounds(X * 210 / 1366, Y * 670 / 768, X * 430 / 1366,
 				Y * 30 / 768);
 		liveTextlbl.setOpaque(false);
-		// liveTextlbl.setBackground(Color.WHITE);
 		liveTextlbl.setVisible(true);
 		if (liveTextList != null) {
 			liveTextlbl.setText(liveTextList.get(0).getText());
 		}
 
-		ArrayList<GamePO> gamePOs = new ArrayList<GamePO>();
-		for (int i = 0; i < 10; i++) {
-			// gamePOs.add(game_BS.getAllGames().get(i));
-		}
-		if (liveRowData == null) {
-			liveRowData = new Vector<Vector<String>>();
-		} else {
-			liveRowData.clear();
+		if (gamePO.getCurrentPeriod().equals("1")) {
+			liveRowData1 = new Vector<Vector<String>>();
+		} else if (gamePO.getCurrentPeriod().equals("2")) {
+			liveRowData2 = new Vector<Vector<String>>();
+		} else if (gamePO.getCurrentPeriod().equals("3")) {
+			liveRowData3 = new Vector<Vector<String>>();
+		} else if (gamePO.getCurrentPeriod().equals("4")) {
+			liveRowData4 = new Vector<Vector<String>>();
+		} else if (gamePO.getCurrentPeriod().equals("5")) {
+			liveRowData5 = new Vector<Vector<String>>();
+			extraPeriod1.setVisible(true);
+		} else if (gamePO.getCurrentPeriod().equals("6")) {
+			liveRowData6 = new Vector<Vector<String>>();
+			extraPeriod1.setVisible(true);
+			extraPeriod2.setVisible(true);
+		} else if (gamePO.getCurrentPeriod().equals("7")) {
+			liveRowData7 = new Vector<Vector<String>>();
+			extraPeriod1.setVisible(true);
+			extraPeriod2.setVisible(true);
+			extraPeriod3.setVisible(true);
 		}
 
 		Vector<String> a;
@@ -681,7 +771,21 @@ public class LiveInfoPanel extends JPanel {
 				a.add(String.valueOf(liveTextList.get(i).getTeamAbbr()));
 				a.add(liveTextList.get(i).getPlayerName());
 				a.add(liveTextList.get(i).getText());
-				liveRowData.add(a);
+				if (gamePO.getCurrentPeriod().equals("1")) {
+					liveRowData1.add(a);
+				} else if (gamePO.getCurrentPeriod().equals("2")) {
+					liveRowData2.add(a);
+				} else if (gamePO.getCurrentPeriod().equals("3")) {
+					liveRowData3.add(a);
+				} else if (gamePO.getCurrentPeriod().equals("4")) {
+					liveRowData4.add(a);
+				} else if (gamePO.getCurrentPeriod().equals("5")) {
+					liveRowData5.add(a);
+				} else if (gamePO.getCurrentPeriod().equals("6")) {
+					liveRowData6.add(a);
+				} else if (gamePO.getCurrentPeriod().equals("7")) {
+					liveRowData7.add(a);
+				}
 			}
 		}
 		Vector<String> column = new Vector<String>();
@@ -689,8 +793,22 @@ public class LiveInfoPanel extends JPanel {
 		column.add("球队");
 		column.add("参与球员");
 		column.add("文字直播");
+		if (gamePO.getCurrentPeriod().equals("1")) {
+			liveTable = new JTable(liveRowData1, column);
+		} else if (gamePO.getCurrentPeriod().equals("2")) {
+			liveTable = new JTable(liveRowData2, column);
+		} else if (gamePO.getCurrentPeriod().equals("3")) {
+			liveTable = new JTable(liveRowData3, column);
+		} else if (gamePO.getCurrentPeriod().equals("4")) {
+			liveTable = new JTable(liveRowData4, column);
+		} else if (gamePO.getCurrentPeriod().equals("5")) {
+			liveTable = new JTable(liveRowData5, column);
+		} else if (gamePO.getCurrentPeriod().equals("6")) {
+			liveTable = new JTable(liveRowData6, column);
+		} else if (gamePO.getCurrentPeriod().equals("7")) {
+			liveTable = new JTable(liveRowData7, column);
+		}
 
-		liveTable = new JTable(liveRowData, column);
 		JTableHeader header = liveTable.getTableHeader();
 		header.setDefaultRenderer(new DefaultTableCellRenderer() {
 
@@ -725,24 +843,124 @@ public class LiveInfoPanel extends JPanel {
 		liveTable.setVisible(true);
 		liveTable.setCellSelectionEnabled(true);
 		liveTable.setOpaque(false);
-		if (liveScrollPane != null) {
-			liveScrollPane.setVisible(false);
+
+		if (gamePO.getCurrentPeriod().equals("1")) {
+
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			liveScrollPane1 = new JScrollPane(liveTable);
+			liveScrollPane1.getVerticalScrollBar().setUI(
+					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
+			liveScrollPane1.setBounds(X * 865 / 1366, Y * 220 / 768,
+					X * 485 / 1366, Y * 500 / 768);
+			liveScrollPane1
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			liveScrollPane1
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			liveScrollPane1.getViewport().setOpaque(false);
+			liveScrollPane1.setOpaque(false);
+			livelbl.add(liveScrollPane1);
+
+		} else if (gamePO.getCurrentPeriod().equals("2")) {
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			liveScrollPane2 = new JScrollPane(liveTable);
+			liveScrollPane2.getVerticalScrollBar().setUI(
+					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
+			liveScrollPane2.setBounds(X * 865 / 1366, Y * 220 / 768,
+					X * 485 / 1366, Y * 500 / 768);
+			liveScrollPane2
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			liveScrollPane2
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			liveScrollPane2.getViewport().setOpaque(false);
+			liveScrollPane2.setOpaque(false);
+			livelbl.add(liveScrollPane2);
+		} else if (gamePO.getCurrentPeriod().equals("3")) {
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			liveScrollPane3 = new JScrollPane(liveTable);
+			liveScrollPane3.getVerticalScrollBar().setUI(
+					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
+			liveScrollPane3.setBounds(X * 865 / 1366, Y * 220 / 768,
+					X * 485 / 1366, Y * 500 / 768);
+			liveScrollPane3
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			liveScrollPane3
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			liveScrollPane3.getViewport().setOpaque(false);
+			liveScrollPane3.setOpaque(false);
+			livelbl.add(liveScrollPane3);
+		} else if (gamePO.getCurrentPeriod().equals("4")) {
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			liveScrollPane4 = new JScrollPane(liveTable);
+			liveScrollPane4.getVerticalScrollBar().setUI(
+					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
+			liveScrollPane4.setBounds(X * 865 / 1366, Y * 220 / 768,
+					X * 485 / 1366, Y * 500 / 768);
+			liveScrollPane4
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			liveScrollPane4
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			liveScrollPane4.getViewport().setOpaque(false);
+			liveScrollPane4.setOpaque(false);
+			livelbl.add(liveScrollPane4);
+		} else if (gamePO.getCurrentPeriod().equals("5")) {
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			liveScrollPane5 = new JScrollPane(liveTable);
+			liveScrollPane5.getVerticalScrollBar().setUI(
+					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
+			liveScrollPane5.setBounds(X * 865 / 1366, Y * 220 / 768,
+					X * 485 / 1366, Y * 500 / 768);
+			liveScrollPane5
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			liveScrollPane5
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			liveScrollPane5.getViewport().setOpaque(false);
+			liveScrollPane5.setOpaque(false);
+			livelbl.add(liveScrollPane5);
+		} else if (gamePO.getCurrentPeriod().equals("6")) {
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			liveScrollPane6 = new JScrollPane(liveTable);
+			liveScrollPane6.getVerticalScrollBar().setUI(
+					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
+			liveScrollPane6.setBounds(X * 865 / 1366, Y * 220 / 768,
+					X * 485 / 1366, Y * 500 / 768);
+			liveScrollPane6
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			liveScrollPane6
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			liveScrollPane6.getViewport().setOpaque(false);
+			liveScrollPane6.setOpaque(false);
+			livelbl.add(liveScrollPane6);
+		} else if (gamePO.getCurrentPeriod().equals("4")) {
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			liveScrollPane7 = new JScrollPane(liveTable);
+			liveScrollPane7.getVerticalScrollBar().setUI(
+					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
+			liveScrollPane7.setBounds(X * 865 / 1366, Y * 220 / 768,
+					X * 485 / 1366, Y * 500 / 768);
+			liveScrollPane7
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			liveScrollPane7
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			liveScrollPane7.getViewport().setOpaque(false);
+			liveScrollPane7.setOpaque(false);
+			livelbl.add(liveScrollPane7);
 		}
-		liveScrollPane = new JScrollPane(liveTable);
-		liveScrollPane.getVerticalScrollBar().setUI(
-				new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-		liveScrollPane.setBounds(X * 865 / 1366, Y * 220 / 768, X * 485 / 1366,
-				Y * 500 / 768);
-		liveScrollPane.setVisible(true);
-		liveScrollPane
-				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		liveScrollPane
-				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		liveScrollPane.getViewport().setOpaque(false);
-		liveScrollPane.setOpaque(false);
 
 		bgLabel.add(liveTextlbl);
-		bgLabel.add(liveScrollPane);
 
 		if (liveTextList != null && gamePO != null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
@@ -1188,8 +1406,8 @@ public class LiveInfoPanel extends JPanel {
 		guestTable.setVisible(true);
 		guestTable.setCellSelectionEnabled(true);
 		guestTable.setOpaque(false);
-//		guestTable.getColumnModel().getColumn(0)
-//				.setCellRenderer(new PlayerRenderer("guest"));
+		// guestTable.getColumnModel().getColumn(0)
+		// .setCellRenderer(new PlayerRenderer("guest"));
 
 		guestScrollPane = new JScrollPane(guestTable);
 		guestScrollPane.getVerticalScrollBar().setUI(
@@ -1343,8 +1561,8 @@ public class LiveInfoPanel extends JPanel {
 		hostTable.setVisible(true);
 		hostTable.setCellSelectionEnabled(true);
 		hostTable.setOpaque(false);
-//		hostTable.getColumnModel().getColumn(0)
-//				.setCellRenderer(new PlayerRenderer("host"));
+		// hostTable.getColumnModel().getColumn(0)
+		// .setCellRenderer(new PlayerRenderer("host"));
 
 		hostScrollPane = new JScrollPane(hostTable);
 		hostScrollPane.getVerticalScrollBar().setUI(
@@ -1375,9 +1593,36 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(true);
 			}
-			if (liveScrollPane != null) {
-				liveScrollPane.setVisible(true);
+			if (gamePO.getCurrentPeriod().equals("1")) {
+				if (liveScrollPane1 != null) {
+					liveScrollPane1.setVisible(true);
+				}
+			} else if (gamePO.getCurrentPeriod().equals("2")) {
+				if (liveScrollPane2 != null) {
+					liveScrollPane2.setVisible(true);
+				}
+			} else if (gamePO.getCurrentPeriod().equals("3")) {
+				if (liveScrollPane3 != null) {
+					liveScrollPane3.setVisible(true);
+				}
+			} else if (gamePO.getCurrentPeriod().equals("4")) {
+				if (liveScrollPane4 != null) {
+					liveScrollPane4.setVisible(true);
+				}
+			} else if (gamePO.getCurrentPeriod().equals("5")) {
+				if (liveScrollPane5 != null) {
+					liveScrollPane5.setVisible(true);
+				}
+			} else if (gamePO.getCurrentPeriod().equals("6")) {
+				if (liveScrollPane6 != null) {
+					liveScrollPane6.setVisible(true);
+				}
+			} else if (gamePO.getCurrentPeriod().equals("7")) {
+				if (liveScrollPane7 != null) {
+					liveScrollPane7.setVisible(true);
+				}
 			}
+
 			if (summarylbl != null) {
 				summarylbl.setVisible(false);
 			}
@@ -1392,9 +1637,28 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(false);
 			}
-			if (liveScrollPane != null) {
-				liveScrollPane.setVisible(false);
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
 			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
+			}
+
 			if (summarylbl != null) {
 				summarylbl.setVisible(false);
 			}
@@ -1410,8 +1674,26 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(false);
 			}
-			if (liveScrollPane != null) {
-				liveScrollPane.setVisible(false);
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
 			}
 			if (summarylbl != null) {
 				summarylbl.setVisible(true);
@@ -1427,8 +1709,26 @@ public class LiveInfoPanel extends JPanel {
 				if (liveTextlbl != null) {
 					liveTextlbl.setVisible(false);
 				}
-				if (liveScrollPane != null) {
-					liveScrollPane.setVisible(false);
+				if (liveScrollPane1 != null) {
+					liveScrollPane1.setVisible(false);
+				}
+				if (liveScrollPane2 != null) {
+					liveScrollPane2.setVisible(false);
+				}
+				if (liveScrollPane3 != null) {
+					liveScrollPane3.setVisible(false);
+				}
+				if (liveScrollPane4 != null) {
+					liveScrollPane4.setVisible(false);
+				}
+				if (liveScrollPane5 != null) {
+					liveScrollPane5.setVisible(false);
+				}
+				if (liveScrollPane6 != null) {
+					liveScrollPane6.setVisible(false);
+				}
+				if (liveScrollPane7 != null) {
+					liveScrollPane7.setVisible(false);
 				}
 				if (summarylbl != null) {
 					summarylbl.setVisible(false);
@@ -1440,51 +1740,37 @@ public class LiveInfoPanel extends JPanel {
 		}
 
 	}
-/*
-	class PlayerRenderer extends JButton implements TableCellRenderer {
-		
-		private static final long serialVersionUID = 1L;
-		String name;
-		boolean isGuest;
 
-		public PlayerRenderer(String s) {
-			if (s.endsWith("guest")) {
-				isGuest = true;
-			} else {
-				isGuest = false;
-			}
-		}
-
-		@Override
-		public Component getTableCellRendererComponent(JTable arg0,
-				Object arg1, boolean arg2, boolean isSelected, int row,
-				int column) {
-			// TODO Auto-generated method stub
-			if (isGuest) {
-				this.name = (String) guestTable.getValueAt(row, 1);
-			} else {
-				this.name = (String) hostTable.getValueAt(row, 1);
-			}
-
-			ImageIcon buttonIcon = new ImageIcon(new ImageIcon(
-					"images/player_img/" + this.name + ".png").getImage()
-					.getScaledInstance(48, 48, Image.SCALE_SMOOTH));
-
-			this.setIcon(buttonIcon);
-			this.setOpaque(false);
-			this.setContentAreaFilled(false);
-			this.setBorderPainted(false);
-			if (isSelected) {
-				
-			}
-			return this;
-		}
-
-	}
-	*/
+	/*
+	 * class PlayerRenderer extends JButton implements TableCellRenderer {
+	 * 
+	 * private static final long serialVersionUID = 1L; String name; boolean
+	 * isGuest;
+	 * 
+	 * public PlayerRenderer(String s) { if (s.endsWith("guest")) { isGuest =
+	 * true; } else { isGuest = false; } }
+	 * 
+	 * @Override public Component getTableCellRendererComponent(JTable arg0,
+	 * Object arg1, boolean arg2, boolean isSelected, int row, int column) { //
+	 * TODO Auto-generated method stub if (isGuest) { this.name = (String)
+	 * guestTable.getValueAt(row, 1); } else { this.name = (String)
+	 * hostTable.getValueAt(row, 1); }
+	 * 
+	 * ImageIcon buttonIcon = new ImageIcon(new ImageIcon( "images/player_img/"
+	 * + this.name + ".png").getImage() .getScaledInstance(48, 48,
+	 * Image.SCALE_SMOOTH));
+	 * 
+	 * this.setIcon(buttonIcon); this.setOpaque(false);
+	 * this.setContentAreaFilled(false); this.setBorderPainted(false); if
+	 * (isSelected) {
+	 * 
+	 * } return this; }
+	 * 
+	 * }
+	 */
 
 	public class MyTableRenderer extends DefaultTableCellRenderer {
-		
+
 		private static final long serialVersionUID = 1L;
 
 		public Component getTableCellRendererComponent(JTable table,
@@ -1501,7 +1787,6 @@ public class LiveInfoPanel extends JPanel {
 			return this;
 		}
 	}
-	
 
 	class MyButton extends JButton {
 
