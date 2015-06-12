@@ -344,8 +344,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestTeamtF);
 
 		guestTeam1 = new MyTextField();
-		guestTeam1
-				.setText(String.valueOf(gamePO.getScore1st().getGuestScore()));
 		guestTeam1.setBackground(Color.DARK_GRAY);
 		guestTeam1.setOpaque(true);
 		guestTeam1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -353,8 +351,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestTeam1);
 
 		guestTeam2 = new MyTextField();
-		guestTeam2
-				.setText(String.valueOf(gamePO.getScore2nd().getGuestScore()));
 		guestTeam2.setBackground(Color.DARK_GRAY);
 		guestTeam2.setOpaque(true);
 		guestTeam2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -362,8 +358,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestTeam2);
 
 		guestTeam3 = new MyTextField();
-		guestTeam3
-				.setText(String.valueOf(gamePO.getScore3rd().getGuestScore()));
 		guestTeam3.setBackground(Color.DARK_GRAY);
 		guestTeam3.setOpaque(true);
 		guestTeam3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -372,8 +366,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestTeam3);
 
 		guestTeam4 = new MyTextField();
-		guestTeam4
-				.setText(String.valueOf(gamePO.getScore4th().getGuestScore()));
 		guestTeam4.setBackground(Color.DARK_GRAY);
 		guestTeam4.setOpaque(true);
 		guestTeam4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -382,8 +374,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestTeam4);
 
 		guestScoreSum = new MyTextField();
-		guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-				.getGuestScore()));
 		guestScoreSum.setBackground(Color.DARK_GRAY);
 		guestScoreSum.setOpaque(true);
 		guestScoreSum.setHorizontalAlignment(SwingConstants.CENTER);
@@ -401,7 +391,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(hostTeamtF);
 
 		hostScore1 = new MyTextField();
-		hostScore1.setText(String.valueOf(gamePO.getScore1st().getHomeScore()));
 		hostScore1.setBackground(Color.GRAY);
 		hostScore1.setOpaque(true);
 		hostScore1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -409,7 +398,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(hostScore1);
 
 		hostScore2 = new MyTextField();
-		hostScore2.setText(String.valueOf(gamePO.getScore2nd().getHomeScore()));
 		hostScore2.setBackground(Color.GRAY);
 		hostScore2.setOpaque(true);
 		hostScore2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -418,7 +406,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(hostScore2);
 
 		hostScore3 = new MyTextField();
-		hostScore3.setText(String.valueOf(gamePO.getScore3rd().getHomeScore()));
 		hostScore3.setBackground(Color.GRAY);
 		hostScore3.setOpaque(true);
 		hostScore3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -427,7 +414,6 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(hostScore3);
 
 		hostScore4 = new MyTextField();
-		hostScore4.setText(String.valueOf(gamePO.getScore4th().getHomeScore()));
 		hostScore4.setBackground(Color.GRAY);
 		hostScore4.setOpaque(true);
 		hostScore4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -436,14 +422,78 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(hostScore4);
 
 		hostScoreSum = new MyTextField();
-		hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-				.getHomeScore()));
 		hostScoreSum.setBackground(Color.GRAY);
 		hostScoreSum.setOpaque(true);
 		hostScoreSum.setHorizontalAlignment(SwingConstants.CENTER);
 		hostScoreSum.setBounds(spaceX + 60 + 4 * tempX, spaceY + 2 * tempY, 60,
 				tempY);
 		bgLabel.add(hostScoreSum);
+
+		if (gamePO.getCurrentPeriod().equals("1")) {
+			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+					.getGuestScore()));
+			hostScore1.setText(String.valueOf(gamePO.getScore1st()
+					.getHomeScore()));
+			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+					.getGuestScore()));
+			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getGuestScore()));
+			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getHomeScore()));
+		} else if (gamePO.getCurrentPeriod().equals("2")) {
+			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+					.getGuestScore()));
+			hostScore1.setText(String.valueOf(gamePO.getScore1st()
+					.getHomeScore()));
+			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+					.getGuestScore()));
+			hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+					.getHomeScore()));
+			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getGuestScore()));
+			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getHomeScore()));
+		} else if (gamePO.getCurrentPeriod().equals("3")) {
+			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+					.getGuestScore()));
+			hostScore1.setText(String.valueOf(gamePO.getScore1st()
+					.getHomeScore()));
+			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+					.getGuestScore()));
+			hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+					.getHomeScore()));
+			guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
+					.getGuestScore()));
+			hostScore3.setText(String.valueOf(gamePO.getScore3rd()
+					.getHomeScore()));
+			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getGuestScore()));
+			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getHomeScore()));
+		} else if (gamePO.getCurrentPeriod().equals("4")) {
+			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+					.getGuestScore()));
+			hostScore1.setText(String.valueOf(gamePO.getScore1st()
+					.getHomeScore()));
+			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+					.getGuestScore()));
+			hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+					.getHomeScore()));
+			guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
+					.getGuestScore()));
+			hostScore3.setText(String.valueOf(gamePO.getScore3rd()
+					.getHomeScore()));
+			guestTeam4.setText(String.valueOf(gamePO.getScore4th()
+					.getGuestScore()));
+			hostScore4.setText(String.valueOf(gamePO.getScore4th()
+					.getHomeScore()));
+			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getGuestScore()));
+			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+					.getHomeScore()));
+		}
+
+		
 
 		VisionController("live");
 
