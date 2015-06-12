@@ -48,7 +48,7 @@ public class LiveInfoPanel extends JPanel {
 
 	TeamPO guestTeamPo = null;
 	TeamPO hostTeamPo = null;
-	
+
 	JButton firstPeriod;
 	JButton secondPeriod;
 	JButton thirdPeriod;
@@ -56,23 +56,24 @@ public class LiveInfoPanel extends JPanel {
 	JButton extraPeriod1;
 	JButton extraPeriod2;
 	JButton extraPeriod3;
-	
-	private JTable liveTable;
-	private JScrollPane liveScrollPane1;
-	private JScrollPane liveScrollPane2;
-	private JScrollPane liveScrollPane3;
-	private JScrollPane liveScrollPane4;
-	private JScrollPane liveScrollPane5;
-	private JScrollPane liveScrollPane6;
-	private JScrollPane liveScrollPane7;
 
-	Vector<Vector<String>> liveRowData1;
-	Vector<Vector<String>> liveRowData2;
-	Vector<Vector<String>> liveRowData3;
-	Vector<Vector<String>> liveRowData4;
-	Vector<Vector<String>> liveRowData5;
-	Vector<Vector<String>> liveRowData6;
-	Vector<Vector<String>> liveRowData7;
+	static private JTable liveTable;
+	
+	static private JScrollPane liveScrollPane1;
+	static private JScrollPane liveScrollPane2;
+	static private JScrollPane liveScrollPane3;
+	static private JScrollPane liveScrollPane4;
+	static private JScrollPane liveScrollPane5;
+	static private JScrollPane liveScrollPane6;
+	static private JScrollPane liveScrollPane7;
+
+	static Vector<Vector<String>> liveRowData1;
+	static Vector<Vector<String>> liveRowData2;
+	static Vector<Vector<String>> liveRowData3;
+	static Vector<Vector<String>> liveRowData4;
+	static Vector<Vector<String>> liveRowData5;
+	static Vector<Vector<String>> liveRowData6;
+	static Vector<Vector<String>> liveRowData7;
 
 	static int X;
 	static int Y;
@@ -287,6 +288,67 @@ public class LiveInfoPanel extends JPanel {
 		live(liveTextList);
 		VisionController("live");
 		mainFrame.getContentPane().add(this);
+
+		firstPeriod = new JButton();
+		firstPeriod.setBounds(X * 0 / 1366, Y * 0 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		firstPeriod.setText("第一节");
+		firstPeriod.setBackground(Color.GRAY);
+		firstPeriod.setForeground(Color.WHITE);
+		firstPeriod.setVisible(false);
+
+		secondPeriod = new JButton();
+		secondPeriod.setBounds(X * 50 / 1366, Y * 0 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		secondPeriod.setText("第二节");
+		secondPeriod.setBackground(Color.GRAY);
+		secondPeriod.setForeground(Color.WHITE);
+		secondPeriod.setVisible(false);
+
+		thirdPeriod = new JButton();
+		thirdPeriod.setBounds(X * 100 / 1366, Y * 0 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		thirdPeriod.setText("第三节");
+		thirdPeriod.setBackground(Color.GRAY);
+		thirdPeriod.setForeground(Color.WHITE);
+		thirdPeriod.setVisible(false);
+
+		fourthPeriod = new JButton();
+		fourthPeriod.setBounds(X * 150 / 1366, Y * 0 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		fourthPeriod.setText("第四节");
+		fourthPeriod.setBackground(Color.GRAY);
+		fourthPeriod.setForeground(Color.WHITE);
+		fourthPeriod.setVisible(false);
+
+		extraPeriod1 = new JButton();
+		extraPeriod1.setBounds(X * 200 / 1366, Y * 0 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		extraPeriod1.setText("1");
+		extraPeriod1.setBackground(Color.GRAY);
+		extraPeriod1.setForeground(Color.WHITE);
+		extraPeriod1.setVisible(false);
+
+		extraPeriod2 = new JButton();
+		extraPeriod2.setBounds(X * 250 / 1366, Y * 0 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		extraPeriod2.setText("2");
+		extraPeriod2.setBackground(Color.GRAY);
+		extraPeriod2.setForeground(Color.WHITE);
+		extraPeriod2.setVisible(false);
+
+		extraPeriod3 = new JButton();
+		extraPeriod3.setBounds(X * 300 / 1366, Y * 0 / 768, X * 50 / 1366,
+				Y * 30 / 768);
+		extraPeriod3.setText("3");
+		extraPeriod3.setBackground(Color.GRAY);
+		extraPeriod3.setForeground(Color.WHITE);
+		extraPeriod3.setVisible(false);
+		
+		
+		
+		
+		
 
 	}
 
@@ -660,72 +722,92 @@ public class LiveInfoPanel extends JPanel {
 	}
 
 	public void live(ArrayList<LiveTextPO> liveTextList) {
-		if (livelbl == null) {
-			livelbl = new MyLabel();
-			livelbl.setHorizontalAlignment(SwingConstants.CENTER);
-			livelbl.setBounds(X * 865 / 1366, Y * 190 / 768, X * 485 / 1366,
-					Y * 530 / 768);
+		if (livelbl != null) {
+             livelbl.setVisible(false);
+		}
+		livelbl = new MyLabel();
+		livelbl.setHorizontalAlignment(SwingConstants.CENTER);
+		livelbl.setBounds(X * 865 / 1366, Y * 190 / 768, X * 485 / 1366,
+				Y * 530 / 768);
+		bgLabel.add(livelbl);
+		
+		if (liveScrollPane1 != null) {
+			liveScrollPane1.setVisible(false);
+		}
+		if (liveScrollPane2 != null) {
+			liveScrollPane2.setVisible(false);
+		}
+		if (liveScrollPane3 != null) {
+			liveScrollPane3.setVisible(false);
+		}
+		if (liveScrollPane4 != null) {
+			liveScrollPane4.setVisible(false);
+		}
+		if (liveScrollPane5 != null) {
+			liveScrollPane5.setVisible(false);
+		}
+		if (liveScrollPane6 != null) {
+			liveScrollPane6.setVisible(false);
+		}
+		if (liveScrollPane7 != null) {
+			liveScrollPane7.setVisible(false);
 		}
 
-
-		firstPeriod = new JButton();
-		firstPeriod.setBounds(X * 865 / 1366, Y * 190 / 768, X * 50 / 1366,
-				Y * 30 / 768);
-		firstPeriod.setText("第一节");
-		firstPeriod.setBackground(Color.GRAY);
-		firstPeriod.setForeground(Color.WHITE);
+		firstPeriod.setVisible(true);
+		firstPeriod.addActionListener(e -> {
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(true);
+			}
+		});
 		livelbl.add(firstPeriod);
-
-		secondPeriod = new JButton();
-		secondPeriod.setBounds(X * 915 / 1366, Y * 190 / 768, X * 50 / 1366,
-				Y * 30 / 768);
-		secondPeriod.setText("第二节");
-		secondPeriod.setBackground(Color.GRAY);
-		secondPeriod.setForeground(Color.WHITE);
+		
+		secondPeriod.setVisible(true);
+		secondPeriod.addActionListener(e->{
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+		});
 		livelbl.add(secondPeriod);
-
-		thirdPeriod = new JButton();
-		thirdPeriod.setBounds(X * 965 / 1366, Y * 190 / 768, X * 50 / 1366,
-				Y * 30 / 768);
-		thirdPeriod.setText("第三节");
-		thirdPeriod.setBackground(Color.GRAY);
-		thirdPeriod.setForeground(Color.WHITE);
+		
+		thirdPeriod.setVisible(true);
+		thirdPeriod.addActionListener(e->{
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+		});
 		livelbl.add(thirdPeriod);
-
-		fourthPeriod = new JButton();
-		fourthPeriod.setBounds(X * 1015 / 1366, Y * 190 / 768, X * 50 / 1366,
-				Y * 30 / 768);
-		fourthPeriod.setText("第四节");
-		fourthPeriod.setBackground(Color.GRAY);
-		fourthPeriod.setForeground(Color.WHITE);
+		
+		fourthPeriod.setVisible(true);
+		fourthPeriod.addActionListener(e->{
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+		});
 		livelbl.add(fourthPeriod);
 
-		extraPeriod1 = new JButton();
-		extraPeriod1.setBounds(X * 1065 / 1366, Y * 190 / 768, X * 50 / 1366,
-				Y * 30 / 768);
-		extraPeriod1.setText("1");
-		extraPeriod1.setBackground(Color.GRAY);
-		extraPeriod1.setForeground(Color.WHITE);
 		extraPeriod1.setVisible(false);
+		extraPeriod1.addActionListener(e->{
+			if (liveScrollPane5 != null) {
+				liveScrollPane5.setVisible(false);
+			}
+		});
 		livelbl.add(extraPeriod1);
-		
-		extraPeriod2 = new JButton();
-		extraPeriod2.setBounds(X * 1115 / 1366, Y * 190 / 768, X * 50 / 1366,
-				Y * 30 / 768);
-		extraPeriod2.setText("2");
-		extraPeriod2.setBackground(Color.GRAY);
-		extraPeriod2.setForeground(Color.WHITE);
+
 		extraPeriod2.setVisible(false);
+		extraPeriod2.addActionListener(e->{
+			if (liveScrollPane6 != null) {
+				liveScrollPane6.setVisible(false);
+			}
+		});
 		livelbl.add(extraPeriod2);
-		
-		extraPeriod3 = new JButton();
-		extraPeriod3.setBounds(X * 1165 / 1366, Y * 190 / 768, X * 50 / 1366,
-				Y * 30 / 768);
-		extraPeriod3.setText("3");
-		extraPeriod3.setBackground(Color.GRAY);
-		extraPeriod3.setForeground(Color.WHITE);
+
 		extraPeriod3.setVisible(false);
-		livelbl.add(extraPeriod3);		
+		extraPeriod3.addActionListener(e->{
+			if (liveScrollPane7 != null) {
+				liveScrollPane7.setVisible(false);
+			}
+		});
+		livelbl.add(extraPeriod3);
 
 		if (liveTextlbl != null) {
 			liveTextlbl.setVisible(false);
@@ -852,7 +934,7 @@ public class LiveInfoPanel extends JPanel {
 			liveScrollPane1 = new JScrollPane(liveTable);
 			liveScrollPane1.getVerticalScrollBar().setUI(
 					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-			liveScrollPane1.setBounds(X * 865 / 1366, Y * 220 / 768,
+			liveScrollPane1.setBounds(X * 0 / 1366, Y * 30 / 768,
 					X * 485 / 1366, Y * 500 / 768);
 			liveScrollPane1
 					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -869,7 +951,7 @@ public class LiveInfoPanel extends JPanel {
 			liveScrollPane2 = new JScrollPane(liveTable);
 			liveScrollPane2.getVerticalScrollBar().setUI(
 					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-			liveScrollPane2.setBounds(X * 865 / 1366, Y * 220 / 768,
+			liveScrollPane2.setBounds(X * 0 / 1366, Y * 30 / 768,
 					X * 485 / 1366, Y * 500 / 768);
 			liveScrollPane2
 					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -885,7 +967,7 @@ public class LiveInfoPanel extends JPanel {
 			liveScrollPane3 = new JScrollPane(liveTable);
 			liveScrollPane3.getVerticalScrollBar().setUI(
 					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-			liveScrollPane3.setBounds(X * 865 / 1366, Y * 220 / 768,
+			liveScrollPane3.setBounds(X * 0 / 1366, Y * 30 / 768,
 					X * 485 / 1366, Y * 500 / 768);
 			liveScrollPane3
 					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -901,7 +983,7 @@ public class LiveInfoPanel extends JPanel {
 			liveScrollPane4 = new JScrollPane(liveTable);
 			liveScrollPane4.getVerticalScrollBar().setUI(
 					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-			liveScrollPane4.setBounds(X * 865 / 1366, Y * 220 / 768,
+			liveScrollPane4.setBounds(X * 0 / 1366, Y * 30 / 768,
 					X * 485 / 1366, Y * 500 / 768);
 			liveScrollPane4
 					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -917,7 +999,7 @@ public class LiveInfoPanel extends JPanel {
 			liveScrollPane5 = new JScrollPane(liveTable);
 			liveScrollPane5.getVerticalScrollBar().setUI(
 					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-			liveScrollPane5.setBounds(X * 865 / 1366, Y * 220 / 768,
+			liveScrollPane5.setBounds(X * 0 / 1366, Y * 30 / 768,
 					X * 485 / 1366, Y * 500 / 768);
 			liveScrollPane5
 					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -933,7 +1015,7 @@ public class LiveInfoPanel extends JPanel {
 			liveScrollPane6 = new JScrollPane(liveTable);
 			liveScrollPane6.getVerticalScrollBar().setUI(
 					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-			liveScrollPane6.setBounds(X * 865 / 1366, Y * 220 / 768,
+			liveScrollPane6.setBounds(X * 0 / 1366, Y * 30 / 768,
 					X * 485 / 1366, Y * 500 / 768);
 			liveScrollPane6
 					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -949,7 +1031,7 @@ public class LiveInfoPanel extends JPanel {
 			liveScrollPane7 = new JScrollPane(liveTable);
 			liveScrollPane7.getVerticalScrollBar().setUI(
 					new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-			liveScrollPane7.setBounds(X * 865 / 1366, Y * 220 / 768,
+			liveScrollPane7.setBounds(X * 0 / 1366, Y * 30 / 768,
 					X * 485 / 1366, Y * 500 / 768);
 			liveScrollPane7
 					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1593,34 +1675,8 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(true);
 			}
-			if (gamePO.getCurrentPeriod().equals("1")) {
-				if (liveScrollPane1 != null) {
-					liveScrollPane1.setVisible(true);
-				}
-			} else if (gamePO.getCurrentPeriod().equals("2")) {
-				if (liveScrollPane2 != null) {
-					liveScrollPane2.setVisible(true);
-				}
-			} else if (gamePO.getCurrentPeriod().equals("3")) {
-				if (liveScrollPane3 != null) {
-					liveScrollPane3.setVisible(true);
-				}
-			} else if (gamePO.getCurrentPeriod().equals("4")) {
-				if (liveScrollPane4 != null) {
-					liveScrollPane4.setVisible(true);
-				}
-			} else if (gamePO.getCurrentPeriod().equals("5")) {
-				if (liveScrollPane5 != null) {
-					liveScrollPane5.setVisible(true);
-				}
-			} else if (gamePO.getCurrentPeriod().equals("6")) {
-				if (liveScrollPane6 != null) {
-					liveScrollPane6.setVisible(true);
-				}
-			} else if (gamePO.getCurrentPeriod().equals("7")) {
-				if (liveScrollPane7 != null) {
-					liveScrollPane7.setVisible(true);
-				}
+			if(livelbl!=null){
+				livelbl.setVisible(true);
 			}
 
 			if (summarylbl != null) {
@@ -1637,26 +1693,8 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(false);
 			}
-			if (liveScrollPane1 != null) {
-				liveScrollPane1.setVisible(false);
-			}
-			if (liveScrollPane2 != null) {
-				liveScrollPane2.setVisible(false);
-			}
-			if (liveScrollPane3 != null) {
-				liveScrollPane3.setVisible(false);
-			}
-			if (liveScrollPane4 != null) {
-				liveScrollPane4.setVisible(false);
-			}
-			if (liveScrollPane5 != null) {
-				liveScrollPane5.setVisible(false);
-			}
-			if (liveScrollPane6 != null) {
-				liveScrollPane6.setVisible(false);
-			}
-			if (liveScrollPane7 != null) {
-				liveScrollPane7.setVisible(false);
+			if(livelbl!=null){
+				livelbl.setVisible(false);
 			}
 
 			if (summarylbl != null) {
@@ -1674,26 +1712,8 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(false);
 			}
-			if (liveScrollPane1 != null) {
-				liveScrollPane1.setVisible(false);
-			}
-			if (liveScrollPane2 != null) {
-				liveScrollPane2.setVisible(false);
-			}
-			if (liveScrollPane3 != null) {
-				liveScrollPane3.setVisible(false);
-			}
-			if (liveScrollPane4 != null) {
-				liveScrollPane4.setVisible(false);
-			}
-			if (liveScrollPane5 != null) {
-				liveScrollPane5.setVisible(false);
-			}
-			if (liveScrollPane6 != null) {
-				liveScrollPane6.setVisible(false);
-			}
-			if (liveScrollPane7 != null) {
-				liveScrollPane7.setVisible(false);
+			if(livelbl!=null){
+				livelbl.setVisible(false);
 			}
 			if (summarylbl != null) {
 				summarylbl.setVisible(true);
@@ -1709,26 +1729,8 @@ public class LiveInfoPanel extends JPanel {
 				if (liveTextlbl != null) {
 					liveTextlbl.setVisible(false);
 				}
-				if (liveScrollPane1 != null) {
-					liveScrollPane1.setVisible(false);
-				}
-				if (liveScrollPane2 != null) {
-					liveScrollPane2.setVisible(false);
-				}
-				if (liveScrollPane3 != null) {
-					liveScrollPane3.setVisible(false);
-				}
-				if (liveScrollPane4 != null) {
-					liveScrollPane4.setVisible(false);
-				}
-				if (liveScrollPane5 != null) {
-					liveScrollPane5.setVisible(false);
-				}
-				if (liveScrollPane6 != null) {
-					liveScrollPane6.setVisible(false);
-				}
-				if (liveScrollPane7 != null) {
-					liveScrollPane7.setVisible(false);
+				if(livelbl!=null){
+					livelbl.setVisible(false);
 				}
 				if (summarylbl != null) {
 					summarylbl.setVisible(false);
@@ -1741,34 +1743,7 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	/*
-	 * class PlayerRenderer extends JButton implements TableCellRenderer {
-	 * 
-	 * private static final long serialVersionUID = 1L; String name; boolean
-	 * isGuest;
-	 * 
-	 * public PlayerRenderer(String s) { if (s.endsWith("guest")) { isGuest =
-	 * true; } else { isGuest = false; } }
-	 * 
-	 * @Override public Component getTableCellRendererComponent(JTable arg0,
-	 * Object arg1, boolean arg2, boolean isSelected, int row, int column) { //
-	 * TODO Auto-generated method stub if (isGuest) { this.name = (String)
-	 * guestTable.getValueAt(row, 1); } else { this.name = (String)
-	 * hostTable.getValueAt(row, 1); }
-	 * 
-	 * ImageIcon buttonIcon = new ImageIcon(new ImageIcon( "images/player_img/"
-	 * + this.name + ".png").getImage() .getScaledInstance(48, 48,
-	 * Image.SCALE_SMOOTH));
-	 * 
-	 * this.setIcon(buttonIcon); this.setOpaque(false);
-	 * this.setContentAreaFilled(false); this.setBorderPainted(false); if
-	 * (isSelected) {
-	 * 
-	 * } return this; }
-	 * 
-	 * }
-	 */
-
+	
 	public class MyTableRenderer extends DefaultTableCellRenderer {
 
 		private static final long serialVersionUID = 1L;
