@@ -445,7 +445,7 @@ public class LiveInfoPanel extends JPanel {
 
 		gameDataLive(gamePO);
 
-		currentState = "live";
+	
 
 		if (gamePO.getCurrentPeriod().equals("1")) {
 
@@ -517,7 +517,7 @@ public class LiveInfoPanel extends JPanel {
 		txtState.setFont(new Font("幼圆", 1, 15));
 		txtState.setBorder(null);
 		bgLabel.add(txtState);
-
+/*
 		txtGTPoint = new MyTextField();
 		if (gamePO.getScoreOverall() != null) {
 			txtGTPoint.setText(String.valueOf(gamePO.getScoreOverall()
@@ -544,7 +544,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 60 / 768);
 		txtHTPoint.setFont(new Font("微软雅黑", 1, 40));
 		bgLabel.add(txtHTPoint);
-
+*/
 		guestTeamtF = new MyTextField();
 		guestTeamtF.setText(gamePO.getGuestTeam());
 		guestTeamtF.setHorizontalAlignment(SwingConstants.CENTER);
@@ -2463,32 +2463,15 @@ if(gamePO.getCurrentPeriod()!=null){
 	}
 
 	public void refresh() {
-	//	mainFrame.remove(this);
-	//	LiveFrame.liveInfoPanel = new LiveInfoPanel(mainFrame);
+	
 		playerDataLive(infoDaoImpl.getGuestPlayers(),
 				infoDaoImpl.getHostPlayers());
 		teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
 		live();
 		gameDataLive(infoDaoImpl.getGame());
 		courtLive(infoDaoImpl.getGame());
-		VisionController(currentState);
-		/*
-		 * if (currentState.equals("live")) {
-		 * playerDataLive(infoDaoImpl.getGuestPlayers(),
-		 * infoDaoImpl.getHostPlayers());
-		 * teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
-		 * live(); gameDataLive(infoDaoImpl.getGame());
-		 * courtLive(infoDaoImpl.getGame()); } else if
-		 * (currentState.equals("playerDataLive")) {
-		 * teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
-		 * live(); playerDataLive(infoDaoImpl.getGuestPlayers(),
-		 * infoDaoImpl.getHostPlayers()); } else if
-		 * (currentState.equals("teamDataLive")) { live();
-		 * playerDataLive(infoDaoImpl.getGuestPlayers(),
-		 * infoDaoImpl.getHostPlayers());
-		 * teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
-		 * }
-		 */
+//		VisionController(currentState);
+		
 	}
 
 	class TableCellTextAreaRenderer extends JTextArea implements
