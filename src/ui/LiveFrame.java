@@ -50,6 +50,7 @@ public class LiveFrame extends JFrame {
 		while (true){
 			try {
 				Thread.sleep(1000);
+				MyNBALives.live();
 				liveInfoPanel.refresh();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
