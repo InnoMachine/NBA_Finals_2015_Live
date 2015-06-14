@@ -397,7 +397,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 30 / 768);
 		summarybtn.addActionListener(e -> {
 			currentState = "teamDataLive";
-			teamDataLive(guestTeamPo, hostTeamPo);
+			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getGuestTeam());
 			VisionController("teamDataLive");
 		});
 		bgLabel.add(summarybtn);
@@ -407,7 +407,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 30 / 768);
 		databtn.addActionListener(e -> {
 			currentState = "playerDataLive";
-			playerDataLive(guestPlayerDataList, hostPlayerDataList);
+			playerDataLive(infoDaoImpl.getGuestPlayers(), infoDaoImpl.getHostPlayers());
 			VisionController("playerDataLive");
 		});
 		bgLabel.add(databtn);
@@ -546,7 +546,7 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(txtHTPoint);
 */
 		guestTeamtF = new MyTextField();
-		guestTeamtF.setText(gamePO.getGuestTeam());
+		guestTeamtF.setText(infoDaoImpl.getGame().getGuestTeam());
 		guestTeamtF.setHorizontalAlignment(SwingConstants.CENTER);
 		guestTeamtF.setColumns(X * 10 / 1366);
 		guestTeamtF.setBounds(spaceX, spaceY + tempY, 60, tempY);
@@ -593,7 +593,7 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestScoreSum);
 
 		hostTeamtF = new MyTextField();
-		hostTeamtF.setText(gamePO.getHomeTeam());
+		hostTeamtF.setText(infoDaoImpl.getGame().getHomeTeam());
 		hostTeamtF.setHorizontalAlignment(SwingConstants.CENTER);
 		hostTeamtF.setBounds(spaceX, spaceY + 2 * tempY, 60, tempY);
 		hostTeamtF.setBackground(Color.GRAY);
@@ -640,68 +640,68 @@ public class LiveInfoPanel extends JPanel {
 				tempY);
 		bgLabel.add(hostScoreSum);
 
-		if (gamePO.getCurrentPeriod() != null) {
-			if (gamePO.getCurrentPeriod().equals("1")) {
-				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+		if (infoDaoImpl.getGame().getCurrentPeriod() != null) {
+			if (infoDaoImpl.getGame().getCurrentPeriod().equals("1")) {
+				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getHomeScore()));
-				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getGuestScore()));
-				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getHomeScore()));
-			} else if (gamePO.getCurrentPeriod().equals("2")) {
-				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("2")) {
+				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getHomeScore()));
-				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+				guestTeam2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
 						.getGuestScore()));
-				hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+				hostScore2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
 						.getHomeScore()));
-				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+				
+				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getHomeScore()));
-			} else if (gamePO.getCurrentPeriod().equals("3")) {
-				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("3")) {
+				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getHomeScore()));
-				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+				guestTeam2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
 						.getGuestScore()));
-				hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+				hostScore2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
 						.getHomeScore()));
-				guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
+				guestTeam3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
 						.getGuestScore()));
-				hostScore3.setText(String.valueOf(gamePO.getScore3rd()
+				hostScore3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
 						.getHomeScore()));
-				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+				
+				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getHomeScore()));
-			} else if (gamePO.getCurrentPeriod().equals("4")) {
-				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("4")) {
+				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
 						.getHomeScore()));
-				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+				guestTeam2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
 						.getGuestScore()));
-				hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+				hostScore2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
 						.getHomeScore()));
-				guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
+				guestTeam3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
 						.getGuestScore()));
-				hostScore3.setText(String.valueOf(gamePO.getScore3rd()
+				hostScore3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
 						.getHomeScore()));
-				guestTeam4.setText(String.valueOf(gamePO.getScore4th()
+				guestTeam4.setText(String.valueOf(infoDaoImpl.getGame().getScore4th()
 						.getGuestScore()));
-				hostScore4.setText(String.valueOf(gamePO.getScore4th()
+				hostScore4.setText(String.valueOf(infoDaoImpl.getGame().getScore4th()
 						.getHomeScore()));
-				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
 						.getHomeScore()));
 			}
 		}
@@ -2470,8 +2470,8 @@ if(gamePO.getCurrentPeriod()!=null){
 		live();
 		gameDataLive(infoDaoImpl.getGame());
 		courtLive(infoDaoImpl.getGame());
-//		VisionController(currentState);
-		
+
+		VisionController(currentState);
 	}
 
 	class TableCellTextAreaRenderer extends JTextArea implements
