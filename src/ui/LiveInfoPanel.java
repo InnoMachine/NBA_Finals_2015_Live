@@ -42,7 +42,7 @@ public class LiveInfoPanel extends JPanel {
 	JFrame mainFrame;
 	InfoDaoImpl infoDaoImpl = new InfoDaoImpl();
 
-	String currentState = "live";
+	String currentState = "";
 	static ArrayList<LiveTextPO> liveTextList1 = null;
 	static ArrayList<LiveTextPO> liveTextList2 = null;
 	static ArrayList<LiveTextPO> liveTextList3 = null;
@@ -239,11 +239,11 @@ public class LiveInfoPanel extends JPanel {
 		guestTeamPo.setAllPlayersNameList(guestAllPlayerList);
 
 		guestTeamPo.setAbbreviation("CLE");
-		guestTeamPo.setShootRatio("40.3");
-		guestTeamPo.setThreePointShootRatio("34.2");
-		guestTeamPo.setFreeThrowRatio("60.2");
-		guestTeamPo.setRebound("18");
-		guestTeamPo.setAsist("24");
+		guestTeamPo.setShootRatio("0");
+		guestTeamPo.setThreePointShootRatio("0");
+		guestTeamPo.setFreeThrowRatio("0");
+		guestTeamPo.setRebound("0");
+		guestTeamPo.setAsist("0");
 
 		// -------------------------------获取初始HomeTeamPO---------------------------------
 		hostTeamPo = new TeamPO();
@@ -258,61 +258,61 @@ public class LiveInfoPanel extends JPanel {
 		// onCourtPlayerList;
 		// private ArrayList<String> allPlayersNameList;
 		hostTeamPo.setAbbreviation("CLE");
-		hostTeamPo.setShootRatio("40.3");
-		hostTeamPo.setThreePointShootRatio("34.2");
-		hostTeamPo.setFreeThrowRatio("60.2");
-		hostTeamPo.setRebound("18");
-		hostTeamPo.setAsist("24");
+		hostTeamPo.setShootRatio("0");
+		hostTeamPo.setThreePointShootRatio("0");
+		hostTeamPo.setFreeThrowRatio("0");
+		hostTeamPo.setRebound("0");
+		hostTeamPo.setAsist("0");
 		// --------------------------------获取初始主客队球员阵容---------------------------
 		// guestPlayerDataList = infoDaoImpl.getGuestPlayers();
 		// hostPlayerDataList = infoDaoImpl.getHostPlayers();
 		PlayerPO p1 = new PlayerPO();
-		p1.setAsist("1");
-		p1.setBackRebound("1");
-		p1.setBlock("1");
+		p1.setAsist("0");
+		p1.setBackRebound("0");
+		p1.setBlock("0");
 		p1.setCnName("史蒂夫");
 		p1.setEnName("Steve");
-		p1.setForwardRebound("1");
-		p1.setFoul("1");
-		p1.setFreeThrowInNum("1");
+		p1.setForwardRebound("0");
+		p1.setFoul("0");
+		p1.setFreeThrowInNum("0");
 		p1.setFreethrowInRatio("0.0");
-		p1.setFreeThrowTotalNum("1");
-		p1.setPosition("1");
-		p1.setScore("1");
-		p1.setShootInNum("1");
+		p1.setFreeThrowTotalNum("0");
+		p1.setPosition("0");
+		p1.setScore("0");
+		p1.setShootInNum("0");
 		p1.setShootInRatio("0.0");
-		p1.setShootThreeInNum("1");
+		p1.setShootThreeInNum("0");
 		p1.setShootThreeInRatio("0.0");
-		p1.setShootThreeTotalNum("1");
-		p1.setShootTotalNum("1");
-		p1.setSteal("1");
-		p1.setTimeOnCourt("1");
-		p1.setTotalRebound("1");
-		p1.setTurnover("1");
+		p1.setShootThreeTotalNum("0");
+		p1.setShootTotalNum("0");
+		p1.setSteal("0");
+		p1.setTimeOnCourt("0");
+		p1.setTotalRebound("0");
+		p1.setTurnover("0");
 
 		PlayerPO p2 = new PlayerPO();
 
 		p2.setAsist("");
-		p2.setBackRebound("2");
-		p2.setBlock("2");
+		p2.setBackRebound("0");
+		p2.setBlock("0");
 		p2.setCnName("啊");
 		p2.setEnName("A");
-		p2.setForwardRebound("2");
-		p2.setFoul("2");
-		p2.setFreeThrowInNum("2");
+		p2.setForwardRebound("0");
+		p2.setFoul("0");
+		p2.setFreeThrowInNum("0");
 		p2.setFreethrowInRatio("0.0");
-		p2.setFreeThrowTotalNum("2");
-		p2.setPosition("2");
-		p2.setScore("2");
-		p2.setShootInNum("2");
+		p2.setFreeThrowTotalNum("0");
+		p2.setPosition("0");
+		p2.setScore("0");
+		p2.setShootInNum("0");
 		p2.setShootInRatio("0.0");
-		p2.setShootThreeInNum("2");
+		p2.setShootThreeInNum("0");
 		p2.setShootThreeInRatio("0.0");
-		p2.setShootThreeTotalNum("2");
-		p2.setShootTotalNum("2");
-		p2.setSteal("2");
-		p2.setTimeOnCourt("2");
-		p2.setTotalRebound("2");
+		p2.setShootThreeTotalNum("0");
+		p2.setShootTotalNum("0");
+		p2.setSteal("0");
+		p2.setTimeOnCourt("0");
+		p2.setTotalRebound("0");
 		p2.setTurnover("2");
 		guestPlayerDataList = new ArrayList<PlayerPO>();
 		hostPlayerDataList = new ArrayList<PlayerPO>();
@@ -446,7 +446,7 @@ public class LiveInfoPanel extends JPanel {
 		gameDataLive(gamePO);
 
 	
-
+if(gamePO.getCurrentPeriod()!=null){
 		if (gamePO.getCurrentPeriod().equals("1")) {
 
 		}
@@ -462,7 +462,7 @@ public class LiveInfoPanel extends JPanel {
 			live2(liveTextList2);
 			live3(liveTextList3);
 		}
-
+}
 		live();
 		courtLive(gamePO);
 		VisionController("live");
@@ -727,7 +727,7 @@ public class LiveInfoPanel extends JPanel {
 		btnG1 = new MyButton();
 		btnG1.setBounds(X * 340 / 1366, Y * 165 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) {
 			ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
 					"images/player_img/" + gamePO.getGuestTeam() + "/"
 							+ gamePO.getGuestOnCourtPlayerLsit().get(0)
@@ -742,7 +742,7 @@ public class LiveInfoPanel extends JPanel {
 		btnG2 = new MyButton();
 		btnG2.setBounds(X * 260 / 1366, Y * 45 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) {
 			ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
 					"images/player_img/" + gamePO.getGuestTeam() + "/"
 							+ gamePO.getGuestOnCourtPlayerLsit().get(1)
@@ -756,7 +756,7 @@ public class LiveInfoPanel extends JPanel {
 		btnG3 = new MyButton();
 		btnG3.setBounds(X * 100 / 1366, Y * 295 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) {
 			ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
 					"images/player_img/" + gamePO.getGuestTeam() + "/"
 							+ gamePO.getGuestOnCourtPlayerLsit().get(2)
@@ -770,7 +770,7 @@ public class LiveInfoPanel extends JPanel {
 		btnG4 = new MyButton();
 		btnG4.setBounds(X * 130 / 1366, Y * 123 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) {
 			ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
 					"images/player_img/" + gamePO.getGuestTeam() + "/"
 							+ gamePO.getGuestOnCourtPlayerLsit().get(3)
@@ -784,7 +784,7 @@ public class LiveInfoPanel extends JPanel {
 		btnG5 = new MyButton();
 		btnG5.setBounds(X * 260 / 1366, Y * 270 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) {
 			ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
 					"images/player_img/" + gamePO.getGuestTeam() + "/"
 							+ gamePO.getGuestOnCourtPlayerLsit().get(4)
@@ -798,7 +798,7 @@ public class LiveInfoPanel extends JPanel {
 		btnH1 = new MyButton();
 		btnH1.setBounds(X * 440 / 1366, Y * 165 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) {
 			ImageIcon playerPortraitH1 = new ImageIcon(
 					new ImageIcon("images/player_img/" + gamePO.getHomeTeam()
 							+ "/" + gamePO.getHomeOnCourtPlayerLsit().get(0)
@@ -813,7 +813,7 @@ public class LiveInfoPanel extends JPanel {
 		btnH2 = new MyButton();
 		btnH2.setBounds(X * 550 / 1366, Y * 285 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) {
 			ImageIcon playerPortraitH2 = new ImageIcon(
 					new ImageIcon("images/player_img/" + gamePO.getHomeTeam()
 							+ "/" + gamePO.getHomeOnCourtPlayerLsit().get(1)
@@ -828,7 +828,7 @@ public class LiveInfoPanel extends JPanel {
 		btnH3 = new MyButton();
 		btnH3.setBounds(X * 640 / 1366, Y * 35 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+		if (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) {
 			{
 				ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
 						"images/player_img/" + gamePO.getHomeTeam() + "/"
@@ -862,7 +862,7 @@ public class LiveInfoPanel extends JPanel {
 			btnH5 = new MyButton();
 			btnH5.setBounds(X * 505 / 1366, Y * 60 / 768, X * 60 / 1366,
 					Y * 60 / 768);
-			if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+			if (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) {
 				ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
 						"images/player_img/" + gamePO.getHomeTeam() + "/"
 								+ gamePO.getHomeOnCourtPlayerLsit().get(4)
@@ -873,7 +873,7 @@ public class LiveInfoPanel extends JPanel {
 			}
 			courtlbl.add(btnH5);
 
-			bgLabel.add(courtlbl);
+//			bgLabel.add(courtlbl);
 		}
 	}
 
@@ -1004,7 +1004,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			liveTextlbl.setBounds(X * 210 / 1366, Y * 670 / 768,
 					X * 430 / 1366, Y * 30 / 768);
 			liveTextlbl.setOpaque(false);
-			liveTextlbl.setVisible(true);
+			liveTextlbl.setVisible(false);
 			if (liveTextList4 != null) {
 				liveTextlbl.setText(liveTextList4.get(0).getText());
 			} else if (liveTextList3 != null) {
@@ -1014,9 +1014,9 @@ if(gamePO.getCurrentPeriod()!=null){
 			} else if (liveTextList1 != null) {
 				liveTextlbl.setText(liveTextList1.get(0).getText());
 			}
-			bgLabel.add(liveTextlbl);
+	//		bgLabel.add(liveTextlbl);
 		}
-		if (liveTextList4 != null && gamePO != null) {
+		if (liveTextList4 != null && gamePO != null&&gamePO.getGuestOnCourtPlayerLsit()!=null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
 						liveTextList4.get(0).getPlayerName())) {
@@ -1030,7 +1030,7 @@ if(gamePO.getCurrentPeriod()!=null){
 					PlayerButtonHighLight("home", i);
 				}
 			}
-		} else if (liveTextList3 != null && gamePO != null) {
+		} else if (liveTextList3 != null && gamePO != null&&gamePO.getGuestOnCourtPlayerLsit()!=null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
 						liveTextList3.get(0).getPlayerName())) {
@@ -1044,7 +1044,7 @@ if(gamePO.getCurrentPeriod()!=null){
 					PlayerButtonHighLight("home", i);
 				}
 			}
-		} else if (liveTextList2 != null && gamePO != null) {
+		} else if (liveTextList2 != null && gamePO != null&&gamePO.getGuestOnCourtPlayerLsit()!=null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
 						liveTextList2.get(0).getPlayerName())) {
@@ -1058,7 +1058,7 @@ if(gamePO.getCurrentPeriod()!=null){
 					PlayerButtonHighLight("home", i);
 				}
 			}
-		} else if (liveTextList1 != null && gamePO != null) {
+		} else if (liveTextList1 != null && gamePO != null&&gamePO.getGuestOnCourtPlayerLsit()!=null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
 						liveTextList1.get(0).getPlayerName())) {
@@ -1738,7 +1738,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			lblHostAssistance.setOpaque(true);
 			summarylbl.add(lblHostAssistance);
 		}
-		bgLabel.add(summarylbl);
+//		bgLabel.add(summarylbl);
 
 		VisionController(currentState);
 	}
@@ -1788,8 +1788,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			guestRowData.clear();
 		}
 		guestColumn = new Vector<String>();
-		guestColumn.add("球员");
-		guestColumn.add("姓名");
+		guestColumn.add("球员姓名");
 		guestColumn.add("位置");
 		guestColumn.add("分钟");
 		guestColumn.add("命中率");
@@ -1814,7 +1813,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			for (int i = 0; i < guestPlayerDataList.size(); i++) {
 				// -------------------steven Jin!!!------------------
 				Vector<String> a = new Vector<String>();
-				a.add("");
+			
 				a.add(guestPlayerDataList.get(i).getCnName());
 				a.add(guestPlayerDataList.get(i).getPosition());
 				a.add(guestPlayerDataList.get(i).getTimeOnCourt());
@@ -1852,7 +1851,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 		} else {
 			Vector<String> a = new Vector<String>();
-			a.add("");
+		
 			a.add("");
 			a.add("");
 			a.add("");
@@ -1911,8 +1910,7 @@ if(gamePO.getCurrentPeriod()!=null){
 		guestTable.setForeground(Color.WHITE);
 
 		guestTable.setIntercellSpacing(new Dimension(0, 0));
-		guestTable.getColumnModel().getColumn(0).setPreferredWidth(65);
-		guestTable.getColumnModel().getColumn(1).setPreferredWidth(120);
+		guestTable.getColumnModel().getColumn(0).setPreferredWidth(185);
 		guestTable.setRowHeight(48);
 		guestTable.setVisible(true);
 		guestTable.setCellSelectionEnabled(true);
@@ -1947,8 +1945,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			hostRowData.clear();
 		}
 		hostColumn = new Vector<String>();
-		hostColumn.add("球员");
-		hostColumn.add("姓名");
+		hostColumn.add("球员姓名");
 		hostColumn.add("位置");
 		hostColumn.add("分钟");
 		hostColumn.add("命中率");
@@ -1973,7 +1970,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			for (int i = 0; i < hostPlayerDataList.size(); i++) {
 				Vector<String> a = new Vector<String>();
 				// -------------------steven Jin!!!------------------
-				a.add("");
+			
 				a.add(hostPlayerDataList.get(i).getCnName());
 				a.add(hostPlayerDataList.get(i).getPosition());
 				a.add(hostPlayerDataList.get(i).getTimeOnCourt());
@@ -2009,7 +2006,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 		} else {
 			Vector<String> a = new Vector<String>();
-			a.add("");
+			
 			a.add("");
 			a.add("");
 			a.add("");
@@ -2066,8 +2063,8 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		hostTable.setForeground(Color.WHITE);
 		hostTable.setIntercellSpacing(new Dimension(0, 0));
-		hostTable.getColumnModel().getColumn(0).setPreferredWidth(65);
-		hostTable.getColumnModel().getColumn(1).setPreferredWidth(120);
+	
+		hostTable.getColumnModel().getColumn(0).setPreferredWidth(185);
 		hostTable.setRowHeight(48);
 		hostTable.setVisible(true);
 		hostTable.setCellSelectionEnabled(true);
@@ -2089,7 +2086,7 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		datalbl.add(hostScrollPane);
 
-		bgLabel.add(datalbl);
+//		bgLabel.add(datalbl);
 
 		VisionController(currentState);
 
@@ -2100,12 +2097,15 @@ if(gamePO.getCurrentPeriod()!=null){
 
 			if (courtlbl != null) {
 				courtlbl.setVisible(true);
+				bgLabel.add(courtlbl);
 			}
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(true);
+				bgLabel.add(liveTextlbl);
 			}
 			if (livelbl != null) {
 				livelbl.setVisible(true);
+				bgLabel.add(livelbl);
 			}
 
 			if (summarylbl != null) {
@@ -2131,6 +2131,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 			if (datalbl != null) {
 				datalbl.setVisible(true);
+				bgLabel.add(datalbl);
 			}
 
 		} else if (label.equals("teamDataLive")) {
@@ -2146,6 +2147,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 			if (summarylbl != null) {
 				summarylbl.setVisible(true);
+				bgLabel.add(summarylbl);
 			}
 			if (datalbl != null) {
 				datalbl.setVisible(false);
