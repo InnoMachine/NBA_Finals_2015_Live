@@ -523,7 +523,7 @@ public class LiveInfoPanel extends JPanel {
 			txtGTPoint.setText(String.valueOf(gamePO.getScoreOverall()
 					.getGuestScore()));
 		} else {
-			txtGTPoint.setText("0");
+			txtGTPoint.setText("");
 		}
 		txtGTPoint.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGTPoint.setBounds(X * 430 / 1366, Y * 67 / 768, X * 120 / 1366,
@@ -537,7 +537,7 @@ public class LiveInfoPanel extends JPanel {
 			txtHTPoint.setText(String.valueOf(gamePO.getScoreOverall()
 					.getHomeScore()));
 		} else {
-			txtHTPoint.setText("0");
+			txtHTPoint.setText("");
 		}
 
 		txtHTPoint.setBounds(X * 830 / 1366, Y * 67 / 768, X * 120 / 1366,
@@ -2463,8 +2463,8 @@ if(gamePO.getCurrentPeriod()!=null){
 	}
 
 	public void refresh() {
-		mainFrame.remove(this);
-		LiveFrame.liveInfoPanel = new LiveInfoPanel(mainFrame);
+	//	mainFrame.remove(this);
+	//	LiveFrame.liveInfoPanel = new LiveInfoPanel(mainFrame);
 		playerDataLive(infoDaoImpl.getGuestPlayers(),
 				infoDaoImpl.getHostPlayers());
 		teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
