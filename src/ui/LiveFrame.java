@@ -10,7 +10,7 @@ public class LiveFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 //	static StartPanel startPanel = null;
-	public static LiveInfoPanel liveInfoPanel;
+	public LiveInfoPanel liveInfoPanel;
 
 	public static String currentPanel = "";
 

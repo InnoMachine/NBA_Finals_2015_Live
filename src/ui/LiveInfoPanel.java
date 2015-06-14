@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -1023,7 +1024,7 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable1.setDefaultRenderer(Object.class, r3);
+		liveTable1.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
 
 		liveTable1.setRowHeight(Y * 30 / 768);
 		liveTable1.getColumnModel().getColumn(0)
@@ -1109,7 +1110,7 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable2.setDefaultRenderer(Object.class, r3);
+		liveTable2.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
 
 		liveTable2.setRowHeight(Y * 30 / 768);
 		liveTable2.getColumnModel().getColumn(0)
@@ -1193,7 +1194,7 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable3.setDefaultRenderer(Object.class, r3);
+		liveTable3.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
 
 		liveTable3.setRowHeight(Y * 30 / 768);
 		liveTable3.getColumnModel().getColumn(0)
@@ -1280,7 +1281,7 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable4.setDefaultRenderer(Object.class, r3);
+		liveTable4.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
 
 		liveTable4.setRowHeight(Y * 30 / 768);
 		liveTable4.getColumnModel().getColumn(0)
@@ -2224,6 +2225,10 @@ public class LiveInfoPanel extends JPanel {
 		}
 
 	}
+	
+	
+	
+	
 
 	public void PlayerButtonHighLight(String gorh, int i) {
 		ImageIcon initialPlayerPortraitG1 = new ImageIcon(new ImageIcon(
@@ -2397,4 +2402,40 @@ public class LiveInfoPanel extends JPanel {
 		}
 
 	}
+
+
+
+
+	class TableCellTextAreaRenderer extends JTextArea implements TableCellRenderer { 
+	    public TableCellTextAreaRenderer() { 
+	        setLineWrap(true); 
+	        setWrapStyleWord(true); 
+	    }
+
+	    public Component getTableCellRendererComponent(JTable table, Object value, 
+	            boolean isSelected, boolean hasFocus, int row, int column) {
+	    	setOpaque(false);
+	    	setForeground(Color.WHITE);
+	        // 计算当下行的最佳高度 
+	        int maxPreferredHeight = 0; 
+	        for (int i = 0; i < table.getColumnCount(); i++) { 
+	            setText("" + table.getValueAt(row, i)); 
+	            setSize(table.getColumnModel().getColumn(column).getWidth(), 0); 
+	            maxPreferredHeight = Math.max(maxPreferredHeight, getPreferredSize().height); 
+	        }
+
+//	        if (table.getRowHeight(row) != getPreferredSize().height)  // 少了这行则处理器瞎忙 
+            table.setRowHeight(row, 50);
+
+	        setText(value == null ? "" : value.toString()); 
+	        return this; 
+	    } 
+
+	}
+
 }
+
+
+
+
+
