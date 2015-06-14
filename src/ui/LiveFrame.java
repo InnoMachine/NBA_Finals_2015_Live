@@ -22,6 +22,7 @@ public class LiveFrame extends JFrame {
 
 		LiveFrame lf = new LiveFrame();
 		lf.setVisible(true);
+		/*
 		LiveInfoPanel.LiveText1Observer livetext1ob = new LiveInfoPanel(lf).new LiveText1Observer();
 		LiveInfoPanel.LiveText2Observer livetext2ob = new LiveInfoPanel(lf).new LiveText2Observer();
 		LiveInfoPanel.LiveText3Observer livetext3ob = new LiveInfoPanel(lf).new LiveText3Observer();
@@ -31,7 +32,7 @@ public class LiveFrame extends JFrame {
 		LiveInfoPanel.HostPlayersObserver hostplayerob = new LiveInfoPanel(lf).new HostPlayersObserver();
 		LiveInfoPanel.GuestTeamObserver guestteamob = new LiveInfoPanel(lf).new GuestTeamObserver();
 		LiveInfoPanel.HostTeamObserver hostteamob = new LiveInfoPanel(lf).new HostTeamObserver();
-		/*
+		
 		Singleton.getInstance().getLiveText1().addObserver(livetext1ob);
 		Singleton.getInstance().getLiveText2().addObserver(livetext2ob);
 		Singleton.getInstance().getLiveText3().addObserver(livetext3ob);
@@ -49,7 +50,8 @@ public class LiveFrame extends JFrame {
 		*/
 		while (true){
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(3000);
+				MyNBALives.live();
 				liveInfoPanel.refresh();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

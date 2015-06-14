@@ -519,8 +519,12 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(txtState);
 
 		txtGTPoint = new MyTextField();
-		txtGTPoint.setText(String.valueOf(gamePO.getScoreOverall()
-				.getGuestScore()));
+		if (gamePO.getScoreOverall() != null) {
+			txtGTPoint.setText(String.valueOf(gamePO.getScoreOverall()
+					.getGuestScore()));
+		} else {
+			txtGTPoint.setText("0");
+		}
 		txtGTPoint.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGTPoint.setBounds(X * 430 / 1366, Y * 67 / 768, X * 120 / 1366,
 				Y * 60 / 768);
@@ -529,8 +533,13 @@ public class LiveInfoPanel extends JPanel {
 
 		txtHTPoint = new MyTextField();
 		txtHTPoint.setHorizontalAlignment(SwingConstants.CENTER);
-		txtHTPoint.setText(String.valueOf(gamePO.getScoreOverall()
-				.getHomeScore()));
+		if (gamePO.getScoreOverall() != null) {
+			txtHTPoint.setText(String.valueOf(gamePO.getScoreOverall()
+					.getHomeScore()));
+		} else {
+			txtHTPoint.setText("0");
+		}
+
 		txtHTPoint.setBounds(X * 830 / 1366, Y * 67 / 768, X * 120 / 1366,
 				Y * 60 / 768);
 		txtHTPoint.setFont(new Font("微软雅黑", 1, 40));
@@ -631,70 +640,71 @@ public class LiveInfoPanel extends JPanel {
 				tempY);
 		bgLabel.add(hostScoreSum);
 
-		if (gamePO.getCurrentPeriod().equals("1")) {
-			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
-					.getGuestScore()));
-			hostScore1.setText(String.valueOf(gamePO.getScore1st()
-					.getHomeScore()));
-			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
-					.getGuestScore()));
-			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getGuestScore()));
-			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getHomeScore()));
-		} else if (gamePO.getCurrentPeriod().equals("2")) {
-			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
-					.getGuestScore()));
-			hostScore1.setText(String.valueOf(gamePO.getScore1st()
-					.getHomeScore()));
-			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
-					.getGuestScore()));
-			hostScore2.setText(String.valueOf(gamePO.getScore2nd()
-					.getHomeScore()));
-			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getGuestScore()));
-			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getHomeScore()));
-		} else if (gamePO.getCurrentPeriod().equals("3")) {
-			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
-					.getGuestScore()));
-			hostScore1.setText(String.valueOf(gamePO.getScore1st()
-					.getHomeScore()));
-			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
-					.getGuestScore()));
-			hostScore2.setText(String.valueOf(gamePO.getScore2nd()
-					.getHomeScore()));
-			guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
-					.getGuestScore()));
-			hostScore3.setText(String.valueOf(gamePO.getScore3rd()
-					.getHomeScore()));
-			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getGuestScore()));
-			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getHomeScore()));
-		} else if (gamePO.getCurrentPeriod().equals("4")) {
-			guestTeam1.setText(String.valueOf(gamePO.getScore1st()
-					.getGuestScore()));
-			hostScore1.setText(String.valueOf(gamePO.getScore1st()
-					.getHomeScore()));
-			guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
-					.getGuestScore()));
-			hostScore2.setText(String.valueOf(gamePO.getScore2nd()
-					.getHomeScore()));
-			guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
-					.getGuestScore()));
-			hostScore3.setText(String.valueOf(gamePO.getScore3rd()
-					.getHomeScore()));
-			guestTeam4.setText(String.valueOf(gamePO.getScore4th()
-					.getGuestScore()));
-			hostScore4.setText(String.valueOf(gamePO.getScore4th()
-					.getHomeScore()));
-			guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getGuestScore()));
-			hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
-					.getHomeScore()));
+		if (gamePO.getCurrentPeriod() != null) {
+			if (gamePO.getCurrentPeriod().equals("1")) {
+				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+						.getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+						.getHomeScore()));
+				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+						.getGuestScore()));
+				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getHomeScore()));
+			} else if (gamePO.getCurrentPeriod().equals("2")) {
+				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+						.getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+						.getHomeScore()));
+				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+						.getGuestScore()));
+				hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+						.getHomeScore()));
+				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getHomeScore()));
+			} else if (gamePO.getCurrentPeriod().equals("3")) {
+				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+						.getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+						.getHomeScore()));
+				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+						.getGuestScore()));
+				hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+						.getHomeScore()));
+				guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
+						.getGuestScore()));
+				hostScore3.setText(String.valueOf(gamePO.getScore3rd()
+						.getHomeScore()));
+				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getHomeScore()));
+			} else if (gamePO.getCurrentPeriod().equals("4")) {
+				guestTeam1.setText(String.valueOf(gamePO.getScore1st()
+						.getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO.getScore1st()
+						.getHomeScore()));
+				guestTeam2.setText(String.valueOf(gamePO.getScore2nd()
+						.getGuestScore()));
+				hostScore2.setText(String.valueOf(gamePO.getScore2nd()
+						.getHomeScore()));
+				guestTeam3.setText(String.valueOf(gamePO.getScore3rd()
+						.getGuestScore()));
+				hostScore3.setText(String.valueOf(gamePO.getScore3rd()
+						.getHomeScore()));
+				guestTeam4.setText(String.valueOf(gamePO.getScore4th()
+						.getGuestScore()));
+				hostScore4.setText(String.valueOf(gamePO.getScore4th()
+						.getHomeScore()));
+				guestScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO.getScoreOverall()
+						.getHomeScore()));
+			}
 		}
-
 		VisionController("live");
 
 	}
@@ -711,132 +721,160 @@ public class LiveInfoPanel extends JPanel {
 				"images/backgrounds/" + gamePO.getHomeTeam() + "_court_3D.png")
 				.getImage().getScaledInstance(X * 850 / 1366, Y * 386 / 768,
 						Image.SCALE_SMOOTH));
+		courtlbl.setVisible(false);
 		courtlbl.setIcon(buttonIcon);
 
 		btnG1 = new MyButton();
 		btnG1.setBounds(X * 340 / 1366, Y * 165 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getGuestTeam() + "/"
-						+ gamePO.getGuestOnCourtPlayerLsit().get(0) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_SMOOTH));
+		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+			ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
+					"images/player_img/" + gamePO.getGuestTeam() + "/"
+							+ gamePO.getGuestOnCourtPlayerLsit().get(0)
+							+ ".png").getImage().getScaledInstance(
+					X * 60 / 1366, Y * 60 / 768, Image.SCALE_SMOOTH));
+
+			btnG1.setIcon(playerPortraitG1);
+		}
 		btnG1.setOpaque(false);
-		btnG1.setIcon(playerPortraitG1);
 		courtlbl.add(btnG1);
 
 		btnG2 = new MyButton();
 		btnG2.setBounds(X * 260 / 1366, Y * 45 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getGuestTeam() + "/"
-						+ gamePO.getGuestOnCourtPlayerLsit().get(1) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnG2.setIcon(playerPortraitG2);
+		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+			ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
+					"images/player_img/" + gamePO.getGuestTeam() + "/"
+							+ gamePO.getGuestOnCourtPlayerLsit().get(1)
+							+ ".png").getImage().getScaledInstance(
+					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
+			btnG2.setIcon(playerPortraitG2);
+		}
 		btnG2.setOpaque(false);
 		courtlbl.add(btnG2);
 
 		btnG3 = new MyButton();
 		btnG3.setBounds(X * 100 / 1366, Y * 295 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getGuestTeam() + "/"
-						+ gamePO.getGuestOnCourtPlayerLsit().get(2) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnG3.setIcon(playerPortraitG3);
+		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+			ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
+					"images/player_img/" + gamePO.getGuestTeam() + "/"
+							+ gamePO.getGuestOnCourtPlayerLsit().get(2)
+							+ ".png").getImage().getScaledInstance(
+					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
+			btnG3.setIcon(playerPortraitG3);
+		}
 		btnG3.setOpaque(false);
 		courtlbl.add(btnG3);
 
 		btnG4 = new MyButton();
 		btnG4.setBounds(X * 130 / 1366, Y * 123 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getGuestTeam() + "/"
-						+ gamePO.getGuestOnCourtPlayerLsit().get(3) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnG4.setIcon(playerPortraitG4);
+		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+			ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
+					"images/player_img/" + gamePO.getGuestTeam() + "/"
+							+ gamePO.getGuestOnCourtPlayerLsit().get(3)
+							+ ".png").getImage().getScaledInstance(
+					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
+			btnG4.setIcon(playerPortraitG4);
+		}
 		btnG4.setOpaque(false);
 		courtlbl.add(btnG4);
 
 		btnG5 = new MyButton();
 		btnG5.setBounds(X * 260 / 1366, Y * 270 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getGuestTeam() + "/"
-						+ gamePO.getGuestOnCourtPlayerLsit().get(4) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnG5.setIcon(playerPortraitG5);
+		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
+			ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
+					"images/player_img/" + gamePO.getGuestTeam() + "/"
+							+ gamePO.getGuestOnCourtPlayerLsit().get(4)
+							+ ".png").getImage().getScaledInstance(
+					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
+			btnG5.setIcon(playerPortraitG5);
+		}
 		btnG5.setOpaque(false);
 		courtlbl.add(btnG5);
 
 		btnH1 = new MyButton();
 		btnH1.setBounds(X * 440 / 1366, Y * 165 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitH1 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getHomeTeam() + "/"
-						+ gamePO.getHomeOnCourtPlayerLsit().get(0) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnH1.setIcon(playerPortraitH1);
+		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+			ImageIcon playerPortraitH1 = new ImageIcon(
+					new ImageIcon("images/player_img/" + gamePO.getHomeTeam()
+							+ "/" + gamePO.getHomeOnCourtPlayerLsit().get(0)
+							+ ".png").getImage().getScaledInstance(
+							X * 60 / 1366, Y * 60 / 768,
+							Image.SCALE_AREA_AVERAGING));
+			btnH1.setIcon(playerPortraitH1);
+		}
 		btnH1.setOpaque(false);
 		courtlbl.add(btnH1);
 
 		btnH2 = new MyButton();
 		btnH2.setBounds(X * 550 / 1366, Y * 285 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitH2 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getHomeTeam() + "/"
-						+ gamePO.getHomeOnCourtPlayerLsit().get(1) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnH2.setIcon(playerPortraitH2);
+		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+			ImageIcon playerPortraitH2 = new ImageIcon(
+					new ImageIcon("images/player_img/" + gamePO.getHomeTeam()
+							+ "/" + gamePO.getHomeOnCourtPlayerLsit().get(1)
+							+ ".png").getImage().getScaledInstance(
+							X * 60 / 1366, Y * 60 / 768,
+							Image.SCALE_AREA_AVERAGING));
+			btnH2.setIcon(playerPortraitH2);
+		}
 		btnH2.setOpaque(false);
 		courtlbl.add(btnH2);
 
 		btnH3 = new MyButton();
 		btnH3.setBounds(X * 640 / 1366, Y * 35 / 768, X * 60 / 1366,
 				Y * 60 / 768);
-		ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getHomeTeam() + "/"
-						+ gamePO.getHomeOnCourtPlayerLsit().get(2) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnH3.setIcon(playerPortraitH3);
-		btnH3.addActionListener(e -> {
-			System.out.println("click H3!!!");
-		});
-		btnH3.setOpaque(false);
-		courtlbl.add(btnH3);
+		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+			{
+				ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
+						"images/player_img/" + gamePO.getHomeTeam() + "/"
+								+ gamePO.getHomeOnCourtPlayerLsit().get(2)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnH3.setIcon(playerPortraitH3);
+				btnH3.addActionListener(e -> {
+					System.out.println("click H3!!!");
+				});
+			}
+			btnH3.setOpaque(false);
+			courtlbl.add(btnH3);
 
-		btnH4 = new MyButton();
-		btnH4.setBounds(X * 670 / 1366, Y * 207 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getHomeTeam() + "/"
-						+ gamePO.getHomeOnCourtPlayerLsit().get(3) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnH4.setIcon(playerPortraitH4);
-		btnH4.setOpaque(false);
-		courtlbl.add(btnH4);
+			btnH4 = new MyButton();
+			btnH4.setBounds(X * 670 / 1366, Y * 207 / 768, X * 60 / 1366,
+					Y * 60 / 768);
+			if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+				ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
+						"images/player_img/" + gamePO.getHomeTeam() + "/"
+								+ gamePO.getHomeOnCourtPlayerLsit().get(3)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnH4.setIcon(playerPortraitH4);
+			}
+			btnH4.setOpaque(false);
+			courtlbl.add(btnH4);
 
-		btnH5 = new MyButton();
-		btnH5.setBounds(X * 505 / 1366, Y * 60 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
-				"images/player_img/" + gamePO.getHomeTeam() + "/"
-						+ gamePO.getHomeOnCourtPlayerLsit().get(4) + ".png")
-				.getImage().getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-						Image.SCALE_AREA_AVERAGING));
-		btnH5.setIcon(playerPortraitH5);
-		courtlbl.add(btnH5);
+			btnH5 = new MyButton();
+			btnH5.setBounds(X * 505 / 1366, Y * 60 / 768, X * 60 / 1366,
+					Y * 60 / 768);
+			if (gamePO.getHomeOnCourtPlayerLsit() != null) {
+				ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
+						"images/player_img/" + gamePO.getHomeTeam() + "/"
+								+ gamePO.getHomeOnCourtPlayerLsit().get(4)
+								+ ".png").getImage()
+						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+								Image.SCALE_AREA_AVERAGING));
+				btnH5.setIcon(playerPortraitH5);
+			}
+			courtlbl.add(btnH5);
 
-		bgLabel.add(courtlbl);
-
+			bgLabel.add(courtlbl);
+		}
 	}
 
 	public void live() {
@@ -847,15 +885,14 @@ public class LiveInfoPanel extends JPanel {
 		livelbl.setHorizontalAlignment(SwingConstants.CENTER);
 		livelbl.setBounds(X * 865 / 1366, Y * 190 / 768, X * 485 / 1366,
 				Y * 530 / 768);
+		livelbl.setVisible(false);
 		bgLabel.add(livelbl);
 
-		
-		liveTextList1=infoDaoImpl.getLiveText1();
-		liveTextList2=infoDaoImpl.getLiveText2();
-		liveTextList3=infoDaoImpl.getLiveText3();
-		liveTextList4=infoDaoImpl.getLiveText4();
-		
-		
+		liveTextList1 = infoDaoImpl.getLiveText1();
+		liveTextList2 = infoDaoImpl.getLiveText2();
+		liveTextList3 = infoDaoImpl.getLiveText3();
+		liveTextList4 = infoDaoImpl.getLiveText4();
+if(gamePO.getCurrentPeriod()!=null){
 		if (gamePO.getCurrentPeriod().equals("1")) {
 			live1(liveTextList1);
 			livelbl.add(liveScrollPane1);
@@ -878,7 +915,7 @@ public class LiveInfoPanel extends JPanel {
 			livelbl.add(liveScrollPane3);
 			livelbl.add(liveScrollPane4);
 		}
-
+}
 		firstPeriod.setVisible(true);
 		firstPeriod.addActionListener(e -> {
 			if (liveScrollPane1 != null) {
@@ -1393,6 +1430,7 @@ public class LiveInfoPanel extends JPanel {
 		summarylbl.setHorizontalAlignment(SwingConstants.CENTER);
 		summarylbl.setBounds(X * 0 / 1366, Y * 194 / 768, X * 1231 / 1366,
 				Y * 560 / 768);
+		summarylbl.setVisible(false);
 
 		MyLabel hitRatelbl = new MyLabel("命中率");
 		hitRatelbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1430,211 +1468,276 @@ public class LiveInfoPanel extends JPanel {
 		assistancelbl.setFont(new Font("微软雅黑", 1, 16));
 		summarylbl.add(assistancelbl);
 
-		JLabel lblGuestHitRate = new JLabel();
-		lblGuestHitRate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGuestHitRate.setBounds(
-				X
-						* (607 - Integer.parseInt(new java.text.DecimalFormat(
-								"0").format(Double.parseDouble(guestTeamPo
-								.getShootRatio()))) * 3) / 1366,
-				Y * 120 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(guestTeamPo
-										.getShootRatio()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getShootRatio()) >= Double
-				.parseDouble(hostTeamPo.getShootRatio())) {
-			lblGuestHitRate.setBackground(Color.BLUE);
-		} else {
-			lblGuestHitRate.setBackground(Color.LIGHT_GRAY);
+		if (guestTeamPo.getShootRatio() != null
+				&& guestTeamPo.getShootRatio() != "") {
+			JLabel lblGuestHitRate = new JLabel();
+			lblGuestHitRate.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGuestHitRate
+					.setBounds(
+							X
+									* (607 - Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double
+													.parseDouble(guestTeamPo
+															.getShootRatio()))) * 3)
+									/ 1366,
+							Y * 120 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double
+													.parseDouble(guestTeamPo
+															.getShootRatio()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getShootRatio()) >= Double
+					.parseDouble(hostTeamPo.getShootRatio())) {
+				lblGuestHitRate.setBackground(Color.BLUE);
+			} else {
+				lblGuestHitRate.setBackground(Color.LIGHT_GRAY);
+			}
+			lblGuestHitRate.setOpaque(true);
+			summarylbl.add(lblGuestHitRate);
 		}
-		lblGuestHitRate.setOpaque(true);
-		summarylbl.add(lblGuestHitRate);
-
-		JLabel lblHostHitRate = new JLabel();
-		lblHostHitRate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHostHitRate.setBounds(
-				X * 757 / 1366,
-				Y * 120 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(hostTeamPo
-										.getShootRatio()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getShootRatio()) >= Double
-				.parseDouble(hostTeamPo.getShootRatio())) {
-			lblHostHitRate.setBackground(Color.LIGHT_GRAY);
-		} else {
-			lblHostHitRate.setBackground(Color.BLUE);
+		if (hostTeamPo.getShootRatio() != null
+				&& hostTeamPo.getShootRatio() != "") {
+			JLabel lblHostHitRate = new JLabel();
+			lblHostHitRate.setHorizontalAlignment(SwingConstants.CENTER);
+			lblHostHitRate
+					.setBounds(
+							X * 757 / 1366,
+							Y * 120 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double
+													.parseDouble(hostTeamPo
+															.getShootRatio()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getShootRatio()) >= Double
+					.parseDouble(hostTeamPo.getShootRatio())) {
+				lblHostHitRate.setBackground(Color.LIGHT_GRAY);
+			} else {
+				lblHostHitRate.setBackground(Color.BLUE);
+			}
+			lblHostHitRate.setOpaque(true);
+			summarylbl.add(lblHostHitRate);
 		}
-		lblHostHitRate.setOpaque(true);
-		summarylbl.add(lblHostHitRate);
 
-		JLabel lblGuestThreePointHitRate = new JLabel();
-		lblGuestThreePointHitRate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGuestThreePointHitRate.setBounds(
-				X
-						* (607 - Integer.parseInt(new java.text.DecimalFormat(
-								"0").format(Double.parseDouble(guestTeamPo
-								.getThreePointShootRatio()))) * 3) / 1366,
-				Y * 188 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(guestTeamPo
-										.getThreePointShootRatio()))) * 3)
-						/ 1366, Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getThreePointShootRatio()) >= Double
-				.parseDouble(hostTeamPo.getThreePointShootRatio())) {
-			lblGuestThreePointHitRate.setBackground(Color.BLUE);
-		} else {
-			lblGuestThreePointHitRate.setBackground(Color.LIGHT_GRAY);
+		if (guestTeamPo.getThreePointShootRatio() != null
+				&& guestTeamPo.getThreePointShootRatio() != "") {
+			JLabel lblGuestThreePointHitRate = new JLabel();
+			lblGuestThreePointHitRate
+					.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGuestThreePointHitRate
+					.setBounds(
+							X
+									* (607 - Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double.parseDouble(guestTeamPo
+													.getThreePointShootRatio()))) * 3)
+									/ 1366,
+							Y * 188 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double.parseDouble(guestTeamPo
+													.getThreePointShootRatio()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getThreePointShootRatio()) >= Double
+					.parseDouble(hostTeamPo.getThreePointShootRatio())) {
+				lblGuestThreePointHitRate.setBackground(Color.BLUE);
+			} else {
+				lblGuestThreePointHitRate.setBackground(Color.LIGHT_GRAY);
+			}
+			lblGuestThreePointHitRate.setOpaque(true);
+			summarylbl.add(lblGuestThreePointHitRate);
 		}
-		lblGuestThreePointHitRate.setOpaque(true);
-		summarylbl.add(lblGuestThreePointHitRate);
 
-		JLabel lblHostThreePointHitRate = new JLabel();
-		lblHostThreePointHitRate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHostThreePointHitRate.setBounds(
-				X * 757 / 1366,
-				Y * 188 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(hostTeamPo
-										.getThreePointShootRatio()))) * 3)
-						/ 1366, Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getThreePointShootRatio()) >= Double
-				.parseDouble(hostTeamPo.getThreePointShootRatio())) {
-			lblHostThreePointHitRate.setBackground(Color.LIGHT_GRAY);
-		} else {
-			lblHostThreePointHitRate.setBackground(Color.BLUE);
+		if (hostTeamPo.getThreePointShootRatio() != null
+				&& hostTeamPo.getThreePointShootRatio() != "") {
+			JLabel lblHostThreePointHitRate = new JLabel();
+			lblHostThreePointHitRate
+					.setHorizontalAlignment(SwingConstants.CENTER);
+			lblHostThreePointHitRate
+					.setBounds(
+							X * 757 / 1366,
+							Y * 188 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double.parseDouble(hostTeamPo
+													.getThreePointShootRatio()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getThreePointShootRatio()) >= Double
+					.parseDouble(hostTeamPo.getThreePointShootRatio())) {
+				lblHostThreePointHitRate.setBackground(Color.LIGHT_GRAY);
+			} else {
+				lblHostThreePointHitRate.setBackground(Color.BLUE);
+			}
+			lblHostThreePointHitRate.setOpaque(true);
+			summarylbl.add(lblHostThreePointHitRate);
 		}
-		lblHostThreePointHitRate.setOpaque(true);
-		summarylbl.add(lblHostThreePointHitRate);
 
-		JLabel lblGuestFreeThrowHitRate = new JLabel();
-		lblGuestFreeThrowHitRate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGuestFreeThrowHitRate.setBounds(
-				X
-						* (607 - Integer.parseInt(new java.text.DecimalFormat(
-								"0").format(Double.parseDouble(guestTeamPo
-								.getFreeThrowRatio()))) * 3) / 1366,
-				Y * 256 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(guestTeamPo
-										.getFreeThrowRatio()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getFreeThrowRatio()) >= Double
-				.parseDouble(hostTeamPo.getFreeThrowRatio())) {
-			lblGuestFreeThrowHitRate.setBackground(Color.BLUE);
-		} else {
-			lblGuestFreeThrowHitRate.setBackground(Color.LIGHT_GRAY);
+		if (guestTeamPo.getFreeThrowRatio() != null
+				&& guestTeamPo.getFreeThrowRatio() != "") {
+			JLabel lblGuestFreeThrowHitRate = new JLabel();
+			lblGuestFreeThrowHitRate
+					.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGuestFreeThrowHitRate
+					.setBounds(
+							X
+									* (607 - Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double.parseDouble(guestTeamPo
+													.getFreeThrowRatio()))) * 3)
+									/ 1366,
+							Y * 256 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double.parseDouble(guestTeamPo
+													.getFreeThrowRatio()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getFreeThrowRatio()) >= Double
+					.parseDouble(hostTeamPo.getFreeThrowRatio())) {
+				lblGuestFreeThrowHitRate.setBackground(Color.BLUE);
+			} else {
+				lblGuestFreeThrowHitRate.setBackground(Color.LIGHT_GRAY);
+			}
+			lblGuestFreeThrowHitRate.setOpaque(true);
+			summarylbl.add(lblGuestFreeThrowHitRate);
 		}
-		lblGuestFreeThrowHitRate.setOpaque(true);
-		summarylbl.add(lblGuestFreeThrowHitRate);
 
-		JLabel lblHostFreeThrowHitRate = new JLabel();
-		lblHostFreeThrowHitRate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHostFreeThrowHitRate.setBounds(
-				X * 757 / 1366,
-				Y * 256 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(hostTeamPo
-										.getFreeThrowRatio()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getFreeThrowRatio()) >= Double
-				.parseDouble(hostTeamPo.getFreeThrowRatio())) {
-			lblHostFreeThrowHitRate.setBackground(Color.LIGHT_GRAY);
-		} else {
-			lblHostFreeThrowHitRate.setBackground(Color.BLUE);
+		if (hostTeamPo.getFreeThrowRatio() != null
+				&& hostTeamPo.getFreeThrowRatio() != "") {
+			JLabel lblHostFreeThrowHitRate = new JLabel();
+			lblHostFreeThrowHitRate
+					.setHorizontalAlignment(SwingConstants.CENTER);
+			lblHostFreeThrowHitRate
+					.setBounds(
+							X * 757 / 1366,
+							Y * 256 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double.parseDouble(hostTeamPo
+													.getFreeThrowRatio()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getFreeThrowRatio()) >= Double
+					.parseDouble(hostTeamPo.getFreeThrowRatio())) {
+				lblHostFreeThrowHitRate.setBackground(Color.LIGHT_GRAY);
+			} else {
+				lblHostFreeThrowHitRate.setBackground(Color.BLUE);
+			}
+			lblHostFreeThrowHitRate.setOpaque(true);
+			summarylbl.add(lblHostFreeThrowHitRate);
 		}
-		lblHostFreeThrowHitRate.setOpaque(true);
-		summarylbl.add(lblHostFreeThrowHitRate);
 
-		JLabel lblGuestRebound = new JLabel();
-		lblGuestRebound.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGuestRebound.setBounds(
-				X
-						* (607 - Integer.parseInt(new java.text.DecimalFormat(
-								"0").format(Double.parseDouble(guestTeamPo
-								.getRebound()))) * 3) / 1366,
-				Y * 324 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(guestTeamPo
-										.getRebound()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getRebound()) >= Double
-				.parseDouble(hostTeamPo.getRebound())) {
-			lblGuestRebound.setBackground(Color.BLUE);
-		} else {
-			lblGuestRebound.setBackground(Color.LIGHT_GRAY);
+		if (guestTeamPo.getRebound() != null && guestTeamPo.getRebound() != "") {
+			JLabel lblGuestRebound = new JLabel();
+			lblGuestRebound.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGuestRebound
+					.setBounds(
+							X
+									* (607 - Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double
+													.parseDouble(guestTeamPo
+															.getRebound()))) * 3)
+									/ 1366,
+							Y * 324 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double
+													.parseDouble(guestTeamPo
+															.getRebound()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getRebound()) >= Double
+					.parseDouble(hostTeamPo.getRebound())) {
+				lblGuestRebound.setBackground(Color.BLUE);
+			} else {
+				lblGuestRebound.setBackground(Color.LIGHT_GRAY);
+			}
+			lblGuestRebound.setOpaque(true);
+			summarylbl.add(lblGuestRebound);
 		}
-		lblGuestRebound.setOpaque(true);
-		summarylbl.add(lblGuestRebound);
 
-		JLabel lblHostRebound = new JLabel();
-		lblHostRebound.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHostRebound.setBounds(
-				X * 757 / 1366,
-				Y * 324 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(hostTeamPo
-										.getRebound()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getRebound()) >= Double
-				.parseDouble(hostTeamPo.getRebound())) {
-			lblHostRebound.setBackground(Color.LIGHT_GRAY);
-		} else {
-			lblHostRebound.setBackground(Color.BLUE);
+		if (hostTeamPo.getRebound() != null && hostTeamPo.getRebound() != "") {
+			JLabel lblHostRebound = new JLabel();
+			lblHostRebound.setHorizontalAlignment(SwingConstants.CENTER);
+			lblHostRebound
+					.setBounds(
+							X * 757 / 1366,
+							Y * 324 / 768,
+							X
+									* (Integer
+											.parseInt(new java.text.DecimalFormat(
+													"0").format(Double
+													.parseDouble(hostTeamPo
+															.getRebound()))) * 3)
+									/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getRebound()) >= Double
+					.parseDouble(hostTeamPo.getRebound())) {
+				lblHostRebound.setBackground(Color.LIGHT_GRAY);
+			} else {
+				lblHostRebound.setBackground(Color.BLUE);
+			}
+			lblHostRebound.setOpaque(true);
+			summarylbl.add(lblHostRebound);
 		}
-		lblHostRebound.setOpaque(true);
-		summarylbl.add(lblHostRebound);
 
-		JLabel lblGuestAssistance = new JLabel();
-		lblGuestAssistance.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGuestAssistance.setBounds(
-				X
-						* (607 - Integer.parseInt(new java.text.DecimalFormat(
-								"0").format(Double.parseDouble(guestTeamPo
-								.getAsist()))) * 3) / 1366,
-				Y * 324 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(guestTeamPo
-										.getAsist()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getAsist()) >= Double
-				.parseDouble(hostTeamPo.getAsist())) {
-			lblGuestAssistance.setBackground(Color.BLUE);
-		} else {
-			lblGuestAssistance.setBackground(Color.LIGHT_GRAY);
+		if (guestTeamPo.getAsist() != null && guestTeamPo.getAsist() != "") {
+			JLabel lblGuestAssistance = new JLabel();
+			lblGuestAssistance.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGuestAssistance.setBounds(
+					X
+							* (607 - Integer
+									.parseInt(new java.text.DecimalFormat("0")
+											.format(Double
+													.parseDouble(guestTeamPo
+															.getAsist()))) * 3)
+							/ 1366,
+					Y * 324 / 768,
+					X
+							* (Integer
+									.parseInt(new java.text.DecimalFormat("0")
+											.format(Double
+													.parseDouble(guestTeamPo
+															.getAsist()))) * 3)
+							/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getAsist()) >= Double
+					.parseDouble(hostTeamPo.getAsist())) {
+				lblGuestAssistance.setBackground(Color.BLUE);
+			} else {
+				lblGuestAssistance.setBackground(Color.LIGHT_GRAY);
+			}
+			lblGuestAssistance.setOpaque(true);
+			summarylbl.add(lblGuestAssistance);
 		}
-		lblGuestAssistance.setOpaque(true);
-		summarylbl.add(lblGuestAssistance);
 
-		JLabel lblHostAssistance = new JLabel();
-		lblHostAssistance.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHostAssistance.setBounds(
-				X * 757 / 1366,
-				Y * 324 / 768,
-				X
-						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(Double.parseDouble(hostTeamPo
-										.getAsist()))) * 3) / 1366,
-				Y * 28 / 768);
-		if (Double.parseDouble(guestTeamPo.getAsist()) >= Double
-				.parseDouble(hostTeamPo.getAsist())) {
-			lblHostAssistance.setBackground(Color.LIGHT_GRAY);
-		} else {
-			lblHostAssistance.setBackground(Color.BLUE);
+		if (hostTeamPo.getAsist() != null && hostTeamPo.getAsist() != "") {
+			JLabel lblHostAssistance = new JLabel();
+			lblHostAssistance.setHorizontalAlignment(SwingConstants.CENTER);
+			lblHostAssistance.setBounds(
+					X * 757 / 1366,
+					Y * 324 / 768,
+					X
+							* (Integer
+									.parseInt(new java.text.DecimalFormat("0")
+											.format(Double
+													.parseDouble(hostTeamPo
+															.getAsist()))) * 3)
+							/ 1366, Y * 28 / 768);
+			if (Double.parseDouble(guestTeamPo.getAsist()) >= Double
+					.parseDouble(hostTeamPo.getAsist())) {
+				lblHostAssistance.setBackground(Color.LIGHT_GRAY);
+			} else {
+				lblHostAssistance.setBackground(Color.BLUE);
+			}
+			lblHostAssistance.setOpaque(true);
+			summarylbl.add(lblHostAssistance);
 		}
-		lblHostAssistance.setOpaque(true);
-		summarylbl.add(lblHostAssistance);
-
 		bgLabel.add(summarylbl);
 
 		VisionController(currentState);
@@ -1652,6 +1755,7 @@ public class LiveInfoPanel extends JPanel {
 		datalbl.setBounds(X * 0 / 1366, Y * 194 / 768, X * 1331 / 1366,
 				Y * 560 / 768);
 		datalbl.setBackground(Color.blue);
+		datalbl.setVisible(false);
 
 		compareCriterias = new String[4];
 		compareCriterias[0] = "BASIC";
@@ -2184,115 +2288,6 @@ public class LiveInfoPanel extends JPanel {
 		}
 	}
 
-	public class GameObserver implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			gamePO = (GamePO) arg;
-			gameDataLive(gamePO);
-			courtLive(gamePO);
-		}
-
-	}
-
-	public class LiveText1Observer implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			System.out
-					.println("????????????????????????????????????????????????????????????");
-			liveTextList1 = (ArrayList<LiveTextPO>) arg;
-			live1(liveTextList1);
-			// live();
-
-		}
-
-	}
-
-	public class LiveText2Observer implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			liveTextList2 = (ArrayList<LiveTextPO>) arg;
-			live2(liveTextList2);
-			// live();
-		}
-
-	}
-
-	public class LiveText3Observer implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			liveTextList3 = (ArrayList<LiveTextPO>) arg;
-			live3(liveTextList3);
-			// live();
-
-		}
-
-	}
-
-	public class LiveText4Observer implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			liveTextList4 = (ArrayList<LiveTextPO>) arg;
-			live4(liveTextList4);
-			live();
-		}
-
-	}
-
-	public class GuestTeamObserver implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			guestTeamPo = (TeamPO) arg;
-			teamDataLive(guestTeamPo, hostTeamPo);
-
-		}
-
-	}
-
-	public class HostTeamObserver implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			guestTeamPo = (TeamPO) arg;
-			teamDataLive(guestTeamPo, hostTeamPo);
-
-		}
-
-	}
-
-	public class GuestPlayersObserver implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			guestPlayerDataList = (ArrayList<PlayerPO>) arg;
-			playerDataLive(guestPlayerDataList, hostPlayerDataList);
-		}
-
-	}
-
-	public class HostPlayersObserver implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			hostPlayerDataList = (ArrayList<PlayerPO>) arg;
-			playerDataLive(guestPlayerDataList, hostPlayerDataList);
-		}
-
-	}
 
 	public void PlayerButtonHighLight(String gorh, int i) {
 		ImageIcon initialPlayerPortraitG1 = new ImageIcon(new ImageIcon(
@@ -2476,26 +2471,24 @@ public class LiveInfoPanel extends JPanel {
 		live();
 		gameDataLive(infoDaoImpl.getGame());
 		courtLive(infoDaoImpl.getGame());
-/*
-		if (currentState.equals("live")) {
-			playerDataLive(infoDaoImpl.getGuestPlayers(),
-					infoDaoImpl.getHostPlayers());
-			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
-			live();
-			gameDataLive(infoDaoImpl.getGame());
-			courtLive(infoDaoImpl.getGame());
-		} else if (currentState.equals("playerDataLive")) {
-			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
-			live();
-			playerDataLive(infoDaoImpl.getGuestPlayers(),
-					infoDaoImpl.getHostPlayers());
-		} else if (currentState.equals("teamDataLive")) {
-			live();
-			playerDataLive(infoDaoImpl.getGuestPlayers(),
-					infoDaoImpl.getHostPlayers());
-			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
-		}
-*/
+		VisionController(currentState);
+		/*
+		 * if (currentState.equals("live")) {
+		 * playerDataLive(infoDaoImpl.getGuestPlayers(),
+		 * infoDaoImpl.getHostPlayers());
+		 * teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
+		 * live(); gameDataLive(infoDaoImpl.getGame());
+		 * courtLive(infoDaoImpl.getGame()); } else if
+		 * (currentState.equals("playerDataLive")) {
+		 * teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
+		 * live(); playerDataLive(infoDaoImpl.getGuestPlayers(),
+		 * infoDaoImpl.getHostPlayers()); } else if
+		 * (currentState.equals("teamDataLive")) { live();
+		 * playerDataLive(infoDaoImpl.getGuestPlayers(),
+		 * infoDaoImpl.getHostPlayers());
+		 * teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
+		 * }
+		 */
 	}
 
 	class TableCellTextAreaRenderer extends JTextArea implements
