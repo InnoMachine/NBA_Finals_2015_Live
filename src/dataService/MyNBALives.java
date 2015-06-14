@@ -85,9 +85,9 @@ public class MyNBALives {
 	public static void live() {
 		
 		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(1))));
-		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(2))));
-		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(3))));
-		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(4))));
+		Singleton.getInstance().setLiveText2(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(2))));
+		Singleton.getInstance().setLiveText3(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(3))));
+		Singleton.getInstance().setLiveText4(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(4))));
 		
 		String gameJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/snapshotlive_0041400404.json");
 		JSONObject gameJsonObject = JSON.parseObject(gameJsonString, JSONObject.class);

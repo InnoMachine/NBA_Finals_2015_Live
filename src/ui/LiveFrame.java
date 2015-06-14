@@ -48,9 +48,14 @@ public class LiveFrame extends JFrame {
 			MyNBALives.live();
 		}
 		*/
+		MyNBALives.init();
 		while (true){
 			try {
+<<<<<<< HEAD
 				Thread.sleep(3000);
+=======
+				Thread.sleep(1000);
+>>>>>>> origin/master
 				MyNBALives.live();
 				liveInfoPanel.refresh();
 			} catch (InterruptedException e) {
