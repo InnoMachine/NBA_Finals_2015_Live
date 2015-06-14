@@ -41,7 +41,7 @@ public class LiveInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	static GamePO gamePO = null;
 	JFrame mainFrame;
-	InfoDaoImpl infoDaoImpl = new InfoDaoImpl();
+	// InfoDaoImpl infoDaoImpl = new InfoDaoImpl();
 
 	String currentState = "live";
 	static ArrayList<LiveTextPO> liveTextList = null;
@@ -52,13 +52,13 @@ public class LiveInfoPanel extends JPanel {
 	TeamPO guestTeamPo = null;
 	TeamPO hostTeamPo = null;
 
-	JButton firstPeriod;
-	JButton secondPeriod;
-	JButton thirdPeriod;
-	JButton fourthPeriod;
-	JButton extraPeriod1;
-	JButton extraPeriod2;
-	JButton extraPeriod3;
+	JButton firstPeriod = new JButton();
+	JButton secondPeriod = new JButton();
+	JButton thirdPeriod = new JButton();
+	JButton fourthPeriod = new JButton();
+	JButton extraPeriod1 = new JButton();
+	JButton extraPeriod2 = new JButton();
+	JButton extraPeriod3 = new JButton();
 
 	static private JTable liveTable;
 
@@ -148,7 +148,7 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel = new JLabel();
 		bgLabel.setBounds(0, 0, X, Y);
 
-		ImageIcon bg = new ImageIcon(new ImageIcon("images/background1.png")
+		ImageIcon bg = new ImageIcon(new ImageIcon("images/backgrounds/background1.png")
 				.getImage().getScaledInstance(this.getWidth(),
 						this.getHeight(), Image.SCALE_SMOOTH));
 		bgLabel.setIcon(bg);
@@ -196,7 +196,7 @@ public class LiveInfoPanel extends JPanel {
 		mainFrame.getContentPane().add(this);
 
 		// -------------------------------获取初始gamePO---------------------------------
-//		gamePO = infoDaoImpl.getGame();
+		// gamePO = infoDaoImpl.getGame();
 		gamePO = new GamePO();
 		gamePO.setGuestTeam("CLE");
 		gamePO.setHomeTeam("GSW");
@@ -266,55 +266,57 @@ public class LiveInfoPanel extends JPanel {
 		// guestPlayerDataList = infoDaoImpl.getGuestPlayers();
 		// hostPlayerDataList = infoDaoImpl.getHostPlayers();
 		PlayerPO p1 = new PlayerPO();
-		p1.setAsist("");
-		p1.setBackRebound("");
-		p1.setBlock("");
-		p1.setCnName("");
-		p1.setEnName("");
-		p1.setForwardRebound("");
-		p1.setFoul("");
-		p1.setFreeThrowInNum("");
-		p1.setFreethrowInRatio("");
-		p1.setFreeThrowTotalNum("");
+		p1.setAsist("1");
+		p1.setBackRebound("1");
+		p1.setBlock("1");
+		p1.setCnName("史蒂夫");
+		p1.setEnName("Steve");
+		p1.setForwardRebound("1");
+		p1.setFoul("1");
+		p1.setFreeThrowInNum("1");
+		p1.setFreethrowInRatio("0.0");
+		p1.setFreeThrowTotalNum("1");
 		p1.setOnCourt(true);
-		p1.setPosition("");
-		p1.setScore("");
-		p1.setShootInNum("");
-		p1.setShootInRatio("");
-		p1.setShootThreeInNum("");
-		p1.setShootThreeInRatio("");
-		p1.setShootThreeTotalNum("");
-		p1.setShootTotalNum("");
-		p1.setSteal("");
-		p1.setTimeOnCourt("");
-		p1.setTotalRebound("");
-		p1.setTurnover("");
+		p1.setPosition("1");
+		p1.setScore("1");
+		p1.setShootInNum("1");
+		p1.setShootInRatio("0.0");
+		p1.setShootThreeInNum("1");
+		p1.setShootThreeInRatio("0.0");
+		p1.setShootThreeTotalNum("1");
+		p1.setShootTotalNum("1");
+		p1.setSteal("1");
+		p1.setTimeOnCourt("1");
+		p1.setTotalRebound("1");
+		p1.setTurnover("1");
 
 		PlayerPO p2 = new PlayerPO();
 
 		p2.setAsist("");
-		p2.setBackRebound("");
-		p2.setBlock("");
-		p2.setCnName("");
-		p2.setEnName("");
-		p2.setForwardRebound("");
-		p2.setFoul("");
-		p2.setFreeThrowInNum("");
-		p2.setFreethrowInRatio("");
-		p2.setFreeThrowTotalNum("");
+		p2.setBackRebound("2");
+		p2.setBlock("2");
+		p2.setCnName("啊");
+		p2.setEnName("A");
+		p2.setForwardRebound("2");
+		p2.setFoul("2");
+		p2.setFreeThrowInNum("2");
+		p2.setFreethrowInRatio("0.0");
+		p2.setFreeThrowTotalNum("2");
 		p2.setOnCourt(true);
-		p2.setPosition("");
-		p2.setScore("");
-		p2.setShootInNum("");
-		p2.setShootInRatio("");
-		p2.setShootThreeInNum("");
-		p2.setShootThreeInRatio("");
-		p2.setShootThreeTotalNum("");
-		p2.setShootTotalNum("");
-		p2.setSteal("");
-		p2.setTimeOnCourt("");
-		p2.setTotalRebound("");
-		p2.setTurnover("");
+		p2.setPosition("2");
+		p2.setScore("2");
+		p2.setShootInNum("2");
+		p2.setShootInRatio("0.0");
+		p2.setShootThreeInNum("2");
+		p2.setShootThreeInRatio("0.0");
+		p2.setShootThreeTotalNum("2");
+		p2.setShootTotalNum("2");
+		p2.setSteal("2");
+		p2.setTimeOnCourt("2");
+		p2.setTotalRebound("2");
+		p2.setTurnover("2");
+		guestPlayerDataList = new ArrayList<PlayerPO>();
+		hostPlayerDataList = new ArrayList<PlayerPO>();
 		guestPlayerDataList.add(p1);
 		hostPlayerDataList.add(p2);
 
@@ -326,6 +328,7 @@ public class LiveInfoPanel extends JPanel {
 		liveTextPO.setRemainingTime("11.2");
 		liveTextPO.setTeamAbbr(TeamAbbr.CLE);
 		liveTextPO.setText("ttttttttttttest");
+		liveTextList = new ArrayList<LiveTextPO>();
 		liveTextList.add(liveTextPO);
 
 		int spaceX = 565;
@@ -406,7 +409,7 @@ public class LiveInfoPanel extends JPanel {
 		databtn.addActionListener(e -> {
 			currentState = "playerDataLive";
 			playerDataLive(guestPlayerDataList, hostPlayerDataList);
-			VisionController("PlayerDataLive");
+			VisionController("playerDataLive");
 		});
 		bgLabel.add(databtn);
 
@@ -414,10 +417,10 @@ public class LiveInfoPanel extends JPanel {
 
 		currentState = "live";
 		live(liveTextList);
+		courtLive(gamePO);
 		VisionController("live");
 		mainFrame.getContentPane().add(this);
 
-		firstPeriod = new JButton();
 		firstPeriod.setBounds(X * 0 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
 		firstPeriod.setText("第一节");
@@ -425,15 +428,15 @@ public class LiveInfoPanel extends JPanel {
 		firstPeriod.setForeground(Color.WHITE);
 		firstPeriod.setVisible(false);
 
-		secondPeriod = new JButton();
+	//	secondPeriod = new JButton();
 		secondPeriod.setBounds(X * 50 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
-		secondPeriod.setText("第二节");
+	//	secondPeriod.setText("第二节");
 		secondPeriod.setBackground(Color.GRAY);
 		secondPeriod.setForeground(Color.WHITE);
 		secondPeriod.setVisible(false);
 
-		thirdPeriod = new JButton();
+		//thirdPeriod = new JButton();
 		thirdPeriod.setBounds(X * 100 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
 		thirdPeriod.setText("第三节");
@@ -441,7 +444,7 @@ public class LiveInfoPanel extends JPanel {
 		thirdPeriod.setForeground(Color.WHITE);
 		thirdPeriod.setVisible(false);
 
-		fourthPeriod = new JButton();
+		//fourthPeriod = new JButton();
 		fourthPeriod.setBounds(X * 150 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
 		fourthPeriod.setText("第四节");
@@ -449,7 +452,7 @@ public class LiveInfoPanel extends JPanel {
 		fourthPeriod.setForeground(Color.WHITE);
 		fourthPeriod.setVisible(false);
 
-		extraPeriod1 = new JButton();
+	//	extraPeriod1 = new JButton();
 		extraPeriod1.setBounds(X * 200 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
 		extraPeriod1.setText("1");
@@ -457,7 +460,7 @@ public class LiveInfoPanel extends JPanel {
 		extraPeriod1.setForeground(Color.WHITE);
 		extraPeriod1.setVisible(false);
 
-		extraPeriod2 = new JButton();
+	//	extraPeriod2 = new JButton();
 		extraPeriod2.setBounds(X * 250 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
 		extraPeriod2.setText("2");
@@ -465,7 +468,7 @@ public class LiveInfoPanel extends JPanel {
 		extraPeriod2.setForeground(Color.WHITE);
 		extraPeriod2.setVisible(false);
 
-		extraPeriod3 = new JButton();
+	//	extraPeriod3 = new JButton();
 		extraPeriod3.setBounds(X * 300 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
 		extraPeriod3.setText("3");
@@ -1336,6 +1339,7 @@ public class LiveInfoPanel extends JPanel {
 		hitRatelbl.setBounds(X * 607 / 1366, Y * 100 / 768, X * 150 / 1366,
 				Y * 68 / 768);
 		hitRatelbl.setFont(new Font("微软雅黑", 1, 16));
+		hitRatelbl.setForeground(Color.WHITE);
 		summarylbl.add(hitRatelbl);
 
 		MyLabel threePointHitRatelbl = new MyLabel("三分命中率");
@@ -1494,12 +1498,12 @@ public class LiveInfoPanel extends JPanel {
 		lblGuestRebound.setBounds(
 				X
 						* (607 - Integer.parseInt(new java.text.DecimalFormat(
-								"0").format(guestTeamPo.getRebound())) * 3)
+								"0").format(Double.parseDouble(guestTeamPo.getRebound()))) * 3)
 						/ 1366,
 				Y * 324 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(guestTeamPo.getRebound())) * 3) / 1366,
+								.format(Double.parseDouble(guestTeamPo.getRebound()))) * 3) / 1366,
 				Y * 28 / 768);
 		if (Double.parseDouble(guestTeamPo.getRebound()) >= Double
 				.parseDouble(hostTeamPo.getRebound())) {
@@ -1517,7 +1521,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 324 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(hostTeamPo.getRebound())) * 3) / 1366,
+								.format(Double.parseDouble(hostTeamPo.getRebound()))) * 3) / 1366,
 				Y * 28 / 768);
 		if (Double.parseDouble(guestTeamPo.getRebound()) >= Double
 				.parseDouble(hostTeamPo.getRebound())) {
@@ -1533,12 +1537,12 @@ public class LiveInfoPanel extends JPanel {
 		lblGuestAssistance.setBounds(
 				X
 						* (607 - Integer.parseInt(new java.text.DecimalFormat(
-								"0").format(guestTeamPo.getAsist())) * 3)
+								"0").format(Double.parseDouble(guestTeamPo.getAsist()))) * 3)
 						/ 1366,
 				Y * 324 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(guestTeamPo.getAsist())) * 3) / 1366,
+								.format(Double.parseDouble(guestTeamPo.getAsist()))) * 3) / 1366,
 				Y * 28 / 768);
 		if (Double.parseDouble(guestTeamPo.getAsist()) >= Double
 				.parseDouble(hostTeamPo.getAsist())) {
@@ -1556,7 +1560,7 @@ public class LiveInfoPanel extends JPanel {
 				Y * 324 / 768,
 				X
 						* (Integer.parseInt(new java.text.DecimalFormat("0")
-								.format(hostTeamPo.getAsist())) * 3) / 1366,
+								.format(Double.parseDouble(hostTeamPo.getAsist()))) * 3) / 1366,
 				Y * 28 / 768);
 		if (Double.parseDouble(guestTeamPo.getAsist()) >= Double
 				.parseDouble(hostTeamPo.getAsist())) {
@@ -1962,7 +1966,7 @@ public class LiveInfoPanel extends JPanel {
 			}
 
 		} else if (label.equals("teamDataLive")) {
-
+			currentState = "teamDataLive";
 			if (courtlbl != null) {
 				courtlbl.setVisible(false);
 			}
@@ -1977,24 +1981,6 @@ public class LiveInfoPanel extends JPanel {
 			}
 			if (datalbl != null) {
 				datalbl.setVisible(false);
-			} else if (label.equals("playerDataLive")) {
-				currentState = "playerDataLive";
-
-				if (courtlbl != null) {
-					courtlbl.setVisible(false);
-				}
-				if (liveTextlbl != null) {
-					liveTextlbl.setVisible(false);
-				}
-				if (livelbl != null) {
-					livelbl.setVisible(false);
-				}
-				if (summarylbl != null) {
-					summarylbl.setVisible(false);
-				}
-				if (datalbl != null) {
-					datalbl.setVisible(true);
-				}
 			}
 		}
 
