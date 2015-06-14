@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import po.GameDate;
 import po.GamePO;
 import po.LiveTextPO;
+import po.LiveTexts;
 import po.PlayerPO;
+import po.Players;
 import po.Scoreboard;
 import po.TeamPO;
 
@@ -23,8 +25,9 @@ public class MyNBALives {
 	
 	public static void main(String args[]){
 		init();
-		live();
-		
+		while(true) {
+			live();
+		}
 	}
 	
 	public static void init() {
@@ -81,10 +84,10 @@ public class MyNBALives {
 	
 	public static void live() {
 		
-		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(1)));
-		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(2)));
-		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(3)));
-		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(4)));
+		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(1))));
+		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(2))));
+		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(3))));
+		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(4))));
 		
 		String gameJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/snapshotlive_0041400404.json");
 		JSONObject gameJsonObject = JSON.parseObject(gameJsonString, JSONObject.class);
@@ -94,9 +97,9 @@ public class MyNBALives {
 		JSONArray awayteamplayersArray = awayteam.getJSONArray("gamePlayers");
 		JSONArray hometeamplayersArray = hometeam.getJSONArray("gamePlayers");
 		
+		Singleton.getInstance().setGuestPlayers(new Players(getAwayPlayers(awayteamplayersArray)));
+		Singleton.getInstance().setHostPlayers(new Players(getHomePlayers(hometeamplayersArray)));
 		Singleton.getInstance().setGame(getGame(gamePayload));
-		Singleton.getInstance().setGuestPlayers(getAwayPlayers(awayteamplayersArray));
-		Singleton.getInstance().setHostPlayers(getHomePlayers(hometeamplayersArray));
 		Singleton.getInstance().setGuestTeam(getAwayTeam(awayteam));
 		Singleton.getInstance().setHostTeam(getHomeTeam(hometeam));
 	}
@@ -195,7 +198,7 @@ public class MyNBALives {
 		JSONObject awayteamScore = awayteam.getJSONObject("score");
 		team.setAbbreviation(awayteam.getJSONObject("profile").getString("abbr"));
 		ArrayList<String> allPlayersNameList = new ArrayList<String>();
-		for(PlayerPO player: Singleton.getInstance().getGuestPlayers()) {
+		for(PlayerPO player: Singleton.getInstance().getGuestPlayers().getPlayers()) {
 				allPlayersNameList.add(player.getEnName());
 		}
 		team.setAllPlayersNameList(allPlayersNameList);
@@ -214,7 +217,7 @@ public class MyNBALives {
 		JSONObject hometeamScore = hometeam.getJSONObject("score");
 		team.setAbbreviation(hometeam.getJSONObject("profile").getString("abbr"));
 		ArrayList<String> allPlayersNameList = new ArrayList<String>();
-		for(PlayerPO player: Singleton.getInstance().getHostPlayers()) {
+		for(PlayerPO player: Singleton.getInstance().getHostPlayers().getPlayers()) {
 				allPlayersNameList.add(player.getEnName());
 		}
 		team.setAllPlayersNameList(allPlayersNameList);
@@ -244,7 +247,7 @@ public class MyNBALives {
 		game.setGameDate(new GameDate("2015-6-15"));
 		game.setGameLabel("14-15_2015-6-15_CLE-GSW");
 		ArrayList<String> guestOnCourtPlayerLsit = new ArrayList<String>();
-		for(PlayerPO player: Singleton.getInstance().getGuestPlayers()) {
+		for(PlayerPO player: Singleton.getInstance().getGuestPlayers().getPlayers()) {
 			if(player.getOnCourt().equals("true")) {
 				guestOnCourtPlayerLsit.add(player.getEnName());
 			}
@@ -252,7 +255,7 @@ public class MyNBALives {
 		game.setGuestOnCourtPlayerLsit(guestOnCourtPlayerLsit);
 		game.setGuestTeam("CLE");
 		ArrayList<String> homeOnCourtPlayerLsit = new ArrayList<String>();
-		for(PlayerPO player: Singleton.getInstance().getHostPlayers()) {
+		for(PlayerPO player: Singleton.getInstance().getHostPlayers().getPlayers()) {
 			if(player.getOnCourt().equals("true")) {
 				homeOnCourtPlayerLsit.add(player.getEnName());
 			}

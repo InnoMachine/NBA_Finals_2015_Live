@@ -6,8 +6,9 @@
 package po;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class TeamPO {
+public class TeamPO extends Observable{
 	
 	private ArrayList<String> allPlayersNameList;
 	private String teamName;

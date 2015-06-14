@@ -22,11 +22,7 @@ public interface InfoDao {
 	
 	public TeamPO getGuestTeam();
 	
-	public String getTestString();
-	
 	//----------------------data preparation part----------------------------------------
-	
-	public void updateTestString(String newString);
 	
 	public void addLiveText();
 	

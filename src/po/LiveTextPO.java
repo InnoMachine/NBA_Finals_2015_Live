@@ -1,6 +1,8 @@
 package po;
 
-public class LiveTextPO {
+import java.util.Observable;
+
+public class LiveTextPO extends Observable{
 	
 	String text;
 	int quarterID;

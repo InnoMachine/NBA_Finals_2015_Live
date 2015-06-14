@@ -5,7 +5,9 @@
  */
 package po;
 
-public class PlayerPO {
+import java.util.Observable;
+
+public class PlayerPO extends Observable{
 	
 	private String cnName;
 	private String enName;

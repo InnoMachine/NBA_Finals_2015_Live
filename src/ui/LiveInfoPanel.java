@@ -32,7 +32,6 @@ import po.GamePO;
 import po.LiveTextPO;
 import po.PlayerPO;
 import po.Scoreboard;
-import po.TeamAbbr;
 import po.TeamPO;
 
 public class LiveInfoPanel extends JPanel {
@@ -2193,7 +2192,7 @@ public class LiveInfoPanel extends JPanel {
 			liveTextList1 = (ArrayList<LiveTextPO>) arg;
 			live1(liveTextList1);
 			// live();
-
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		}
 
 	}

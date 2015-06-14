@@ -12,10 +12,9 @@ public class GuiObserver implements Observer {
 	
 	public static void main(String[] args){
 		 
-		Singleton dataObserved = Singleton.getInstance();
 		GuiObserver guiObserver = new GuiObserver();
-		dataObserved.addObserver(guiObserver);
-		new InfoDaoImpl().updateTestString("tttt");
+		Singleton.getInstance().addObserver(guiObserver);
+//		new InfoDaoImpl().updateTestString("tttt");
 	 }
 
 }

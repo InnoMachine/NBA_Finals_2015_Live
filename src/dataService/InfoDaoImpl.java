@@ -101,15 +101,4 @@ public class InfoDaoImpl implements InfoDao {
 		
 	}
 
-	@Override
-	public String getTestString() {
-		return singleton.getTestString();
-	}
-
-	@Override
-	public void updateTestString(String newString) {
-		singleton.setTestString(newString);
-	}
-
-
 }

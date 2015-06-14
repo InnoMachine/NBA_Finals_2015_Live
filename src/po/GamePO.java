@@ -6,8 +6,9 @@
 package po;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class GamePO {
+public class GamePO extends Observable{
 	
 	private String gameLabel;
 	private String seasonId;//season
