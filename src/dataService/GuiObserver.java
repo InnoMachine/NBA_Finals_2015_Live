@@ -7,7 +7,7 @@ public class GuiObserver implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		System.out	.println("i am notified by " + arg + "! update method running");
+		System.out.println("i am notified by " + arg + "! update method running");
 	}
 	
 	public static void main(String[] args){

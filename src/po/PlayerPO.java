@@ -7,8 +7,6 @@ package po;
 
 public class PlayerPO {
 	
-	private boolean isOnCourt;
-	
 	private String cnName;
 	private String enName;
 	private String position;
@@ -31,12 +29,7 @@ public class PlayerPO {
 	private String turnover;
 	private String block;
 	private String score;
-	public boolean isOnCourt() {
-		return isOnCourt;
-	}
-	public void setOnCourt(boolean isOnCourt) {
-		this.isOnCourt = isOnCourt;
-	}
+
 	public String getCnName() {
 		return cnName;
 	}

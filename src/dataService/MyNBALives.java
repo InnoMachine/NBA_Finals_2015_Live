@@ -22,7 +22,12 @@ import com.alibaba.fastjson.JSONObject;
 public class MyNBALives {
 	
 	public static void main(String args[]){
+		init();
 		live();
+		
+	}
+	
+	public static void init() {
 		Singleton singleton = Singleton.getInstance();
 		GamePO game = new GamePO();
 		game.setBegin(true);
@@ -74,7 +79,6 @@ public class MyNBALives {
 //		singleton.setGuestPlayers(guestPlayers);
 //		singleton.setHostPlayers(hostPlayers);
 //		singleton.setLiveText(liveText);
-		
 	}
 	
 	public static void live() {
@@ -125,7 +129,6 @@ public class MyNBALives {
 		livetext.setText(jsonObject.getString("description"));
 		livetext.setScore(jsonObject.getString("awayScore") + "-" + jsonObject.getString("homeScore"));
 		
-		
 		System.out.print(jsonObject.getString("gameClock"));
 		System.out.print("\t");
 		System.out.print(jsonObject.getString("awayScore") + "-" + jsonObject.getString("homeScore"));
@@ -134,17 +137,36 @@ public class MyNBALives {
 		System.out.print(getPlayerNameEnFromId(jsonObject.getString("playerId")));
 		System.out.print("\t");
 		System.out.println(getAbbrFromId(jsonObject.getString("teamId")));
+		System.out.println("---------------------------------------------------------------");
 		return livetext;
 	}
 	
 	public static PlayerPO getPlayer(JSONObject playerObj) {
-		System.out.print(playerObj.getJSONObject("profile").getString("displayNameEn")+"\n");
-		System.out.print(playerObj.getJSONObject("boxscore").getString("isStarter")+"\t");//
-		System.out.print(playerObj.getJSONObject("boxscore").getString("onCourt")+"\t");//
-		System.out.print(playerObj.getJSONObject("boxscore").getString("position")+"\t");
+		PlayerPO player = new PlayerPO();
 		JSONObject stats = playerObj.getJSONObject("statTotal");
-		System.out.println(stats.getString("assists"));
-		return null;
+		player.setCnName(playerObj.getJSONObject("profile").getString("displayName"));
+		player.setEnName(playerObj.getJSONObject("profile").getString("displayNameEn"));
+		player.setAsist(stats.getString("assists"));
+		player.setBackRebound(stats.getString("defRebs"));
+		player.setBlock(stats.getString("blocks"));
+		player.setForwardRebound(stats.getString("offRebs"));
+		player.setFoul(stats.getString("fouls"));
+		player.setFreeThrowInNum(stats.getString("ftm"));
+		player.setFreethrowInRatio(stats.getString("ftpct"));
+		player.setFreeThrowTotalNum(stats.getString("fta"));
+		player.setPosition(playerObj.getJSONObject("boxscore").getString("position"));
+		player.setScore(stats.getString("points"));
+		player.setShootInNum(stats.getString("fgm"));
+		player.setShootInRatio(stats.getString("fgpct"));
+		player.setShootThreeInNum(stats.getString("tpm"));
+		player.setShootThreeInRatio(stats.getString("tppct"));
+		player.setShootThreeTotalNum(stats.getString("tpa"));
+		player.setShootTotalNum(stats.getString("fga"));
+		player.setSteal(stats.getString("steals"));
+		player.setTimeOnCourt(stats.getString("mins")+":"+stats.getString("secs"));
+		player.setTotalRebound(stats.getString("rebs"));
+		player.setTurnover(stats.getString("turnovers"));
+		return player;
 	}
 	
 	public static ArrayList<PlayerPO> getAwayPlayers(JSONArray awayPlayerArray) {
