@@ -47,6 +47,7 @@ public class LiveFrame extends JFrame {
 			MyNBALives.live();
 		}
 		*/
+		MyNBALives.init();
 		while (true){
 			try {
 				Thread.sleep(1000);
