@@ -43,7 +43,10 @@ public class LiveInfoPanel extends JPanel {
 	// InfoDaoImpl infoDaoImpl = new InfoDaoImpl();
 
 	String currentState = "live";
-	static ArrayList<LiveTextPO> liveTextList = null;
+	static ArrayList<LiveTextPO> liveTextList1 = null;
+	static ArrayList<LiveTextPO> liveTextList2 = null;
+	static ArrayList<LiveTextPO> liveTextList3 = null;
+	static ArrayList<LiveTextPO> liveTextList4 = null;
 	static ArrayList<TeamPO> teamDataList = null;
 	static ArrayList<PlayerPO> guestPlayerDataList = null;
 	static ArrayList<PlayerPO> hostPlayerDataList = null;
@@ -206,7 +209,7 @@ public class LiveInfoPanel extends JPanel {
 		gamePO.setScore2nd(Scoreboard.makeSB("25-10"));
 		gamePO.setScore3rd(Scoreboard.makeSB("25-20"));
 		gamePO.setScore4th(Scoreboard.makeSB("27-28"));
-		gamePO.setCurrentPeriod("1");
+		gamePO.setCurrentPeriod("3");
 		ArrayList<String> guestOnCourtPlayerLsit = new ArrayList<String>();
 		guestOnCourtPlayerLsit.add("Anderson Varejao");
 		guestOnCourtPlayerLsit.add("Brendan Haywood");
@@ -324,8 +327,8 @@ public class LiveInfoPanel extends JPanel {
 		liveTextPO.setRemainingTime("11.2");
 		liveTextPO.setTeamAbbr("CLE");
 		liveTextPO.setText("");
-		liveTextList = new ArrayList<LiveTextPO>();
-		liveTextList.add(liveTextPO);
+		liveTextList1 = new ArrayList<LiveTextPO>();
+		liveTextList1.add(liveTextPO);
 
 		int spaceX = 565;
 		int spaceY = 50;
@@ -443,25 +446,23 @@ public class LiveInfoPanel extends JPanel {
 		gameDataLive(gamePO);
 
 		currentState = "live";
-		live1(liveTextList);
-		live2(liveTextList);
-		live3(liveTextList);
-		live4(liveTextList);
+
 		if (gamePO.getCurrentPeriod().equals("1")) {
 
 		}
 		if (gamePO.getCurrentPeriod().equals("2")) {
-			live1(liveTextList);
+			live1(liveTextList1);
 		}
 		if (gamePO.getCurrentPeriod().equals("3")) {
-			live1(liveTextList);
-			live2(liveTextList);
+			live1(liveTextList1);
+			live2(liveTextList2);
 		}
 		if (gamePO.getCurrentPeriod().equals("4")) {
-			live1(liveTextList);
-			live2(liveTextList);
-			live3(liveTextList);
+			live1(liveTextList1);
+			live2(liveTextList2);
+			live3(liveTextList3);
 		}
+		
 		live();
 		courtLive(gamePO);
 		VisionController("live");
@@ -849,22 +850,22 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(livelbl);
 
 		if (gamePO.getCurrentPeriod().equals("1")) {
-			live1(liveTextList);
+			live1(liveTextList1);
 			livelbl.add(liveScrollPane1);
 		}
 		if (gamePO.getCurrentPeriod().equals("2")) {
-			live2(liveTextList);
+			live2(liveTextList2);
 			livelbl.add(liveScrollPane1);
 			livelbl.add(liveScrollPane2);
 		}
 		if (gamePO.getCurrentPeriod().equals("3")) {
-			live3(liveTextList);
+			live3(liveTextList3);
 			livelbl.add(liveScrollPane1);
 			livelbl.add(liveScrollPane2);
 			livelbl.add(liveScrollPane3);
 		}
 		if (gamePO.getCurrentPeriod().equals("4")) {
-			live4(liveTextList);
+			live4(liveTextList4);
 			livelbl.add(liveScrollPane1);
 			livelbl.add(liveScrollPane2);
 			livelbl.add(liveScrollPane3);
@@ -944,8 +945,14 @@ public class LiveInfoPanel extends JPanel {
 		livelbl.add(fourthPeriod);
 
 		if (liveTextlbl != null) {
-			if (liveTextList != null) {
-				liveTextlbl.setText(liveTextList.get(0).getText());
+			if (liveTextList4 != null) {
+				liveTextlbl.setText(liveTextList4.get(0).getText());
+			}else if(liveTextList3 != null){
+				liveTextlbl.setText(liveTextList3.get(0).getText());
+			}else if(liveTextList2 != null){
+				liveTextlbl.setText(liveTextList2.get(0).getText());
+			}else if(liveTextList1 != null){
+				liveTextlbl.setText(liveTextList1.get(0).getText());
 			}
 		} else {
 			liveTextlbl = new MyLabel();
@@ -954,22 +961,70 @@ public class LiveInfoPanel extends JPanel {
 					X * 430 / 1366, Y * 30 / 768);
 			liveTextlbl.setOpaque(false);
 			liveTextlbl.setVisible(true);
-			if (liveTextList != null) {
-				liveTextlbl.setText(liveTextList.get(0).getText());
+			if (liveTextList4 != null) {
+				liveTextlbl.setText(liveTextList4.get(0).getText());
+			}else if(liveTextList3 != null){
+				liveTextlbl.setText(liveTextList3.get(0).getText());
+			}else if(liveTextList2 != null){
+				liveTextlbl.setText(liveTextList2.get(0).getText());
+			}else if(liveTextList1 != null){
+				liveTextlbl.setText(liveTextList1.get(0).getText());
 			}
 			bgLabel.add(liveTextlbl);
 		}
-		if (liveTextList != null && gamePO != null) {
+		if (liveTextList4 != null && gamePO != null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
-						liveTextList.get(0).getPlayerName())) {
+						liveTextList4.get(0).getPlayerName())) {
 					PlayerButtonHighLight("guest", i);
 				}
 			}
 
 			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
-						.equals(liveTextList.get(0).getPlayerName())) {
+						.equals(liveTextList4.get(0).getPlayerName())) {
+					PlayerButtonHighLight("home", i);
+				}
+			}
+		}else if (liveTextList3 != null && gamePO != null) {
+			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getGuestOnCourtPlayerLsit().equals(
+						liveTextList3.get(0).getPlayerName())) {
+					PlayerButtonHighLight("guest", i);
+				}
+			}
+
+			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
+						.equals(liveTextList3.get(0).getPlayerName())) {
+					PlayerButtonHighLight("home", i);
+				}
+			}
+		}else if (liveTextList2 != null && gamePO != null) {
+			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getGuestOnCourtPlayerLsit().equals(
+						liveTextList2.get(0).getPlayerName())) {
+					PlayerButtonHighLight("guest", i);
+				}
+			}
+
+			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
+						.equals(liveTextList2.get(0).getPlayerName())) {
+					PlayerButtonHighLight("home", i);
+				}
+			}
+		}else if (liveTextList1 != null && gamePO != null) {
+			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getGuestOnCourtPlayerLsit().equals(
+						liveTextList1.get(0).getPlayerName())) {
+					PlayerButtonHighLight("guest", i);
+				}
+			}
+
+			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
+				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
+						.equals(liveTextList1.get(0).getPlayerName())) {
 					PlayerButtonHighLight("home", i);
 				}
 			}
@@ -2135,8 +2190,8 @@ public class LiveInfoPanel extends JPanel {
 		@Override
 		public void update(Observable o, Object arg) {
 			// TODO Auto-generated method stub
-			liveTextList = (ArrayList<LiveTextPO>) arg;
-			live1(liveTextList);
+			liveTextList1 = (ArrayList<LiveTextPO>) arg;
+			live1(liveTextList1);
 			// live();
 
 		}
@@ -2148,8 +2203,8 @@ public class LiveInfoPanel extends JPanel {
 		@Override
 		public void update(Observable o, Object arg) {
 			// TODO Auto-generated method stub
-			liveTextList = (ArrayList<LiveTextPO>) arg;
-			live2(liveTextList);
+			liveTextList2 = (ArrayList<LiveTextPO>) arg;
+			live2(liveTextList2);
 			// live();
 		}
 
@@ -2160,8 +2215,8 @@ public class LiveInfoPanel extends JPanel {
 		@Override
 		public void update(Observable o, Object arg) {
 			// TODO Auto-generated method stub
-			liveTextList = (ArrayList<LiveTextPO>) arg;
-			live3(liveTextList);
+			liveTextList3 = (ArrayList<LiveTextPO>) arg;
+			live3(liveTextList3);
 			// live();
 
 		}
@@ -2173,8 +2228,8 @@ public class LiveInfoPanel extends JPanel {
 		@Override
 		public void update(Observable o, Object arg) {
 			// TODO Auto-generated method stub
-			liveTextList = (ArrayList<LiveTextPO>) arg;
-			live4(liveTextList);
+			liveTextList4 = (ArrayList<LiveTextPO>) arg;
+			live4(liveTextList4);
 			live();
 		}
 
