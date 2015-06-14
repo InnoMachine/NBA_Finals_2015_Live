@@ -196,7 +196,7 @@ public class LiveInfoPanel extends JPanel {
 		mainFrame.getContentPane().add(this);
 
 		// -------------------------------获取初始gamePO---------------------------------
-		gamePO = infoDaoImpl.getGame();
+//		gamePO = infoDaoImpl.getGame();
 		gamePO = new GamePO();
 		gamePO.setGuestTeam("CLE");
 		gamePO.setHomeTeam("GSW");
