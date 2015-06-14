@@ -24,7 +24,7 @@ import com.alibaba.fastjson.JSONObject;
 public class MyNBALives {
 	
 	public static void main(String args[]){
-		init();
+//		init();
 		while(true) {
 			live();
 		}
@@ -380,9 +380,7 @@ public class MyNBALives {
 			return "Kyrie Irving";
 		case "1890":
 			return "Shawn Marion";
-			
 		
-			
 		}
 		return null;
 	}

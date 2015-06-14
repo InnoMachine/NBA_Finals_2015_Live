@@ -44,7 +44,7 @@ public class Singleton extends Observable{//subject observed
 	public void setHostTeam(TeamPO hostTeam) {
 		this.hostTeam = hostTeam;
 		setChanged();
-		notifyObservers(hostTeam);
+		hostTeam.notifyObservers(hostTeam);
 	}
 
 	public TeamPO getGuestTeam() {

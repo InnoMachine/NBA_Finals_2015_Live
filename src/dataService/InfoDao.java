@@ -8,7 +8,13 @@ import po.TeamPO;
 
 public interface InfoDao {
 	
-	public LiveTextPO getLiveText();
+	public ArrayList<LiveTextPO> getLiveText1();
+	
+	public ArrayList<LiveTextPO> getLiveText2();
+	
+	public ArrayList<LiveTextPO> getLiveText3();
+	
+	public ArrayList<LiveTextPO> getLiveText4();
 	
 	public GamePO getGame();	
 	
@@ -16,27 +22,8 @@ public interface InfoDao {
 	
 	public ArrayList<PlayerPO> getGuestPlayers(); 
 	
-	public ArrayList<PlayerPO> getPlayers();
-	
 	public TeamPO getHostTeam();
 	
 	public TeamPO getGuestTeam();
 	
-	//----------------------data preparation part----------------------------------------
-	
-	public void addLiveText();
-	
-	public void clearLiveText();
-	
-	public void updateGame();
-	
-	public void updatePlayer(String name, PlayerPO player);
-	
-	public void updateHostTeam();
-	
-	public void updateGuestTeam();
-	
-	public void updateTeam(String teamAbbr);
-	
-	public void dataInit();
 }

@@ -41,7 +41,6 @@ public class LiveFrame extends JFrame {
 		Singleton.getInstance().getGuestTeam().addObserver(guestteamob);;
 		Singleton.getInstance().getHostTeam().addObserver(hostteamob);
 		
-//		MyNBALives.init();
 		while(true) {
 			MyNBALives.live();
 		}

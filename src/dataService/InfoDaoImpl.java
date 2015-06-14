@@ -10,9 +10,27 @@ import po.TeamPO;
 public class InfoDaoImpl implements InfoDao {
 
 	Singleton singleton = Singleton.getInstance();
-	
+
 	@Override
-	public LiveTextPO getLiveText() {
+	public ArrayList<LiveTextPO> getLiveText1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<LiveTextPO> getLiveText2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<LiveTextPO> getLiveText3() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<LiveTextPO> getLiveText4() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -36,12 +54,6 @@ public class InfoDaoImpl implements InfoDao {
 	}
 
 	@Override
-	public ArrayList<PlayerPO> getPlayers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public TeamPO getHostTeam() {
 		// TODO Auto-generated method stub
 		return null;
@@ -52,53 +64,7 @@ public class InfoDaoImpl implements InfoDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public void addLiveText() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void clearLiveText() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateGame() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updatePlayer(String name, PlayerPO player) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateHostTeam() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateGuestTeam() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateTeam(String teamAbbr) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void dataInit() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
+	
+	
 }
