@@ -13,56 +13,47 @@ public class InfoDaoImpl implements InfoDao {
 
 	@Override
 	public ArrayList<LiveTextPO> getLiveText1() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getLiveText1().getLiveTexts();
 	}
 
 	@Override
 	public ArrayList<LiveTextPO> getLiveText2() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getLiveText2().getLiveTexts();
 	}
 
 	@Override
 	public ArrayList<LiveTextPO> getLiveText3() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getLiveText3().getLiveTexts();
 	}
 
 	@Override
 	public ArrayList<LiveTextPO> getLiveText4() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getLiveText4().getLiveTexts();
 	}
 
 	@Override
 	public GamePO getGame() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getGame();
 	}
 
 	@Override
 	public ArrayList<PlayerPO> getHostPlayers() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getHostPlayers().getPlayers();
 	}
 
 	@Override
 	public ArrayList<PlayerPO> getGuestPlayers() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getGuestPlayers().getPlayers();
 	}
 
 	@Override
 	public TeamPO getHostTeam() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getHostTeam();
 	}
 
 	@Override
 	public TeamPO getGuestTeam() {
-		// TODO Auto-generated method stub
-		return null;
+		return singleton.getGuestTeam();
 	}
 	
 	
