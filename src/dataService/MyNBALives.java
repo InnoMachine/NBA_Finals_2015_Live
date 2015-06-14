@@ -17,10 +17,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-public class MyJson {
+public class MyNBALives {
 	
 	public static void main(String args[]){
 		
+	}
+	
+	public static void live() {
 		String playbyplayJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/playbyplay_0041400404_4.json");
 		String gameJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/snapshotlive_0041400404.json");
 		
@@ -41,7 +44,6 @@ public class MyJson {
 		getHomePlayers(hometeamplayersArray);
 		getAwayTeam(awayteam);
 		getHomeTeam(hometeam);
-		
 	}
 	
 	public static ArrayList<LiveTextPO> getLiveTextsFromJsonArray(JSONArray jsonArray) {
@@ -255,7 +257,6 @@ public class MyJson {
 		}
 		return null;
 	}
-	
 	
 	public static String getAbbrFromId(String id) {
 		if(id.equals("1610612744")) {
