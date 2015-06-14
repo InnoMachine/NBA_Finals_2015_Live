@@ -2117,23 +2117,13 @@ public class LiveInfoPanel extends JPanel {
 		}
 	}
 
-	public class GameDataObserver implements Observer {
+	public class GameObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
 			// TODO Auto-generated method stub
 			gamePO = (GamePO) arg;
 			gameDataLive(gamePO);
-		}
-
-	}
-
-	public class CourtLiveObserver implements Observer {
-
-		@Override
-		public void update(Observable o, Object arg) {
-			// TODO Auto-generated method stub
-			gamePO = (GamePO) arg;
 			courtLive(gamePO);
 		}
 
@@ -2189,7 +2179,7 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	public class GuestTeamDataObserver implements Observer {
+	public class GuestTeamObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
@@ -2201,7 +2191,7 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	public class HostTeamDataObserver implements Observer {
+	public class HostTeamObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
@@ -2213,7 +2203,7 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	public class GuestPlayerDataObserver implements Observer {
+	public class GuestPlayersObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
@@ -2224,7 +2214,7 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	public class HomePlayerDataObserver implements Observer {
+	public class HostPlayersObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
