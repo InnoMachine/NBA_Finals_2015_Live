@@ -9,22 +9,14 @@ import java.util.ArrayList;
 
 public class TeamPO {
 	
-	private ArrayList<String> onCourtPlayerList;
 	private ArrayList<String> allPlayersNameList;
 	private String teamName;
 	private String abbreviation;
-	private String homeField;
 	private String shootRatio;
 	private String threePointShootRatio;
 	private String freeThrowRatio;
 	private String rebound;
 	private String asist;
-	public ArrayList<String> getOnCourtPlayerList() {
-		return onCourtPlayerList;
-	}
-	public void setOnCourtPlayerList(ArrayList<String> onCourtPlayerList) {
-		this.onCourtPlayerList = onCourtPlayerList;
-	}
 	public ArrayList<String> getAllPlayersNameList() {
 		return allPlayersNameList;
 	}
@@ -42,12 +34,6 @@ public class TeamPO {
 	}
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
-	}
-	public String getHomeField() {
-		return homeField;
-	}
-	public void setHomeField(String homeField) {
-		this.homeField = homeField;
 	}
 	public String getShootRatio() {
 		return shootRatio;

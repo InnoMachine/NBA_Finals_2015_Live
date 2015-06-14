@@ -54,7 +54,6 @@ public class MyNBALives {
 		//hostTeam.setAllPlayersNameList(allPlayersNameList);
 		hostTeam.setAsist("0");
 		hostTeam.setFreeThrowRatio("0");
-		hostTeam.setHomeField("GSW");//
 		//hostTeam.setOnCourtPlayerList(onCourtPlayerList);
 		hostTeam.setRebound("0");
 		hostTeam.setShootRatio("0");
@@ -66,7 +65,6 @@ public class MyNBALives {
 		//guestTeam.setAllPlayersNameList(allPlayersNameList);
 		guestTeam.setAsist("0");
 		guestTeam.setFreeThrowRatio("0");
-		guestTeam.setHomeField("GSW");//
 		//guestTeam.setOnCourtPlayerList(onCourtPlayerList);
 		guestTeam.setRebound("0");
 		guestTeam.setShootRatio("0");
@@ -96,11 +94,11 @@ public class MyNBALives {
 		JSONArray awayteamplayersArray = awayteam.getJSONArray("gamePlayers");
 		JSONArray hometeamplayersArray = hometeam.getJSONArray("gamePlayers");
 		
-		getGame(gamePayload);
-		getAwayPlayers(awayteamplayersArray);
-		getHomePlayers(hometeamplayersArray);
-		getAwayTeam(awayteam);
-		getHomeTeam(hometeam);
+		Singleton.getInstance().setGame(getGame(gamePayload));
+		Singleton.getInstance().setGuestPlayers(getAwayPlayers(awayteamplayersArray));
+		Singleton.getInstance().setHostPlayers(getHomePlayers(hometeamplayersArray));
+		Singleton.getInstance().setGuestTeam(getAwayTeam(awayteam));
+		Singleton.getInstance().setHostTeam(getHomeTeam(hometeam));
 	}
 	
 	public static JSONArray getPeriodLiveTextJsonArray(int period) {
@@ -166,6 +164,7 @@ public class MyNBALives {
 		player.setTimeOnCourt(stats.getString("mins")+":"+stats.getString("secs"));
 		player.setTotalRebound(stats.getString("rebs"));
 		player.setTurnover(stats.getString("turnovers"));
+		player.setOnCourt(playerObj.getJSONObject("boxscore").getString("onCourt"));
 		return player;
 	}
 	
@@ -191,46 +190,85 @@ public class MyNBALives {
 	}
 	
 	public static TeamPO getAwayTeam(JSONObject awayteam) {
-		awayteam.getJSONObject("profile").getString("abbr");
+		
+		TeamPO team = new TeamPO();
 		JSONObject awayteamScore = awayteam.getJSONObject("score");
-		System.out.println("rebs:" + awayteamScore.getString("rebs"));
-		return null;
+		team.setAbbreviation(awayteam.getJSONObject("profile").getString("abbr"));
+		ArrayList<String> allPlayersNameList = new ArrayList<String>();
+		for(PlayerPO player: Singleton.getInstance().getGuestPlayers()) {
+				allPlayersNameList.add(player.getEnName());
+		}
+		team.setAllPlayersNameList(allPlayersNameList);
+		team.setAsist(awayteamScore.getString("assists"));
+		team.setFreeThrowRatio(awayteamScore.getString("ftpct"));
+		team.setRebound(awayteamScore.getString("rebs"));
+		team.setShootRatio(awayteamScore.getString("fgpct"));
+		team.setTeamName(awayteam.getJSONObject("profile").getString("nameEn"));
+		team.setThreePointShootRatio(awayteamScore.getString("tpppct"));
+		return team;
 	}
 	
 	public static TeamPO getHomeTeam(JSONObject hometeam) {
-		hometeam.getJSONObject("profile").getString("abbr");
+		
+		TeamPO team = new TeamPO();
 		JSONObject hometeamScore = hometeam.getJSONObject("score");
-		System.out.println("rebs:" + hometeamScore.getString("rebs"));
-		return null;
+		team.setAbbreviation(hometeam.getJSONObject("profile").getString("abbr"));
+		ArrayList<String> allPlayersNameList = new ArrayList<String>();
+		for(PlayerPO player: Singleton.getInstance().getHostPlayers()) {
+				allPlayersNameList.add(player.getEnName());
+		}
+		team.setAllPlayersNameList(allPlayersNameList);
+		team.setAsist(hometeamScore.getString("assists"));
+		team.setFreeThrowRatio(hometeamScore.getString("ftpct"));
+		team.setRebound(hometeamScore.getString("rebs"));
+		team.setShootRatio(hometeamScore.getString("fgpct"));
+		team.setTeamName(hometeam.getJSONObject("profile").getString("nameEn"));
+		team.setThreePointShootRatio(hometeamScore.getString("tpppct"));
+		return team;
 	}
 	
 	public static GamePO getGame(JSONObject gamePayload) {
 		
 		JSONObject boxscore = gamePayload.getJSONObject("boxscore");
-		
 		JSONObject hometeam = gamePayload.getJSONObject("homeTeam");
 		JSONObject awayteam = gamePayload.getJSONObject("awayTeam");
-		System.out.println(boxscore.getString("awayScore") + " - " + boxscore.getString("homeScore"));
-		System.out.println("current period:" + boxscore.getString("period"));
-		System.out.println("attendance:" + boxscore.getString("attendance"));
-		System.out.println("arena:" + gamePayload.getJSONObject("gameProfile").getString("arenaName"));
-		System.out.println("status:" + boxscore.getString("statusDesc"));
-		
-		
 		JSONObject awayteamProfileJsonObject = awayteam.getJSONObject("profile");
 		JSONObject awayteamScoreJsonObject = awayteam.getJSONObject("score");
-		
-		
 		JSONObject hometeamProfileJsonObject = hometeam.getJSONObject("profile");
 		JSONObject hometeamScoreJsonObject = hometeam.getJSONObject("score");
+		GamePO game = new GamePO();
+		game.setBegin(true);
+		game.setCurrentPeriod(boxscore.getString("period"));
+		game.setEnd(false);
+		game.setExtratime(null);
+		game.setGameDate(new GameDate("2015-6-15"));
+		game.setGameLabel("14-15_2015-6-15_CLE-GSW");
+		ArrayList<String> guestOnCourtPlayerLsit = new ArrayList<String>();
+		for(PlayerPO player: Singleton.getInstance().getGuestPlayers()) {
+			if(player.getOnCourt().equals("true")) {
+				guestOnCourtPlayerLsit.add(player.getEnName());
+			}
+		}
+		game.setGuestOnCourtPlayerLsit(guestOnCourtPlayerLsit);
+		game.setGuestTeam("CLE");
+		ArrayList<String> homeOnCourtPlayerLsit = new ArrayList<String>();
+		for(PlayerPO player: Singleton.getInstance().getHostPlayers()) {
+			if(player.getOnCourt().equals("true")) {
+				homeOnCourtPlayerLsit.add(player.getEnName());
+			}
+		}
+		game.setHomeOnCourtPlayerLsit(homeOnCourtPlayerLsit);
+		game.setHomeTeam("GSW");
+		game.setRemainingTime("12:00");
+		game.setScore1st(Scoreboard.makeSB(awayteamScoreJsonObject.getString("q1Score") + "-" + hometeamScoreJsonObject.getString("q1Score")));
+		game.setScore2nd(Scoreboard.makeSB(awayteamScoreJsonObject.getString("q2Score") + "-" + hometeamScoreJsonObject.getString("q2Score")));
+		game.setScore3rd(Scoreboard.makeSB(awayteamScoreJsonObject.getString("q3Score") + "-" + hometeamScoreJsonObject.getString("q3Score")));
+		game.setScore4th(Scoreboard.makeSB(awayteamScoreJsonObject.getString("q4Score") + "-" + hometeamScoreJsonObject.getString("q4Score")));
+		game.setScoreOverall(Scoreboard.makeSB(boxscore.getString("awayScore") + "-" + boxscore.getString("homeScore")));
+		game.setSeasonId("14-15");
+		game.setVersus(awayteamProfileJsonObject.getString("abbr") + "-" + hometeamProfileJsonObject.getString("abbr"));
+		return game;
 		
-		System.out.println(awayteamProfileJsonObject.getString("abbr") + " - " + hometeamProfileJsonObject.getString("abbr"));
-		System.out.println(awayteamScoreJsonObject.getString("q1Score") + " - " + hometeamScoreJsonObject.getString("q1Score"));
-		System.out.println(awayteamScoreJsonObject.getString("q2Score") + " - " + hometeamScoreJsonObject.getString("q2Score"));
-		System.out.println(awayteamScoreJsonObject.getString("q3Score") + " - " + hometeamScoreJsonObject.getString("q3Score"));
-		System.out.println(awayteamScoreJsonObject.getString("q4Score") + " - " + hometeamScoreJsonObject.getString("q4Score"));
-		
-		return null;
 	}
 	
 	public static String getJsonContent(String urlStr) {

@@ -29,6 +29,7 @@ public class PlayerPO {
 	private String turnover;
 	private String block;
 	private String score;
+	private String onCourt;//"true"/"false"
 
 	public String getCnName() {
 		return cnName;
@@ -161,6 +162,12 @@ public class PlayerPO {
 	}
 	public void setScore(String score) {
 		this.score = score;
+	}
+	public String getOnCourt() {
+		return onCourt;
+	}
+	public void setOnCourt(String onCourt) {
+		this.onCourt = onCourt;
 	}
 	
 }
