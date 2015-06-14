@@ -27,10 +27,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 
+import dataService.InfoDao;
 import dataService.InfoDaoImpl;
 import po.GamePO;
 import po.LiveTextPO;
 import po.PlayerPO;
+import po.Scoreboard;
+import po.TeamAbbr;
 import po.TeamPO;
 
 public class LiveInfoPanel extends JPanel {
@@ -58,7 +61,7 @@ public class LiveInfoPanel extends JPanel {
 	JButton extraPeriod3;
 
 	static private JTable liveTable;
-	
+
 	static private JScrollPane liveScrollPane1;
 	static private JScrollPane liveScrollPane2;
 	static private JScrollPane liveScrollPane3;
@@ -192,6 +195,139 @@ public class LiveInfoPanel extends JPanel {
 
 		mainFrame.getContentPane().add(this);
 
+		// -------------------------------获取初始gamePO---------------------------------
+		gamePO = infoDaoImpl.getGame();
+		gamePO = new GamePO();
+		gamePO.setGuestTeam("CLE");
+		gamePO.setHomeTeam("GSW");
+
+		gamePO.setScoreOverall(Scoreboard.makeSB("97-78"));
+		gamePO.setScore1st(Scoreboard.makeSB("20-20"));
+		gamePO.setScore2nd(Scoreboard.makeSB("25-10"));
+		gamePO.setScore3rd(Scoreboard.makeSB("25-20"));
+		gamePO.setScore4th(Scoreboard.makeSB("27-28"));
+		gamePO.setCurrentPeriod("1");
+		ArrayList<String> guestOnCourtPlayerLsit = new ArrayList<String>();
+		guestOnCourtPlayerLsit.add("Anderson Varejao");
+		guestOnCourtPlayerLsit.add("Brendan Haywood");
+		guestOnCourtPlayerLsit.add("Iman Shumpert");
+		guestOnCourtPlayerLsit.add("J.R. Smith");
+		guestOnCourtPlayerLsit.add("James Jones");
+		ArrayList<String> homeOnCourtPlayerLsit = new ArrayList<String>();
+		homeOnCourtPlayerLsit.add("Andre Iguodala");
+		homeOnCourtPlayerLsit.add("Andrew Bogut");
+		homeOnCourtPlayerLsit.add("Justin Holiday");
+		homeOnCourtPlayerLsit.add("Leandro Barbosa");
+		homeOnCourtPlayerLsit.add("Stephen Curry");
+		gamePO.setGuestOnCourtPlayerLsit(guestOnCourtPlayerLsit);
+		gamePO.setHomeOnCourtPlayerLsit(homeOnCourtPlayerLsit);
+
+		// gamePO = infoDaoImpl.getGame();
+
+		// -------------------------------获取初始GuestTeamPO---------------------------------
+		guestTeamPo = new TeamPO();
+		ArrayList<String> guestAllPlayerList = new ArrayList<String>();
+		guestAllPlayerList.add("Anderson Varejao");
+		guestAllPlayerList.add("Brendan Haywood");
+		guestAllPlayerList.add("Iman Shumpert");
+		guestAllPlayerList.add("J.R. Smith");
+		guestAllPlayerList.add("James Jones");
+		guestTeamPo.setOnCourtPlayerList(guestOnCourtPlayerLsit);
+		guestTeamPo.setAllPlayersNameList(guestAllPlayerList);
+
+		guestTeamPo.setAbbreviation("CLE");
+		guestTeamPo.setHomeField("xxx");
+		guestTeamPo.setShootRatio("40.3");
+		guestTeamPo.setThreePointShootRatio("34.2");
+		guestTeamPo.setFreeThrowRatio("60.2");
+		guestTeamPo.setRebound("18");
+		guestTeamPo.setAsist("24");
+
+		// -------------------------------获取初始HomeTeamPO---------------------------------
+		hostTeamPo = new TeamPO();
+		ArrayList<String> hostAllPlayerList = new ArrayList<String>();
+		hostAllPlayerList.add("Andre Iguodala");
+		hostAllPlayerList.add("Andrew Bogut");
+		hostAllPlayerList.add("Justin Holiday");
+		hostAllPlayerList.add("Leandro Barbosa");
+		hostAllPlayerList.add("Stephen Curry");
+		hostTeamPo.setOnCourtPlayerList(homeOnCourtPlayerLsit);
+		hostTeamPo.setAllPlayersNameList(hostAllPlayerList);
+		// onCourtPlayerList;
+		// private ArrayList<String> allPlayersNameList;
+		hostTeamPo.setAbbreviation("CLE");
+		hostTeamPo.setHomeField("xxx");
+		hostTeamPo.setShootRatio("40.3");
+		hostTeamPo.setThreePointShootRatio("34.2");
+		hostTeamPo.setFreeThrowRatio("60.2");
+		hostTeamPo.setRebound("18");
+		hostTeamPo.setAsist("24");
+		// --------------------------------获取初始主客队球员阵容---------------------------
+		// guestPlayerDataList = infoDaoImpl.getGuestPlayers();
+		// hostPlayerDataList = infoDaoImpl.getHostPlayers();
+		PlayerPO p1 = new PlayerPO();
+		p1.setAsist("");
+		p1.setBackRebound("");
+		p1.setBlock("");
+		p1.setCnName("");
+		p1.setEnName("");
+		p1.setForwardRebound("");
+		p1.setFoul("");
+		p1.setFreeThrowInNum("");
+		p1.setFreethrowInRatio("");
+		p1.setFreeThrowTotalNum("");
+		p1.setOnCourt(true);
+		p1.setPosition("");
+		p1.setScore("");
+		p1.setShootInNum("");
+		p1.setShootInRatio("");
+		p1.setShootThreeInNum("");
+		p1.setShootThreeInRatio("");
+		p1.setShootThreeTotalNum("");
+		p1.setShootTotalNum("");
+		p1.setSteal("");
+		p1.setTimeOnCourt("");
+		p1.setTotalRebound("");
+		p1.setTurnover("");
+
+		PlayerPO p2 = new PlayerPO();
+
+		p2.setAsist("");
+		p2.setBackRebound("");
+		p2.setBlock("");
+		p2.setCnName("");
+		p2.setEnName("");
+		p2.setForwardRebound("");
+		p2.setFoul("");
+		p2.setFreeThrowInNum("");
+		p2.setFreethrowInRatio("");
+		p2.setFreeThrowTotalNum("");
+		p2.setOnCourt(true);
+		p2.setPosition("");
+		p2.setScore("");
+		p2.setShootInNum("");
+		p2.setShootInRatio("");
+		p2.setShootThreeInNum("");
+		p2.setShootThreeInRatio("");
+		p2.setShootThreeTotalNum("");
+		p2.setShootTotalNum("");
+		p2.setSteal("");
+		p2.setTimeOnCourt("");
+		p2.setTotalRebound("");
+		p2.setTurnover("");
+		guestPlayerDataList.add(p1);
+		hostPlayerDataList.add(p2);
+
+		// ------------------------------获取初始LiveText--------------------------------
+		// liveTextList=infoDaoImpl;
+		LiveTextPO liveTextPO = new LiveTextPO();
+		liveTextPO.setPlayerName("Anderson Varejao");
+		liveTextPO.setQuarterID(1);
+		liveTextPO.setRemainingTime("11.2");
+		liveTextPO.setTeamAbbr(TeamAbbr.CLE);
+		liveTextPO.setText("ttttttttttttest");
+		liveTextList.add(liveTextPO);
+
 		int spaceX = 565;
 		int spaceY = 50;
 		int tempX = 30;
@@ -274,14 +410,6 @@ public class LiveInfoPanel extends JPanel {
 		});
 		bgLabel.add(databtn);
 
-		// -------------------------------获取初始gamePO---------------------------------
-		gamePO = infoDaoImpl.getGame();
-		// --------------------------------获取初始主客队球员阵容---------------------------
-		guestPlayerDataList = infoDaoImpl.getGuestPlayers();
-		hostPlayerDataList = infoDaoImpl.getHostPlayers();
-		// ------------------------------获取初始LiveText--------------------------------
-		// liveTextList=infoDaoImpl;
-
 		gameDataLive(gamePO);
 
 		currentState = "live";
@@ -344,11 +472,6 @@ public class LiveInfoPanel extends JPanel {
 		extraPeriod3.setBackground(Color.GRAY);
 		extraPeriod3.setForeground(Color.WHITE);
 		extraPeriod3.setVisible(false);
-		
-		
-		
-		
-		
 
 	}
 
@@ -723,14 +846,14 @@ public class LiveInfoPanel extends JPanel {
 
 	public void live(ArrayList<LiveTextPO> liveTextList) {
 		if (livelbl != null) {
-             livelbl.setVisible(false);
+			livelbl.setVisible(false);
 		}
 		livelbl = new MyLabel();
 		livelbl.setHorizontalAlignment(SwingConstants.CENTER);
 		livelbl.setBounds(X * 865 / 1366, Y * 190 / 768, X * 485 / 1366,
 				Y * 530 / 768);
 		bgLabel.add(livelbl);
-		
+
 		if (liveScrollPane1 != null) {
 			liveScrollPane1.setVisible(false);
 		}
@@ -776,12 +899,12 @@ public class LiveInfoPanel extends JPanel {
 			if (liveScrollPane7 != null) {
 				liveScrollPane7.setVisible(false);
 			}
-			
+
 		});
 		livelbl.add(firstPeriod);
-		
+
 		secondPeriod.setVisible(true);
-		secondPeriod.addActionListener(e->{
+		secondPeriod.addActionListener(e -> {
 			if (liveScrollPane1 != null) {
 				liveScrollPane1.setVisible(false);
 			}
@@ -805,9 +928,9 @@ public class LiveInfoPanel extends JPanel {
 			}
 		});
 		livelbl.add(secondPeriod);
-		
+
 		thirdPeriod.setVisible(true);
-		thirdPeriod.addActionListener(e->{
+		thirdPeriod.addActionListener(e -> {
 			if (liveScrollPane1 != null) {
 				liveScrollPane1.setVisible(false);
 			}
@@ -831,9 +954,9 @@ public class LiveInfoPanel extends JPanel {
 			}
 		});
 		livelbl.add(thirdPeriod);
-		
+
 		fourthPeriod.setVisible(true);
-		fourthPeriod.addActionListener(e->{
+		fourthPeriod.addActionListener(e -> {
 			if (liveScrollPane1 != null) {
 				liveScrollPane1.setVisible(false);
 			}
@@ -859,7 +982,7 @@ public class LiveInfoPanel extends JPanel {
 		livelbl.add(fourthPeriod);
 
 		extraPeriod1.setVisible(false);
-		extraPeriod1.addActionListener(e->{
+		extraPeriod1.addActionListener(e -> {
 			if (liveScrollPane1 != null) {
 				liveScrollPane1.setVisible(false);
 			}
@@ -885,7 +1008,7 @@ public class LiveInfoPanel extends JPanel {
 		livelbl.add(extraPeriod1);
 
 		extraPeriod2.setVisible(false);
-		extraPeriod2.addActionListener(e->{
+		extraPeriod2.addActionListener(e -> {
 			if (liveScrollPane1 != null) {
 				liveScrollPane1.setVisible(false);
 			}
@@ -911,7 +1034,7 @@ public class LiveInfoPanel extends JPanel {
 		livelbl.add(extraPeriod2);
 
 		extraPeriod3.setVisible(false);
-		extraPeriod3.addActionListener(e->{
+		extraPeriod3.addActionListener(e -> {
 			if (liveScrollPane1 != null) {
 				liveScrollPane1.setVisible(false);
 			}
@@ -1809,7 +1932,7 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(true);
 			}
-			if(livelbl!=null){
+			if (livelbl != null) {
 				livelbl.setVisible(true);
 			}
 
@@ -1827,7 +1950,7 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(false);
 			}
-			if(livelbl!=null){
+			if (livelbl != null) {
 				livelbl.setVisible(false);
 			}
 
@@ -1846,7 +1969,7 @@ public class LiveInfoPanel extends JPanel {
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(false);
 			}
-			if(livelbl!=null){
+			if (livelbl != null) {
 				livelbl.setVisible(false);
 			}
 			if (summarylbl != null) {
@@ -1863,7 +1986,7 @@ public class LiveInfoPanel extends JPanel {
 				if (liveTextlbl != null) {
 					liveTextlbl.setVisible(false);
 				}
-				if(livelbl!=null){
+				if (livelbl != null) {
 					livelbl.setVisible(false);
 				}
 				if (summarylbl != null) {
@@ -1877,7 +2000,6 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-	
 	public class MyTableRenderer extends DefaultTableCellRenderer {
 
 		private static final long serialVersionUID = 1L;
