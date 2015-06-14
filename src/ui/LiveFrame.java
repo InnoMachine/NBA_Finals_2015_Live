@@ -3,6 +3,7 @@ package ui;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.util.Timer;
 
 import javax.swing.JFrame;
 
@@ -13,7 +14,7 @@ public class LiveFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 //	static StartPanel startPanel = null;
-	public LiveInfoPanel liveInfoPanel;
+	public static LiveInfoPanel liveInfoPanel;
 
 	public static String currentPanel = "";
 
@@ -30,7 +31,7 @@ public class LiveFrame extends JFrame {
 		LiveInfoPanel.HostPlayersObserver hostplayerob = new LiveInfoPanel(lf).new HostPlayersObserver();
 		LiveInfoPanel.GuestTeamObserver guestteamob = new LiveInfoPanel(lf).new GuestTeamObserver();
 		LiveInfoPanel.HostTeamObserver hostteamob = new LiveInfoPanel(lf).new HostTeamObserver();
-		
+		/*
 		Singleton.getInstance().getLiveText1().addObserver(livetext1ob);
 		Singleton.getInstance().getLiveText2().addObserver(livetext2ob);
 		Singleton.getInstance().getLiveText3().addObserver(livetext3ob);
@@ -40,11 +41,22 @@ public class LiveFrame extends JFrame {
 		Singleton.getInstance().getHostPlayers().addObserver(hostplayerob);
 		Singleton.getInstance().getGuestTeam().addObserver(guestteamob);;
 		Singleton.getInstance().getHostTeam().addObserver(hostteamob);
-		
+		*/
+		/*
 		while(true) {
 			MyNBALives.live();
 		}
-		
+		*/
+		while (true){
+			try {
+				Thread.sleep(1000);
+				liveInfoPanel.refresh();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 	public LiveFrame() {

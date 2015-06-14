@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 
+import dataService.InfoDaoImpl;
 import po.GamePO;
 import po.LiveTextPO;
 import po.PlayerPO;
@@ -39,7 +40,7 @@ public class LiveInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	static GamePO gamePO = null;
 	JFrame mainFrame;
-	// InfoDaoImpl infoDaoImpl = new InfoDaoImpl();
+	InfoDaoImpl infoDaoImpl = new InfoDaoImpl();
 
 	String currentState = "live";
 	static ArrayList<LiveTextPO> liveTextList1 = null;
@@ -461,7 +462,7 @@ public class LiveInfoPanel extends JPanel {
 			live2(liveTextList2);
 			live3(liveTextList3);
 		}
-		
+
 		live();
 		courtLive(gamePO);
 		VisionController("live");
@@ -848,6 +849,13 @@ public class LiveInfoPanel extends JPanel {
 				Y * 530 / 768);
 		bgLabel.add(livelbl);
 
+		
+		liveTextList1=infoDaoImpl.getLiveText1();
+		liveTextList2=infoDaoImpl.getLiveText2();
+		liveTextList3=infoDaoImpl.getLiveText3();
+		liveTextList4=infoDaoImpl.getLiveText4();
+		
+		
 		if (gamePO.getCurrentPeriod().equals("1")) {
 			live1(liveTextList1);
 			livelbl.add(liveScrollPane1);
@@ -946,11 +954,11 @@ public class LiveInfoPanel extends JPanel {
 		if (liveTextlbl != null) {
 			if (liveTextList4 != null) {
 				liveTextlbl.setText(liveTextList4.get(0).getText());
-			}else if(liveTextList3 != null){
+			} else if (liveTextList3 != null) {
 				liveTextlbl.setText(liveTextList3.get(0).getText());
-			}else if(liveTextList2 != null){
+			} else if (liveTextList2 != null) {
 				liveTextlbl.setText(liveTextList2.get(0).getText());
-			}else if(liveTextList1 != null){
+			} else if (liveTextList1 != null) {
 				liveTextlbl.setText(liveTextList1.get(0).getText());
 			}
 		} else {
@@ -962,11 +970,11 @@ public class LiveInfoPanel extends JPanel {
 			liveTextlbl.setVisible(true);
 			if (liveTextList4 != null) {
 				liveTextlbl.setText(liveTextList4.get(0).getText());
-			}else if(liveTextList3 != null){
+			} else if (liveTextList3 != null) {
 				liveTextlbl.setText(liveTextList3.get(0).getText());
-			}else if(liveTextList2 != null){
+			} else if (liveTextList2 != null) {
 				liveTextlbl.setText(liveTextList2.get(0).getText());
-			}else if(liveTextList1 != null){
+			} else if (liveTextList1 != null) {
 				liveTextlbl.setText(liveTextList1.get(0).getText());
 			}
 			bgLabel.add(liveTextlbl);
@@ -985,7 +993,7 @@ public class LiveInfoPanel extends JPanel {
 					PlayerButtonHighLight("home", i);
 				}
 			}
-		}else if (liveTextList3 != null && gamePO != null) {
+		} else if (liveTextList3 != null && gamePO != null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
 						liveTextList3.get(0).getPlayerName())) {
@@ -999,7 +1007,7 @@ public class LiveInfoPanel extends JPanel {
 					PlayerButtonHighLight("home", i);
 				}
 			}
-		}else if (liveTextList2 != null && gamePO != null) {
+		} else if (liveTextList2 != null && gamePO != null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
 						liveTextList2.get(0).getPlayerName())) {
@@ -1013,7 +1021,7 @@ public class LiveInfoPanel extends JPanel {
 					PlayerButtonHighLight("home", i);
 				}
 			}
-		}else if (liveTextList1 != null && gamePO != null) {
+		} else if (liveTextList1 != null && gamePO != null) {
 			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
 				if (gamePO.getGuestOnCourtPlayerLsit().equals(
 						liveTextList1.get(0).getPlayerName())) {
@@ -1048,7 +1056,7 @@ public class LiveInfoPanel extends JPanel {
 				a.add(String.valueOf(liveTextList.get(i).getTeamAbbr()));
 				a.add(liveTextList.get(i).getPlayerName());
 				a.add(liveTextList.get(i).getText());
-					liveRowData1.add(a);
+				liveRowData1.add(a);
 
 			}
 		}
@@ -1078,7 +1086,8 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable1.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
+		liveTable1.setDefaultRenderer(Object.class,
+				new TableCellTextAreaRenderer());
 
 		liveTable1.setRowHeight(Y * 30 / 768);
 		liveTable1.getColumnModel().getColumn(0)
@@ -1164,7 +1173,8 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable2.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
+		liveTable2.setDefaultRenderer(Object.class,
+				new TableCellTextAreaRenderer());
 
 		liveTable2.setRowHeight(Y * 30 / 768);
 		liveTable2.getColumnModel().getColumn(0)
@@ -1248,7 +1258,8 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable3.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
+		liveTable3.setDefaultRenderer(Object.class,
+				new TableCellTextAreaRenderer());
 
 		liveTable3.setRowHeight(Y * 30 / 768);
 		liveTable3.getColumnModel().getColumn(0)
@@ -1335,7 +1346,8 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalAlignment(JLabel.CENTER);
 		MyTableRenderer r3 = new MyTableRenderer();
 		r3.setHorizontalAlignment(JLabel.CENTER);
-		liveTable4.setDefaultRenderer(Object.class, new TableCellTextAreaRenderer());
+		liveTable4.setDefaultRenderer(Object.class,
+				new TableCellTextAreaRenderer());
 
 		liveTable4.setRowHeight(Y * 30 / 768);
 		liveTable4.getColumnModel().getColumn(0)
@@ -2189,7 +2201,8 @@ public class LiveInfoPanel extends JPanel {
 		@Override
 		public void update(Observable o, Object arg) {
 			// TODO Auto-generated method stub
-			System.out.println("????????????????????????????????????????????????????????????");
+			System.out
+					.println("????????????????????????????????????????????????????????????");
 			liveTextList1 = (ArrayList<LiveTextPO>) arg;
 			live1(liveTextList1);
 			// live();
@@ -2280,10 +2293,6 @@ public class LiveInfoPanel extends JPanel {
 		}
 
 	}
-	
-	
-	
-	
 
 	public void PlayerButtonHighLight(String gorh, int i) {
 		ImageIcon initialPlayerPortraitG1 = new ImageIcon(new ImageIcon(
@@ -2458,39 +2467,65 @@ public class LiveInfoPanel extends JPanel {
 
 	}
 
-
-
-
-	class TableCellTextAreaRenderer extends JTextArea implements TableCellRenderer { 
-	    public TableCellTextAreaRenderer() { 
-	        setLineWrap(true); 
-	        setWrapStyleWord(true); 
-	    }
-
-	    public Component getTableCellRendererComponent(JTable table, Object value, 
-	            boolean isSelected, boolean hasFocus, int row, int column) {
-	    	setOpaque(false);
-	    	setForeground(Color.WHITE);
-	        // 计算当下行的最佳高度 
-	        int maxPreferredHeight = 0; 
-	        for (int i = 0; i < table.getColumnCount(); i++) { 
-	            setText("" + table.getValueAt(row, i)); 
-	            setSize(table.getColumnModel().getColumn(column).getWidth(), 0); 
-	            maxPreferredHeight = Math.max(maxPreferredHeight, getPreferredSize().height); 
-	        }
-
-//	        if (table.getRowHeight(row) != getPreferredSize().height)  // 少了这行则处理器瞎忙 
-            table.setRowHeight(row, 50);
-
-	        setText(value == null ? "" : value.toString()); 
-	        return this; 
-	    } 
-
+	public void refresh() {
+		mainFrame.remove(this);
+		LiveFrame.liveInfoPanel = new LiveInfoPanel(mainFrame);
+		playerDataLive(infoDaoImpl.getGuestPlayers(),
+				infoDaoImpl.getHostPlayers());
+		teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
+		live();
+		gameDataLive(infoDaoImpl.getGame());
+		courtLive(infoDaoImpl.getGame());
+/*
+		if (currentState.equals("live")) {
+			playerDataLive(infoDaoImpl.getGuestPlayers(),
+					infoDaoImpl.getHostPlayers());
+			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
+			live();
+			gameDataLive(infoDaoImpl.getGame());
+			courtLive(infoDaoImpl.getGame());
+		} else if (currentState.equals("playerDataLive")) {
+			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
+			live();
+			playerDataLive(infoDaoImpl.getGuestPlayers(),
+					infoDaoImpl.getHostPlayers());
+		} else if (currentState.equals("teamDataLive")) {
+			live();
+			playerDataLive(infoDaoImpl.getGuestPlayers(),
+					infoDaoImpl.getHostPlayers());
+			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
+		}
+*/
 	}
 
+	class TableCellTextAreaRenderer extends JTextArea implements
+			TableCellRenderer {
+		public TableCellTextAreaRenderer() {
+			setLineWrap(true);
+			setWrapStyleWord(true);
+		}
+
+		public Component getTableCellRendererComponent(JTable table,
+				Object value, boolean isSelected, boolean hasFocus, int row,
+				int column) {
+			setOpaque(false);
+			setForeground(Color.WHITE);
+			// 计算当下行的最佳高度
+			int maxPreferredHeight = 0;
+			for (int i = 0; i < table.getColumnCount(); i++) {
+				setText("" + table.getValueAt(row, i));
+				setSize(table.getColumnModel().getColumn(column).getWidth(), 0);
+				maxPreferredHeight = Math.max(maxPreferredHeight,
+						getPreferredSize().height);
+			}
+
+			// if (table.getRowHeight(row) != getPreferredSize().height) //
+			// 少了这行则处理器瞎忙
+			table.setRowHeight(row, 50);
+
+			setText(value == null ? "" : value.toString());
+			return this;
+		}
+
+	}
 }
-
-
-
-
-
