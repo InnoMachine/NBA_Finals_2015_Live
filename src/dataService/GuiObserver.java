@@ -13,7 +13,6 @@ public class GuiObserver implements Observer {
 	public static void main(String[] args){
 		 
 		Singleton dataObserved = Singleton.getInstance();
-		System.out.println("1------");
 		GuiObserver guiObserver = new GuiObserver();
 		dataObserved.addObserver(guiObserver);
 		new InfoDaoImpl().updateTestString("tttt");

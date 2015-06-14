@@ -1,11 +1,20 @@
 package po;
 
 public class LiveTextPO {
+	
 	String text;
 	int quarterID;
-	TeamAbbr teamAbbr;
+	String teamAbbr;
 	String playerName;
 	String remainingTime;
+	String score;
+	
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
+	}
 	public String getText() {
 		return text;
 	}
@@ -18,11 +27,11 @@ public class LiveTextPO {
 	public void setQuarterID(int quarterID) {
 		this.quarterID = quarterID;
 	}
-	public TeamAbbr getTeamAbbr() {
+	public String getTeamAbbr() {
 		return teamAbbr;
 	}
-	public void setTeamAbbr(TeamAbbr teamAbbr) {
-		this.teamAbbr = teamAbbr;
+	public void setTeamAbbr(String string) {
+		this.teamAbbr = string;
 	}
 	public String getPlayerName() {
 		return playerName;

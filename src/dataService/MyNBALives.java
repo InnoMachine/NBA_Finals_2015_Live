@@ -8,9 +8,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import po.GameDate;
 import po.GamePO;
 import po.LiveTextPO;
 import po.PlayerPO;
+import po.Scoreboard;
 import po.TeamPO;
 
 import com.alibaba.fastjson.JSON;
@@ -20,30 +22,87 @@ import com.alibaba.fastjson.JSONObject;
 public class MyNBALives {
 	
 	public static void main(String args[]){
+		live();
+		Singleton singleton = Singleton.getInstance();
+		GamePO game = new GamePO();
+		game.setBegin(true);
+		game.setCurrentPeriod("1");
+		game.setEnd(false);
+		game.setExtratime(null);
+		game.setGameDate(new GameDate("2015-6-15"));
+		game.setGameLabel("14-15_2015-6-15_CLE-GSW");
+		//game.setGuestOnCourtPlayerLsit(guestOnCourtPlayerLsit);
+		game.setGuestTeam("CLE");
+		//game.setHomeOnCourtPlayerLsit(homeOnCourtPlayerLsit);
+		game.setHomeTeam("GSW");
+		game.setRemainingTime("12:00");
+		game.setScore1st(Scoreboard.makeSB("0-0"));
+		game.setScore2nd(Scoreboard.makeSB("0-0"));
+		game.setScore3rd(Scoreboard.makeSB("0-0"));
+		game.setScore4th(Scoreboard.makeSB("0-0"));
+		game.setScoreOverall(Scoreboard.makeSB("0-0"));
+		game.setSeasonId("14-15");
+		game.setVersus("CLE-GSW");
+		
+		TeamPO hostTeam = new TeamPO();
+		hostTeam.setAbbreviation("GSW");
+		//hostTeam.setAllPlayersNameList(allPlayersNameList);
+		hostTeam.setAsist("0");
+		hostTeam.setFreeThrowRatio("0");
+		hostTeam.setHomeField("GSW");//
+		//hostTeam.setOnCourtPlayerList(onCourtPlayerList);
+		hostTeam.setRebound("0");
+		hostTeam.setShootRatio("0");
+		hostTeam.setTeamName("Golden State Worriors");
+		hostTeam.setThreePointShootRatio("0");
+		
+		TeamPO guestTeam = new TeamPO();
+		guestTeam.setAbbreviation("GSW");
+		//guestTeam.setAllPlayersNameList(allPlayersNameList);
+		guestTeam.setAsist("0");
+		guestTeam.setFreeThrowRatio("0");
+		guestTeam.setHomeField("GSW");//
+		//guestTeam.setOnCourtPlayerList(onCourtPlayerList);
+		guestTeam.setRebound("0");
+		guestTeam.setShootRatio("0");
+		guestTeam.setTeamName("Golden State Worriors");
+		guestTeam.setThreePointShootRatio("0");
+		
+		singleton.setGame(game);
+		singleton.setHostTeam(hostTeam);
+		singleton.setGuestTeam(guestTeam);
+//		singleton.setGuestPlayers(guestPlayers);
+//		singleton.setHostPlayers(hostPlayers);
+//		singleton.setLiveText(liveText);
 		
 	}
 	
 	public static void live() {
-		String playbyplayJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/playbyplay_0041400404_4.json");
+		
+		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(1)));
+		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(2)));
+		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(3)));
+		Singleton.getInstance().setLiveText1(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(4)));
+		
 		String gameJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/snapshotlive_0041400404.json");
-		
-		JSONObject playbyplayJsonObject =  JSON.parseObject(playbyplayJsonString, JSONObject.class);
 		JSONObject gameJsonObject = JSON.parseObject(gameJsonString, JSONObject.class);
-		
-		JSONArray eventsJsonArray = playbyplayJsonObject.getJSONObject("payload").getJSONArray("playByPlays").getJSONObject(0).getJSONArray("events");
 		JSONObject gamePayload = gameJsonObject.getJSONObject("payload");
 		JSONObject awayteam = gamePayload.getJSONObject("awayTeam");
 		JSONObject hometeam = gamePayload.getJSONObject("homeTeam");
-		
 		JSONArray awayteamplayersArray = awayteam.getJSONArray("gamePlayers");
 		JSONArray hometeamplayersArray = hometeam.getJSONArray("gamePlayers");
 		
-		getLiveTextsFromJsonArray(eventsJsonArray);
 		getGame(gamePayload);
 		getAwayPlayers(awayteamplayersArray);
 		getHomePlayers(hometeamplayersArray);
 		getAwayTeam(awayteam);
 		getHomeTeam(hometeam);
+	}
+	
+	public static JSONArray getPeriodLiveTextJsonArray(int period) {
+		String url = "http://china.nba.com/wap/static/data/game/playbyplay_0041400404_" + period + ".json";
+		JSONArray eventsJsonArray = JSON.parseObject(getJsonContent(url), JSONObject.class).getJSONObject("payload").getJSONArray("playByPlays").getJSONObject(0).getJSONArray("events");;
+		return eventsJsonArray;
 	}
 	
 	public static ArrayList<LiveTextPO> getLiveTextsFromJsonArray(JSONArray jsonArray) {
@@ -60,6 +119,13 @@ public class MyNBALives {
 	public static LiveTextPO getLiveTextFromJsonObj(JSONObject jsonObject) {
 		
 		LiveTextPO livetext = new LiveTextPO();
+		livetext.setPlayerName(getPlayerNameEnFromId(jsonObject.getString("playerId")));
+		livetext.setRemainingTime(jsonObject.getString("gameClock"));
+		livetext.setTeamAbbr(getAbbrFromId(jsonObject.getString("teamId")));
+		livetext.setText(jsonObject.getString("description"));
+		livetext.setScore(jsonObject.getString("awayScore") + "-" + jsonObject.getString("homeScore"));
+		
+		
 		System.out.print(jsonObject.getString("gameClock"));
 		System.out.print("\t");
 		System.out.print(jsonObject.getString("awayScore") + "-" + jsonObject.getString("homeScore"));
