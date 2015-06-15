@@ -200,16 +200,16 @@ public class LiveInfoPanel extends JPanel {
 
 		// -------------------------------获取初始gamePO---------------------------------
 		// gamePO = infoDaoImpl.getGame();
+		
 		gamePO = new GamePO();
 		gamePO.setGuestTeam("CLE");
 		gamePO.setHomeTeam("GSW");
-
-		gamePO.setScoreOverall(Scoreboard.makeSB("97-78"));
-		gamePO.setScore1st(Scoreboard.makeSB("20-20"));
-		gamePO.setScore2nd(Scoreboard.makeSB("25-10"));
-		gamePO.setScore3rd(Scoreboard.makeSB("25-20"));
-		gamePO.setScore4th(Scoreboard.makeSB("27-28"));
-		gamePO.setCurrentPeriod("3");
+		gamePO.setScoreOverall(Scoreboard.makeSB("0-0"));
+		gamePO.setScore1st(Scoreboard.makeSB("0-0"));
+		gamePO.setScore2nd(Scoreboard.makeSB("0-0"));
+		gamePO.setScore3rd(Scoreboard.makeSB("0-0"));
+		gamePO.setScore4th(Scoreboard.makeSB("0-0"));
+		gamePO.setCurrentPeriod("3");	
 		ArrayList<String> guestOnCourtPlayerLsit = new ArrayList<String>();
 		guestOnCourtPlayerLsit.add("Anderson Varejao");
 		guestOnCourtPlayerLsit.add("Brendan Haywood");
@@ -417,7 +417,7 @@ public class LiveInfoPanel extends JPanel {
 
 		firstPeriod.setBounds(X * 0 / 1366, Y * 0 / 768, X * 50 / 1366,
 				Y * 30 / 768);
-		firstPeriod.setText("1");
+		firstPeriod.setText("2");
 		firstPeriod.setBackground(Color.GRAY);
 		firstPeriod.setForeground(Color.WHITE);
 		firstPeriod.setVisible(false);
@@ -514,8 +514,8 @@ public class LiveInfoPanel extends JPanel {
 			}
 
 		});
-		
-		gameDataLive(gamePO);
+	//--------------------------------------------------------------------------------------------------------	
+		gameDataLive(infoDaoImpl.getGame());
 
 		if (gamePO.getCurrentPeriod() != null) {
 			if (gamePO.getCurrentPeriod().equals("1")) {
@@ -556,7 +556,7 @@ public class LiveInfoPanel extends JPanel {
 		guestTeambtn.setBounds(X * 230 / 1366, Y * 34 / 768, X * 160 / 1366,
 				Y * 160 / 768);
 		ImageIcon teamImg1 = new ImageIcon(new ImageIcon("images/team_img/"
-				+ gamePO.getGuestTeam() + ".png").getImage().getScaledInstance(
+				+ "CLE" + ".png").getImage().getScaledInstance(
 				X * 160 / 1366, Y * 160 / 768, Image.SCALE_AREA_AVERAGING));
 		guestTeambtn.setIcon(teamImg1);
 		guestTeambtn.setContentAreaFilled(false);
@@ -571,7 +571,7 @@ public class LiveInfoPanel extends JPanel {
 		hostTeambtn.setBounds(X * 970 / 1366, Y * 34 / 768, X * 160 / 1366,
 				Y * 160 / 768);
 		ImageIcon teamImg2 = new ImageIcon(new ImageIcon("images/team_img/"
-				+ gamePO.getHomeTeam() + ".png").getImage().getScaledInstance(
+				+ "GSW" + ".png").getImage().getScaledInstance(
 				X * 160 / 1366, Y * 160 / 768, Image.SCALE_AREA_AVERAGING));
 		hostTeambtn.setIcon(teamImg2);
 		hostTeambtn.setContentAreaFilled(false);
@@ -703,20 +703,18 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(hostScoreSum);
 
 		if (infoDaoImpl.getGame().getCurrentPeriod() != null) {
-			if (infoDaoImpl.getGame().getCurrentPeriod().equals("1")) {
-				guestTeam1.setText(String.valueOf(gamePO
-						.getScore1st().getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO
-						.getScore1st().getHomeScore()));
+			if (infoDaoImpl.getGame().getCurrentPeriod().equals("1")&&gamePO
+					.getScore1st()!=null) {
+				guestTeam1.setText("22");
+				hostScore1.setText("22");
 				guestScoreSum.setText(String.valueOf(gamePO
 						.getScoreOverall().getGuestScore()));
 				hostScoreSum.setText(String.valueOf(gamePO
 						.getScoreOverall().getHomeScore()));
-			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("2")) {
-				guestTeam1.setText(String.valueOf(gamePO
-						.getScore1st().getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO
-						.getScore1st().getHomeScore()));
+			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("2")&&gamePO
+					.getScore2nd()!=null) {
+				guestTeam1.setText("22");
+				hostScore1.setText("22");
 				guestTeam2.setText(String.valueOf(gamePO
 						.getScore2nd().getGuestScore()));
 				hostScore2.setText(String.valueOf(gamePO
@@ -726,11 +724,10 @@ public class LiveInfoPanel extends JPanel {
 						.getScoreOverall().getGuestScore()));
 				hostScoreSum.setText(String.valueOf(gamePO
 						.getScoreOverall().getHomeScore()));
-			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("3")) {
-				guestTeam1.setText(String.valueOf(gamePO
-						.getScore1st().getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO
-						.getScore1st().getHomeScore()));
+			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("3")&&gamePO
+					.getScore3rd()!=null) {
+				guestTeam1.setText("22");
+				hostScore1.setText("22");
 				guestTeam2.setText(String.valueOf(gamePO
 						.getScore2nd().getGuestScore()));
 				hostScore2.setText(String.valueOf(gamePO
@@ -744,11 +741,10 @@ public class LiveInfoPanel extends JPanel {
 						.getScoreOverall().getGuestScore()));
 				hostScoreSum.setText(String.valueOf(gamePO
 						.getScoreOverall().getHomeScore()));
-			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("4")) {
-				guestTeam1.setText(String.valueOf(gamePO
-						.getScore1st().getGuestScore()));
-				hostScore1.setText(String.valueOf(gamePO
-						.getScore1st().getHomeScore()));
+			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("4")&&gamePO
+					.getScore4th()!=null) {
+				guestTeam1.setText("22");
+				hostScore1.setText("22");
 				guestTeam2.setText(String.valueOf(gamePO
 						.getScore2nd().getGuestScore()));
 				hostScore2.setText(String.valueOf(gamePO
@@ -894,12 +890,12 @@ public class LiveInfoPanel extends JPanel {
 		livelbl.add(thirdPeriod);
 		livelbl.add(fourthPeriod);
 		firstPeriod.setVisible(true);
-		livelbl.add(firstPeriod);
-		secondPeriod.setVisible(true);
-		livelbl.add(secondPeriod);
-		thirdPeriod.setVisible(true);
-		livelbl.add(thirdPeriod);
-		fourthPeriod.setVisible(true);
+	//	livelbl.add(firstPeriod);
+	//	secondPeriod.setVisible(true);
+	//	livelbl.add(secondPeriod);
+	//	thirdPeriod.setVisible(true);
+	//	livelbl.add(thirdPeriod);
+	//	fourthPeriod.setVisible(true);
     
         
 		liveTextList1 = infoDaoImpl.getLiveText1();
@@ -1020,11 +1016,11 @@ public class LiveInfoPanel extends JPanel {
 		liveScrollPane1.getViewport().setOpaque(false);
 		liveScrollPane1.setOpaque(false);
 		liveScrollPane1.setVisible(false);
-/*
+
 		if (gamePO.getCurrentPeriod().equals("1")) {
 			liveScrollPane1.setVisible(true);
 		}
-*/
+
 	}
 
 	public void live2(ArrayList<LiveTextPO> liveTextList) {
@@ -1196,11 +1192,11 @@ public class LiveInfoPanel extends JPanel {
 		liveScrollPane3.getViewport().setOpaque(false);
 		liveScrollPane3.setOpaque(false);
 		liveScrollPane3.setVisible(false);
-/*
+
 		if (gamePO.getCurrentPeriod().equals("3")) {
 			liveScrollPane3.setVisible(true);
 		}
-*/
+
 	}
 
 	public void live4(ArrayList<LiveTextPO> liveTextList) {
@@ -2342,7 +2338,6 @@ public class LiveInfoPanel extends JPanel {
 		teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
 		live();
 		gameDataLive(infoDaoImpl.getGame());
-		// courtLive(infoDaoImpl.getGame());
 
 		VisionController(currentState);
 	}
