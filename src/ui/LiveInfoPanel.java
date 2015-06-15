@@ -994,13 +994,13 @@ public class LiveInfoPanel extends JPanel {
 
 		liveTable1.setRowHeight(Y * 30 / 768);
 		liveTable1.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 70 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable1.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 40 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable1.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable1.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 315 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable1.setForeground(Color.WHITE);
 		liveTable1.setVisible(true);
 		liveTable1.setCellSelectionEnabled(true);
@@ -1020,13 +1020,11 @@ public class LiveInfoPanel extends JPanel {
 		liveScrollPane1.getViewport().setOpaque(false);
 		liveScrollPane1.setOpaque(false);
 		liveScrollPane1.setVisible(false);
-
+/*
 		if (gamePO.getCurrentPeriod().equals("1")) {
-
 			liveScrollPane1.setVisible(true);
-
 		}
-
+*/
 	}
 
 	public void live2(ArrayList<LiveTextPO> liveTextList) {
@@ -1083,13 +1081,13 @@ public class LiveInfoPanel extends JPanel {
 
 		liveTable2.setRowHeight(Y * 30 / 768);
 		liveTable2.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 70 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable2.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 40 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable2.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable2.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 315 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable2.setForeground(Color.WHITE);
 		liveTable2.setVisible(true);
 		liveTable2.setCellSelectionEnabled(true);
@@ -1109,10 +1107,11 @@ public class LiveInfoPanel extends JPanel {
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		liveScrollPane2.getViewport().setOpaque(false);
 		liveScrollPane2.setOpaque(false);
+		/*
 		if (gamePO.getCurrentPeriod().equals("2")) {
 			liveScrollPane2.setVisible(true);
 		}
-
+*/
 	}
 
 	public void live3(ArrayList<LiveTextPO> liveTextList) {
@@ -1171,13 +1170,13 @@ public class LiveInfoPanel extends JPanel {
 
 		liveTable3.setRowHeight(Y * 30 / 768);
 		liveTable3.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 70 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable3.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 40 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable3.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable3.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 315 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable3.setForeground(Color.WHITE);
 		liveTable3.setVisible(true);
 		liveTable3.setCellSelectionEnabled(true);
@@ -1197,13 +1196,11 @@ public class LiveInfoPanel extends JPanel {
 		liveScrollPane3.getViewport().setOpaque(false);
 		liveScrollPane3.setOpaque(false);
 		liveScrollPane3.setVisible(false);
-
+/*
 		if (gamePO.getCurrentPeriod().equals("3")) {
-
 			liveScrollPane3.setVisible(true);
-
 		}
-
+*/
 	}
 
 	public void live4(ArrayList<LiveTextPO> liveTextList) {
@@ -1261,13 +1258,13 @@ public class LiveInfoPanel extends JPanel {
 
 		liveTable4.setRowHeight(Y * 30 / 768);
 		liveTable4.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 80 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable4.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 50 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable4.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable4.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 760 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable4.setForeground(Color.WHITE);
 		liveTable4.setVisible(true);
 		liveTable4.setCellSelectionEnabled(true);
@@ -1288,12 +1285,11 @@ public class LiveInfoPanel extends JPanel {
 		liveScrollPane4.getViewport().setOpaque(false);
 		liveScrollPane4.setOpaque(false);
 		liveScrollPane4.setVisible(false);
-
+/*
 		if (gamePO.getCurrentPeriod().equals("4")) {
-
 			liveScrollPane4.setVisible(true);
-
 		}
+*/
 	}
 
 	public void teamDataLive(TeamPO guestTeamPo, TeamPO hostTeamPo) {
