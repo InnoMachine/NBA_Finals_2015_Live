@@ -608,7 +608,7 @@ public class LiveInfoPanel extends JPanel {
 		 * bgLabel.add(txtHTPoint);
 		 */
 		guestTeamtF = new MyTextField();
-		guestTeamtF.setText(infoDaoImpl.getGame().getGuestTeam());
+		guestTeamtF.setText("CLE");
 		guestTeamtF.setHorizontalAlignment(SwingConstants.CENTER);
 		guestTeamtF.setColumns(X * 10 / 1366);
 		guestTeamtF.setBounds(spaceX, spaceY + tempY, 60, tempY);
@@ -655,7 +655,7 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestScoreSum);
 
 		hostTeamtF = new MyTextField();
-		hostTeamtF.setText(infoDaoImpl.getGame().getHomeTeam());
+		hostTeamtF.setText("GSW");
 		hostTeamtF.setHorizontalAlignment(SwingConstants.CENTER);
 		hostTeamtF.setBounds(spaceX, spaceY + 2 * tempY, 60, tempY);
 		hostTeamtF.setBackground(Color.GRAY);
