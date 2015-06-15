@@ -239,11 +239,11 @@ public class LiveInfoPanel extends JPanel {
 		guestTeamPo.setAllPlayersNameList(guestAllPlayerList);
 
 		guestTeamPo.setAbbreviation("CLE");
-		guestTeamPo.setShootRatio("40.3");
-		guestTeamPo.setThreePointShootRatio("34.2");
-		guestTeamPo.setFreeThrowRatio("60.2");
-		guestTeamPo.setRebound("18");
-		guestTeamPo.setAsist("24");
+		guestTeamPo.setShootRatio("0");
+		guestTeamPo.setThreePointShootRatio("0");
+		guestTeamPo.setFreeThrowRatio("0");
+		guestTeamPo.setRebound("0");
+		guestTeamPo.setAsist("0");
 
 		// -------------------------------获取初始HomeTeamPO---------------------------------
 		hostTeamPo = new TeamPO();
@@ -258,61 +258,61 @@ public class LiveInfoPanel extends JPanel {
 		// onCourtPlayerList;
 		// private ArrayList<String> allPlayersNameList;
 		hostTeamPo.setAbbreviation("CLE");
-		hostTeamPo.setShootRatio("40.3");
-		hostTeamPo.setThreePointShootRatio("34.2");
-		hostTeamPo.setFreeThrowRatio("60.2");
-		hostTeamPo.setRebound("18");
-		hostTeamPo.setAsist("24");
+		hostTeamPo.setShootRatio("0");
+		hostTeamPo.setThreePointShootRatio("0");
+		hostTeamPo.setFreeThrowRatio("0");
+		hostTeamPo.setRebound("0");
+		hostTeamPo.setAsist("0");
 		// --------------------------------获取初始主客队球员阵容---------------------------
 		// guestPlayerDataList = infoDaoImpl.getGuestPlayers();
 		// hostPlayerDataList = infoDaoImpl.getHostPlayers();
 		PlayerPO p1 = new PlayerPO();
-		p1.setAsist("1");
-		p1.setBackRebound("1");
-		p1.setBlock("1");
+		p1.setAsist("0");
+		p1.setBackRebound("0");
+		p1.setBlock("0");
 		p1.setCnName("史蒂夫");
 		p1.setEnName("Steve");
-		p1.setForwardRebound("1");
-		p1.setFoul("1");
-		p1.setFreeThrowInNum("1");
+		p1.setForwardRebound("0");
+		p1.setFoul("0");
+		p1.setFreeThrowInNum("0");
 		p1.setFreethrowInRatio("0.0");
-		p1.setFreeThrowTotalNum("1");
-		p1.setPosition("1");
-		p1.setScore("1");
-		p1.setShootInNum("1");
+		p1.setFreeThrowTotalNum("0");
+		p1.setPosition("0");
+		p1.setScore("0");
+		p1.setShootInNum("0");
 		p1.setShootInRatio("0.0");
-		p1.setShootThreeInNum("1");
+		p1.setShootThreeInNum("0");
 		p1.setShootThreeInRatio("0.0");
-		p1.setShootThreeTotalNum("1");
-		p1.setShootTotalNum("1");
-		p1.setSteal("1");
-		p1.setTimeOnCourt("1");
-		p1.setTotalRebound("1");
-		p1.setTurnover("1");
+		p1.setShootThreeTotalNum("0");
+		p1.setShootTotalNum("0");
+		p1.setSteal("0");
+		p1.setTimeOnCourt("0");
+		p1.setTotalRebound("0");
+		p1.setTurnover("0");
 
 		PlayerPO p2 = new PlayerPO();
 
 		p2.setAsist("");
-		p2.setBackRebound("2");
-		p2.setBlock("2");
+		p2.setBackRebound("0");
+		p2.setBlock("0");
 		p2.setCnName("啊");
 		p2.setEnName("A");
-		p2.setForwardRebound("2");
-		p2.setFoul("2");
-		p2.setFreeThrowInNum("2");
+		p2.setForwardRebound("0");
+		p2.setFoul("0");
+		p2.setFreeThrowInNum("0");
 		p2.setFreethrowInRatio("0.0");
-		p2.setFreeThrowTotalNum("2");
-		p2.setPosition("2");
-		p2.setScore("2");
-		p2.setShootInNum("2");
+		p2.setFreeThrowTotalNum("0");
+		p2.setPosition("0");
+		p2.setScore("0");
+		p2.setShootInNum("0");
 		p2.setShootInRatio("0.0");
-		p2.setShootThreeInNum("2");
+		p2.setShootThreeInNum("0");
 		p2.setShootThreeInRatio("0.0");
-		p2.setShootThreeTotalNum("2");
-		p2.setShootTotalNum("2");
-		p2.setSteal("2");
-		p2.setTimeOnCourt("2");
-		p2.setTotalRebound("2");
+		p2.setShootThreeTotalNum("0");
+		p2.setShootTotalNum("0");
+		p2.setSteal("0");
+		p2.setTimeOnCourt("0");
+		p2.setTotalRebound("0");
 		p2.setTurnover("2");
 		guestPlayerDataList = new ArrayList<PlayerPO>();
 		hostPlayerDataList = new ArrayList<PlayerPO>();
@@ -395,11 +395,13 @@ public class LiveInfoPanel extends JPanel {
 		JButton summarybtn = new ChooseButton("球队数据");
 		summarybtn.setBounds(X * 605 / 1366, Y * 155 / 768, X * 155 / 1366,
 				Y * 30 / 768);
-		summarybtn.addActionListener(e -> {
-			currentState = "teamDataLive";
-			teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getGuestTeam());
-			VisionController("teamDataLive");
-		});
+		summarybtn
+				.addActionListener(e -> {
+					currentState = "teamDataLive";
+					teamDataLive(infoDaoImpl.getGuestTeam(),
+							infoDaoImpl.getGuestTeam());
+					VisionController("teamDataLive");
+				});
 		bgLabel.add(summarybtn);
 
 		JButton databtn = new ChooseButton("球员数据");
@@ -407,7 +409,8 @@ public class LiveInfoPanel extends JPanel {
 				Y * 30 / 768);
 		databtn.addActionListener(e -> {
 			currentState = "playerDataLive";
-			playerDataLive(infoDaoImpl.getGuestPlayers(), infoDaoImpl.getHostPlayers());
+			playerDataLive(infoDaoImpl.getGuestPlayers(),
+					infoDaoImpl.getHostPlayers());
 			VisionController("playerDataLive");
 		});
 		bgLabel.add(databtn);
@@ -443,28 +446,96 @@ public class LiveInfoPanel extends JPanel {
 		fourthPeriod.setForeground(Color.WHITE);
 		fourthPeriod.setVisible(false);
 
+		
+		
+		firstPeriod.addActionListener(e -> {
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(true);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+
+		});
+		
+//		secondPeriod.setVisible(true);
+		secondPeriod.addActionListener(e -> {
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(true);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+
+		});
+		
+//		thirdPeriod.setVisible(true);
+		thirdPeriod.addActionListener(e -> {
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(true);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(false);
+			}
+
+		});
+		
+//		fourthPeriod.setVisible(true);
+		fourthPeriod.addActionListener(e -> {
+			if (liveScrollPane1 != null) {
+				liveScrollPane1.setVisible(false);
+			}
+			if (liveScrollPane2 != null) {
+				liveScrollPane2.setVisible(false);
+			}
+			if (liveScrollPane3 != null) {
+				liveScrollPane3.setVisible(false);
+			}
+			if (liveScrollPane4 != null) {
+				liveScrollPane4.setVisible(true);
+			}
+
+		});
+		
 		gameDataLive(gamePO);
 
-	
+		if (gamePO.getCurrentPeriod() != null) {
+			if (gamePO.getCurrentPeriod().equals("1")) {
 
-		if (gamePO.getCurrentPeriod().equals("1")) {
-
+			}
+			if (gamePO.getCurrentPeriod().equals("2")) {
+				live1(liveTextList1);
+			}
+			if (gamePO.getCurrentPeriod().equals("3")) {
+				live1(liveTextList1);
+				live2(liveTextList2);
+			}
+			if (gamePO.getCurrentPeriod().equals("4")) {
+				live1(liveTextList1);
+				live2(liveTextList2);
+				live3(liveTextList3);
+			}
 		}
-		if (gamePO.getCurrentPeriod().equals("2")) {
-			live1(liveTextList1);
-		}
-		if (gamePO.getCurrentPeriod().equals("3")) {
-			live1(liveTextList1);
-			live2(liveTextList2);
-		}
-		if (gamePO.getCurrentPeriod().equals("4")) {
-			live1(liveTextList1);
-			live2(liveTextList2);
-			live3(liveTextList3);
-		}
-
 		live();
-		courtLive(gamePO);
+		// courtLive(gamePO);
 		VisionController("live");
 		mainFrame.getContentPane().add(this);
 
@@ -517,36 +588,27 @@ public class LiveInfoPanel extends JPanel {
 		txtState.setFont(new Font("幼圆", 1, 15));
 		txtState.setBorder(null);
 		bgLabel.add(txtState);
-/*
-		txtGTPoint = new MyTextField();
-		if (gamePO.getScoreOverall() != null) {
-			txtGTPoint.setText(String.valueOf(gamePO.getScoreOverall()
-					.getGuestScore()));
-		} else {
-			txtGTPoint.setText("");
-		}
-		txtGTPoint.setHorizontalAlignment(SwingConstants.CENTER);
-		txtGTPoint.setBounds(X * 430 / 1366, Y * 67 / 768, X * 120 / 1366,
-				Y * 60 / 768);
-		txtGTPoint.setFont(new Font("微软雅黑", 1, 40));
-		bgLabel.add(txtGTPoint);
-
-		txtHTPoint = new MyTextField();
-		txtHTPoint.setHorizontalAlignment(SwingConstants.CENTER);
-		if (gamePO.getScoreOverall() != null) {
-			txtHTPoint.setText(String.valueOf(gamePO.getScoreOverall()
-					.getHomeScore()));
-		} else {
-			txtHTPoint.setText("");
-		}
-
-		txtHTPoint.setBounds(X * 830 / 1366, Y * 67 / 768, X * 120 / 1366,
-				Y * 60 / 768);
-		txtHTPoint.setFont(new Font("微软雅黑", 1, 40));
-		bgLabel.add(txtHTPoint);
-*/
+		/*
+		 * txtGTPoint = new MyTextField(); if (gamePO.getScoreOverall() != null)
+		 * { txtGTPoint.setText(String.valueOf(gamePO.getScoreOverall()
+		 * .getGuestScore())); } else { txtGTPoint.setText(""); }
+		 * txtGTPoint.setHorizontalAlignment(SwingConstants.CENTER);
+		 * txtGTPoint.setBounds(X * 430 / 1366, Y * 67 / 768, X * 120 / 1366, Y
+		 * * 60 / 768); txtGTPoint.setFont(new Font("微软雅黑", 1, 40));
+		 * bgLabel.add(txtGTPoint);
+		 * 
+		 * txtHTPoint = new MyTextField();
+		 * txtHTPoint.setHorizontalAlignment(SwingConstants.CENTER); if
+		 * (gamePO.getScoreOverall() != null) {
+		 * txtHTPoint.setText(String.valueOf(gamePO.getScoreOverall()
+		 * .getHomeScore())); } else { txtHTPoint.setText(""); }
+		 * 
+		 * txtHTPoint.setBounds(X * 830 / 1366, Y * 67 / 768, X * 120 / 1366, Y
+		 * * 60 / 768); txtHTPoint.setFont(new Font("微软雅黑", 1, 40));
+		 * bgLabel.add(txtHTPoint);
+		 */
 		guestTeamtF = new MyTextField();
-		guestTeamtF.setText(infoDaoImpl.getGame().getGuestTeam());
+		guestTeamtF.setText("CLE");
 		guestTeamtF.setHorizontalAlignment(SwingConstants.CENTER);
 		guestTeamtF.setColumns(X * 10 / 1366);
 		guestTeamtF.setBounds(spaceX, spaceY + tempY, 60, tempY);
@@ -593,7 +655,7 @@ public class LiveInfoPanel extends JPanel {
 		bgLabel.add(guestScoreSum);
 
 		hostTeamtF = new MyTextField();
-		hostTeamtF.setText(infoDaoImpl.getGame().getHomeTeam());
+		hostTeamtF.setText("GSW");
 		hostTeamtF.setHorizontalAlignment(SwingConstants.CENTER);
 		hostTeamtF.setBounds(spaceX, spaceY + 2 * tempY, 60, tempY);
 		hostTeamtF.setBackground(Color.GRAY);
@@ -642,437 +704,241 @@ public class LiveInfoPanel extends JPanel {
 
 		if (infoDaoImpl.getGame().getCurrentPeriod() != null) {
 			if (infoDaoImpl.getGame().getCurrentPeriod().equals("1")) {
-				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getGuestScore()));
-				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getHomeScore()));
-				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getHomeScore()));
+				guestTeam1.setText(String.valueOf(gamePO
+						.getScore1st().getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO
+						.getScore1st().getHomeScore()));
+				guestScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getHomeScore()));
 			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("2")) {
-				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getGuestScore()));
-				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getHomeScore()));
-				guestTeam2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
-						.getGuestScore()));
-				hostScore2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
-						.getHomeScore()));
-				
-				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getHomeScore()));
+				guestTeam1.setText(String.valueOf(gamePO
+						.getScore1st().getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO
+						.getScore1st().getHomeScore()));
+				guestTeam2.setText(String.valueOf(gamePO
+						.getScore2nd().getGuestScore()));
+				hostScore2.setText(String.valueOf(gamePO
+						.getScore2nd().getHomeScore()));
+
+				guestScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getHomeScore()));
 			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("3")) {
-				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getGuestScore()));
-				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getHomeScore()));
-				guestTeam2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
-						.getGuestScore()));
-				hostScore2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
-						.getHomeScore()));
-				guestTeam3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
-						.getGuestScore()));
-				hostScore3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
-						.getHomeScore()));
-				
-				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getHomeScore()));
+				guestTeam1.setText(String.valueOf(gamePO
+						.getScore1st().getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO
+						.getScore1st().getHomeScore()));
+				guestTeam2.setText(String.valueOf(gamePO
+						.getScore2nd().getGuestScore()));
+				hostScore2.setText(String.valueOf(gamePO
+						.getScore2nd().getHomeScore()));
+				guestTeam3.setText(String.valueOf(gamePO
+						.getScore3rd().getGuestScore()));
+				hostScore3.setText(String.valueOf(gamePO
+						.getScore3rd().getHomeScore()));
+
+				guestScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getHomeScore()));
 			} else if (infoDaoImpl.getGame().getCurrentPeriod().equals("4")) {
-				guestTeam1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getGuestScore()));
-				hostScore1.setText(String.valueOf(infoDaoImpl.getGame().getScore1st()
-						.getHomeScore()));
-				guestTeam2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
-						.getGuestScore()));
-				hostScore2.setText(String.valueOf(infoDaoImpl.getGame().getScore2nd()
-						.getHomeScore()));
-				guestTeam3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
-						.getGuestScore()));
-				hostScore3.setText(String.valueOf(infoDaoImpl.getGame().getScore3rd()
-						.getHomeScore()));
-				guestTeam4.setText(String.valueOf(infoDaoImpl.getGame().getScore4th()
-						.getGuestScore()));
-				hostScore4.setText(String.valueOf(infoDaoImpl.getGame().getScore4th()
-						.getHomeScore()));
-				guestScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getGuestScore()));
-				hostScoreSum.setText(String.valueOf(infoDaoImpl.getGame().getScoreOverall()
-						.getHomeScore()));
+				guestTeam1.setText(String.valueOf(gamePO
+						.getScore1st().getGuestScore()));
+				hostScore1.setText(String.valueOf(gamePO
+						.getScore1st().getHomeScore()));
+				guestTeam2.setText(String.valueOf(gamePO
+						.getScore2nd().getGuestScore()));
+				hostScore2.setText(String.valueOf(gamePO
+						.getScore2nd().getHomeScore()));
+				guestTeam3.setText(String.valueOf(gamePO
+						.getScore3rd().getGuestScore()));
+				hostScore3.setText(String.valueOf(gamePO
+						.getScore3rd().getHomeScore()));
+				guestTeam4.setText(String.valueOf(gamePO
+						.getScore4th().getGuestScore()));
+				hostScore4.setText(String.valueOf(gamePO
+						.getScore4th().getHomeScore()));
+				guestScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getGuestScore()));
+				hostScoreSum.setText(String.valueOf(gamePO
+						.getScoreOverall().getHomeScore()));
 			}
 		}
 		VisionController("live");
 
 	}
 
-	public void courtLive(GamePO gamePO) {
-		if (courtlbl != null) {
-			courtlbl.setVisible(false);
-		}
-		courtlbl = new MyLabel();
-		courtlbl.setHorizontalAlignment(SwingConstants.CENTER);
-		courtlbl.setBounds(X * 0 / 1366, Y * 234 / 768, X * 850 / 1366,
-				Y * 386 / 768);
-		ImageIcon buttonIcon = new ImageIcon(new ImageIcon(
-				"images/backgrounds/" + gamePO.getHomeTeam() + "_court_3D.png")
-				.getImage().getScaledInstance(X * 850 / 1366, Y * 386 / 768,
-						Image.SCALE_SMOOTH));
-		courtlbl.setVisible(false);
-		courtlbl.setIcon(buttonIcon);
-
-		btnG1 = new MyButton();
-		btnG1.setBounds(X * 340 / 1366, Y * 165 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
-			ImageIcon playerPortraitG1 = new ImageIcon(new ImageIcon(
-					"images/player_img/" + gamePO.getGuestTeam() + "/"
-							+ gamePO.getGuestOnCourtPlayerLsit().get(0)
-							+ ".png").getImage().getScaledInstance(
-					X * 60 / 1366, Y * 60 / 768, Image.SCALE_SMOOTH));
-
-			btnG1.setIcon(playerPortraitG1);
-		}
-		btnG1.setOpaque(false);
-		courtlbl.add(btnG1);
-
-		btnG2 = new MyButton();
-		btnG2.setBounds(X * 260 / 1366, Y * 45 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
-			ImageIcon playerPortraitG2 = new ImageIcon(new ImageIcon(
-					"images/player_img/" + gamePO.getGuestTeam() + "/"
-							+ gamePO.getGuestOnCourtPlayerLsit().get(1)
-							+ ".png").getImage().getScaledInstance(
-					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
-			btnG2.setIcon(playerPortraitG2);
-		}
-		btnG2.setOpaque(false);
-		courtlbl.add(btnG2);
-
-		btnG3 = new MyButton();
-		btnG3.setBounds(X * 100 / 1366, Y * 295 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
-			ImageIcon playerPortraitG3 = new ImageIcon(new ImageIcon(
-					"images/player_img/" + gamePO.getGuestTeam() + "/"
-							+ gamePO.getGuestOnCourtPlayerLsit().get(2)
-							+ ".png").getImage().getScaledInstance(
-					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
-			btnG3.setIcon(playerPortraitG3);
-		}
-		btnG3.setOpaque(false);
-		courtlbl.add(btnG3);
-
-		btnG4 = new MyButton();
-		btnG4.setBounds(X * 130 / 1366, Y * 123 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
-			ImageIcon playerPortraitG4 = new ImageIcon(new ImageIcon(
-					"images/player_img/" + gamePO.getGuestTeam() + "/"
-							+ gamePO.getGuestOnCourtPlayerLsit().get(3)
-							+ ".png").getImage().getScaledInstance(
-					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
-			btnG4.setIcon(playerPortraitG4);
-		}
-		btnG4.setOpaque(false);
-		courtlbl.add(btnG4);
-
-		btnG5 = new MyButton();
-		btnG5.setBounds(X * 260 / 1366, Y * 270 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getGuestOnCourtPlayerLsit() != null) {
-			ImageIcon playerPortraitG5 = new ImageIcon(new ImageIcon(
-					"images/player_img/" + gamePO.getGuestTeam() + "/"
-							+ gamePO.getGuestOnCourtPlayerLsit().get(4)
-							+ ".png").getImage().getScaledInstance(
-					X * 60 / 1366, Y * 60 / 768, Image.SCALE_AREA_AVERAGING));
-			btnG5.setIcon(playerPortraitG5);
-		}
-		btnG5.setOpaque(false);
-		courtlbl.add(btnG5);
-
-		btnH1 = new MyButton();
-		btnH1.setBounds(X * 440 / 1366, Y * 165 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
-			ImageIcon playerPortraitH1 = new ImageIcon(
-					new ImageIcon("images/player_img/" + gamePO.getHomeTeam()
-							+ "/" + gamePO.getHomeOnCourtPlayerLsit().get(0)
-							+ ".png").getImage().getScaledInstance(
-							X * 60 / 1366, Y * 60 / 768,
-							Image.SCALE_AREA_AVERAGING));
-			btnH1.setIcon(playerPortraitH1);
-		}
-		btnH1.setOpaque(false);
-		courtlbl.add(btnH1);
-
-		btnH2 = new MyButton();
-		btnH2.setBounds(X * 550 / 1366, Y * 285 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
-			ImageIcon playerPortraitH2 = new ImageIcon(
-					new ImageIcon("images/player_img/" + gamePO.getHomeTeam()
-							+ "/" + gamePO.getHomeOnCourtPlayerLsit().get(1)
-							+ ".png").getImage().getScaledInstance(
-							X * 60 / 1366, Y * 60 / 768,
-							Image.SCALE_AREA_AVERAGING));
-			btnH2.setIcon(playerPortraitH2);
-		}
-		btnH2.setOpaque(false);
-		courtlbl.add(btnH2);
-
-		btnH3 = new MyButton();
-		btnH3.setBounds(X * 640 / 1366, Y * 35 / 768, X * 60 / 1366,
-				Y * 60 / 768);
-		if (gamePO.getHomeOnCourtPlayerLsit() != null) {
-			{
-				ImageIcon playerPortraitH3 = new ImageIcon(new ImageIcon(
-						"images/player_img/" + gamePO.getHomeTeam() + "/"
-								+ gamePO.getHomeOnCourtPlayerLsit().get(2)
-								+ ".png").getImage()
-						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-								Image.SCALE_AREA_AVERAGING));
-				btnH3.setIcon(playerPortraitH3);
-				btnH3.addActionListener(e -> {
-					System.out.println("click H3!!!");
-				});
-			}
-			btnH3.setOpaque(false);
-			courtlbl.add(btnH3);
-
-			btnH4 = new MyButton();
-			btnH4.setBounds(X * 670 / 1366, Y * 207 / 768, X * 60 / 1366,
-					Y * 60 / 768);
-			if (gamePO.getHomeOnCourtPlayerLsit() != null) {
-				ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
-						"images/player_img/" + gamePO.getHomeTeam() + "/"
-								+ gamePO.getHomeOnCourtPlayerLsit().get(3)
-								+ ".png").getImage()
-						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-								Image.SCALE_AREA_AVERAGING));
-				btnH4.setIcon(playerPortraitH4);
-			}
-			btnH4.setOpaque(false);
-			courtlbl.add(btnH4);
-
-			btnH5 = new MyButton();
-			btnH5.setBounds(X * 505 / 1366, Y * 60 / 768, X * 60 / 1366,
-					Y * 60 / 768);
-			if (gamePO.getHomeOnCourtPlayerLsit() != null) {
-				ImageIcon playerPortraitH5 = new ImageIcon(new ImageIcon(
-						"images/player_img/" + gamePO.getHomeTeam() + "/"
-								+ gamePO.getHomeOnCourtPlayerLsit().get(4)
-								+ ".png").getImage()
-						.getScaledInstance(X * 60 / 1366, Y * 60 / 768,
-								Image.SCALE_AREA_AVERAGING));
-				btnH5.setIcon(playerPortraitH5);
-			}
-			courtlbl.add(btnH5);
-
-			bgLabel.add(courtlbl);
-		}
-	}
-
+	/*
+	 * public void courtLive(GamePO gamePO) { if (courtlbl != null) {
+	 * courtlbl.setVisible(false); } courtlbl = new MyLabel();
+	 * courtlbl.setHorizontalAlignment(SwingConstants.CENTER);
+	 * courtlbl.setBounds(X * 0 / 1366, Y * 234 / 768, X * 850 / 1366, Y * 386 /
+	 * 768); ImageIcon buttonIcon = new ImageIcon(new ImageIcon(
+	 * "images/backgrounds/" + gamePO.getHomeTeam() + "_court_3D.png")
+	 * .getImage().getScaledInstance(X * 850 / 1366, Y * 386 / 768,
+	 * Image.SCALE_SMOOTH)); courtlbl.setVisible(false);
+	 * courtlbl.setIcon(buttonIcon);
+	 * 
+	 * btnG1 = new MyButton(); btnG1.setBounds(X * 340 / 1366, Y * 165 / 768, X
+	 * * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitG1 = new ImageIcon(new ImageIcon( "images/player_img/" +
+	 * gamePO.getGuestTeam() + "/" + gamePO.getGuestOnCourtPlayerLsit().get(0) +
+	 * ".png").getImage().getScaledInstance( X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_SMOOTH));
+	 * 
+	 * btnG1.setIcon(playerPortraitG1); } btnG1.setOpaque(false);
+	 * courtlbl.add(btnG1);
+	 * 
+	 * btnG2 = new MyButton(); btnG2.setBounds(X * 260 / 1366, Y * 45 / 768, X *
+	 * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitG2 = new ImageIcon(new ImageIcon( "images/player_img/" +
+	 * gamePO.getGuestTeam() + "/" + gamePO.getGuestOnCourtPlayerLsit().get(1) +
+	 * ".png").getImage().getScaledInstance( X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnG2.setIcon(playerPortraitG2); }
+	 * btnG2.setOpaque(false); courtlbl.add(btnG2);
+	 * 
+	 * btnG3 = new MyButton(); btnG3.setBounds(X * 100 / 1366, Y * 295 / 768, X
+	 * * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitG3 = new ImageIcon(new ImageIcon( "images/player_img/" +
+	 * gamePO.getGuestTeam() + "/" + gamePO.getGuestOnCourtPlayerLsit().get(2) +
+	 * ".png").getImage().getScaledInstance( X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnG3.setIcon(playerPortraitG3); }
+	 * btnG3.setOpaque(false); courtlbl.add(btnG3);
+	 * 
+	 * btnG4 = new MyButton(); btnG4.setBounds(X * 130 / 1366, Y * 123 / 768, X
+	 * * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitG4 = new ImageIcon(new ImageIcon( "images/player_img/" +
+	 * gamePO.getGuestTeam() + "/" + gamePO.getGuestOnCourtPlayerLsit().get(3) +
+	 * ".png").getImage().getScaledInstance( X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnG4.setIcon(playerPortraitG4); }
+	 * btnG4.setOpaque(false); courtlbl.add(btnG4);
+	 * 
+	 * btnG5 = new MyButton(); btnG5.setBounds(X * 260 / 1366, Y * 270 / 768, X
+	 * * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getGuestOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitG5 = new ImageIcon(new ImageIcon( "images/player_img/" +
+	 * gamePO.getGuestTeam() + "/" + gamePO.getGuestOnCourtPlayerLsit().get(4) +
+	 * ".png").getImage().getScaledInstance( X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnG5.setIcon(playerPortraitG5); }
+	 * btnG5.setOpaque(false); courtlbl.add(btnG5);
+	 * 
+	 * btnH1 = new MyButton(); btnH1.setBounds(X * 440 / 1366, Y * 165 / 768, X
+	 * * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitH1 = new ImageIcon( new ImageIcon("images/player_img/" +
+	 * gamePO.getHomeTeam() + "/" + gamePO.getHomeOnCourtPlayerLsit().get(0) +
+	 * ".png").getImage().getScaledInstance( X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnH1.setIcon(playerPortraitH1); }
+	 * btnH1.setOpaque(false); courtlbl.add(btnH1);
+	 * 
+	 * btnH2 = new MyButton(); btnH2.setBounds(X * 550 / 1366, Y * 285 / 768, X
+	 * * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitH2 = new ImageIcon( new ImageIcon("images/player_img/" +
+	 * gamePO.getHomeTeam() + "/" + gamePO.getHomeOnCourtPlayerLsit().get(1) +
+	 * ".png").getImage().getScaledInstance( X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnH2.setIcon(playerPortraitH2); }
+	 * btnH2.setOpaque(false); courtlbl.add(btnH2);
+	 * 
+	 * btnH3 = new MyButton(); btnH3.setBounds(X * 640 / 1366, Y * 35 / 768, X *
+	 * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) { { ImageIcon
+	 * playerPortraitH3 = new ImageIcon(new ImageIcon( "images/player_img/" +
+	 * gamePO.getHomeTeam() + "/" + gamePO.getHomeOnCourtPlayerLsit().get(2) +
+	 * ".png").getImage() .getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnH3.setIcon(playerPortraitH3);
+	 * btnH3.addActionListener(e -> { System.out.println("click H3!!!"); }); }
+	 * btnH3.setOpaque(false); courtlbl.add(btnH3);
+	 * 
+	 * btnH4 = new MyButton(); btnH4.setBounds(X * 670 / 1366, Y * 207 / 768, X
+	 * * 60 / 1366, Y * 60 / 768); if (gamePO.getHomeOnCourtPlayerLsit() !=
+	 * null) { ImageIcon playerPortraitH4 = new ImageIcon(new ImageIcon(
+	 * "images/player_img/" + gamePO.getHomeTeam() + "/" +
+	 * gamePO.getHomeOnCourtPlayerLsit().get(3) + ".png").getImage()
+	 * .getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnH4.setIcon(playerPortraitH4); }
+	 * btnH4.setOpaque(false); courtlbl.add(btnH4);
+	 * 
+	 * btnH5 = new MyButton(); btnH5.setBounds(X * 505 / 1366, Y * 60 / 768, X *
+	 * 60 / 1366, Y * 60 / 768); if
+	 * (infoDaoImpl.getGame().getHomeOnCourtPlayerLsit() != null) { ImageIcon
+	 * playerPortraitH5 = new ImageIcon(new ImageIcon( "images/player_img/" +
+	 * gamePO.getHomeTeam() + "/" + gamePO.getHomeOnCourtPlayerLsit().get(4) +
+	 * ".png").getImage() .getScaledInstance(X * 60 / 1366, Y * 60 / 768,
+	 * Image.SCALE_AREA_AVERAGING)); btnH5.setIcon(playerPortraitH5); }
+	 * courtlbl.add(btnH5);
+	 * 
+	 * // bgLabel.add(courtlbl); } }
+	 */
 	public void live() {
 		if (livelbl != null) {
 			livelbl.setVisible(false);
 		}
 		livelbl = new MyLabel();
 		livelbl.setHorizontalAlignment(SwingConstants.CENTER);
-		livelbl.setBounds(X * 865 / 1366, Y * 190 / 768, X * 485 / 1366,
+		// livelbl.setBounds(X * 865 / 1366, Y * 190 / 768, X * 485 / 1366,
+		// Y * 530 / 768);
+		livelbl.setBounds(X * 183 / 1366, Y * 190 / 768, X * 1000 / 1366,
 				Y * 530 / 768);
 		livelbl.setVisible(false);
-		bgLabel.add(livelbl);
-
+		// bgLabel.add(livelbl);
+		livelbl.add(firstPeriod);
+		livelbl.add(secondPeriod);
+		livelbl.add(thirdPeriod);
+		livelbl.add(fourthPeriod);
+		firstPeriod.setVisible(true);
+		livelbl.add(firstPeriod);
+		secondPeriod.setVisible(true);
+		livelbl.add(secondPeriod);
+		thirdPeriod.setVisible(true);
+		livelbl.add(thirdPeriod);
+		fourthPeriod.setVisible(true);
+    
+        
 		liveTextList1 = infoDaoImpl.getLiveText1();
 		liveTextList2 = infoDaoImpl.getLiveText2();
 		liveTextList3 = infoDaoImpl.getLiveText3();
 		liveTextList4 = infoDaoImpl.getLiveText4();
-if(gamePO.getCurrentPeriod()!=null){
-		if (gamePO.getCurrentPeriod().equals("1")) {
-			live1(liveTextList1);
-			livelbl.add(liveScrollPane1);
-		}
-		if (gamePO.getCurrentPeriod().equals("2")) {
-			live2(liveTextList2);
-			livelbl.add(liveScrollPane1);
-			livelbl.add(liveScrollPane2);
-		}
-		if (gamePO.getCurrentPeriod().equals("3")) {
-			live3(liveTextList3);
-			livelbl.add(liveScrollPane1);
-			livelbl.add(liveScrollPane2);
-			livelbl.add(liveScrollPane3);
-		}
-		if (gamePO.getCurrentPeriod().equals("4")) {
-			live4(liveTextList4);
-			livelbl.add(liveScrollPane1);
-			livelbl.add(liveScrollPane2);
-			livelbl.add(liveScrollPane3);
-			livelbl.add(liveScrollPane4);
-		}
-}
-		firstPeriod.setVisible(true);
-		firstPeriod.addActionListener(e -> {
-			if (liveScrollPane1 != null) {
-				liveScrollPane1.setVisible(true);
+		if (gamePO.getCurrentPeriod() != null) {
+			if (gamePO.getCurrentPeriod().equals("1")) {
+				live1(liveTextList1);
+				livelbl.add(liveScrollPane1);
 			}
-			if (liveScrollPane2 != null) {
-				liveScrollPane2.setVisible(false);
+			if (gamePO.getCurrentPeriod().equals("2")) {
+				live1(liveTextList1);
+				live2(liveTextList2);
+				livelbl.add(liveScrollPane1);
+				livelbl.add(liveScrollPane2);
 			}
-			if (liveScrollPane3 != null) {
-				liveScrollPane3.setVisible(false);
+			if (gamePO.getCurrentPeriod().equals("3")) {
+				live1(liveTextList1);
+				live2(liveTextList2);
+				live3(liveTextList3);
+				livelbl.add(liveScrollPane1);
+				livelbl.add(liveScrollPane2);
+				livelbl.add(liveScrollPane3);
 			}
-			if (liveScrollPane4 != null) {
-				liveScrollPane4.setVisible(false);
-			}
-
-		});
-		livelbl.add(firstPeriod);
-
-		secondPeriod.setVisible(true);
-		secondPeriod.addActionListener(e -> {
-			if (liveScrollPane1 != null) {
-				liveScrollPane1.setVisible(false);
-			}
-			if (liveScrollPane2 != null) {
-				liveScrollPane2.setVisible(true);
-			}
-			if (liveScrollPane3 != null) {
-				liveScrollPane3.setVisible(false);
-			}
-			if (liveScrollPane4 != null) {
-				liveScrollPane4.setVisible(false);
-			}
-
-		});
-		livelbl.add(secondPeriod);
-
-		thirdPeriod.setVisible(true);
-		thirdPeriod.addActionListener(e -> {
-			if (liveScrollPane1 != null) {
-				liveScrollPane1.setVisible(false);
-			}
-			if (liveScrollPane2 != null) {
-				liveScrollPane2.setVisible(false);
-			}
-			if (liveScrollPane3 != null) {
-				liveScrollPane3.setVisible(true);
-			}
-			if (liveScrollPane4 != null) {
-				liveScrollPane4.setVisible(false);
-			}
-
-		});
-		livelbl.add(thirdPeriod);
-
-		fourthPeriod.setVisible(true);
-		fourthPeriod.addActionListener(e -> {
-			if (liveScrollPane1 != null) {
-				liveScrollPane1.setVisible(false);
-			}
-			if (liveScrollPane2 != null) {
-				liveScrollPane2.setVisible(false);
-			}
-			if (liveScrollPane3 != null) {
-				liveScrollPane3.setVisible(false);
-			}
-			if (liveScrollPane4 != null) {
-				liveScrollPane4.setVisible(true);
-			}
-
-		});
-		livelbl.add(fourthPeriod);
-
-		if (liveTextlbl != null) {
-			if (liveTextList4 != null) {
-				liveTextlbl.setText(liveTextList4.get(0).getText());
-			} else if (liveTextList3 != null) {
-				liveTextlbl.setText(liveTextList3.get(0).getText());
-			} else if (liveTextList2 != null) {
-				liveTextlbl.setText(liveTextList2.get(0).getText());
-			} else if (liveTextList1 != null) {
-				liveTextlbl.setText(liveTextList1.get(0).getText());
-			}
-		} else {
-			liveTextlbl = new MyLabel();
-			liveTextlbl.setHorizontalAlignment(SwingConstants.CENTER);
-			liveTextlbl.setBounds(X * 210 / 1366, Y * 670 / 768,
-					X * 430 / 1366, Y * 30 / 768);
-			liveTextlbl.setOpaque(false);
-			liveTextlbl.setVisible(true);
-			if (liveTextList4 != null) {
-				liveTextlbl.setText(liveTextList4.get(0).getText());
-			} else if (liveTextList3 != null) {
-				liveTextlbl.setText(liveTextList3.get(0).getText());
-			} else if (liveTextList2 != null) {
-				liveTextlbl.setText(liveTextList2.get(0).getText());
-			} else if (liveTextList1 != null) {
-				liveTextlbl.setText(liveTextList1.get(0).getText());
-			}
-			bgLabel.add(liveTextlbl);
-		}
-		if (liveTextList4 != null && gamePO != null) {
-			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getGuestOnCourtPlayerLsit().equals(
-						liveTextList4.get(0).getPlayerName())) {
-					PlayerButtonHighLight("guest", i);
-				}
-			}
-
-			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
-						.equals(liveTextList4.get(0).getPlayerName())) {
-					PlayerButtonHighLight("home", i);
-				}
-			}
-		} else if (liveTextList3 != null && gamePO != null) {
-			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getGuestOnCourtPlayerLsit().equals(
-						liveTextList3.get(0).getPlayerName())) {
-					PlayerButtonHighLight("guest", i);
-				}
-			}
-
-			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
-						.equals(liveTextList3.get(0).getPlayerName())) {
-					PlayerButtonHighLight("home", i);
-				}
-			}
-		} else if (liveTextList2 != null && gamePO != null) {
-			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getGuestOnCourtPlayerLsit().equals(
-						liveTextList2.get(0).getPlayerName())) {
-					PlayerButtonHighLight("guest", i);
-				}
-			}
-
-			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
-						.equals(liveTextList2.get(0).getPlayerName())) {
-					PlayerButtonHighLight("home", i);
-				}
-			}
-		} else if (liveTextList1 != null && gamePO != null) {
-			for (int i = 0; i < gamePO.getGuestOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getGuestOnCourtPlayerLsit().equals(
-						liveTextList1.get(0).getPlayerName())) {
-					PlayerButtonHighLight("guest", i);
-				}
-			}
-
-			for (int i = 0; i < gamePO.getHomeOnCourtPlayerLsit().size(); i++) {
-				if (gamePO.getHomeOnCourtPlayerLsit().get(i)
-						.equals(liveTextList1.get(0).getPlayerName())) {
-					PlayerButtonHighLight("home", i);
-				}
+			if (gamePO.getCurrentPeriod().equals("4")) {
+				live1(liveTextList1);
+				live2(liveTextList2);
+				live3(liveTextList3);
+				live4(liveTextList4);
+				livelbl.add(liveScrollPane1);
+				livelbl.add(liveScrollPane2);
+				livelbl.add(liveScrollPane3);
+				livelbl.add(liveScrollPane4);
 			}
 		}
+		
+	
+		
 		VisionController(currentState);
 	}
 
@@ -1128,13 +994,13 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		liveTable1.setRowHeight(Y * 30 / 768);
 		liveTable1.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 70 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable1.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 40 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable1.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable1.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 315 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable1.setForeground(Color.WHITE);
 		liveTable1.setVisible(true);
 		liveTable1.setCellSelectionEnabled(true);
@@ -1143,7 +1009,9 @@ if(gamePO.getCurrentPeriod()!=null){
 		liveScrollPane1 = new JScrollPane(liveTable1);
 		liveScrollPane1.getVerticalScrollBar().setUI(
 				new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-		liveScrollPane1.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// liveScrollPane1.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// Y * 500 / 768);
+		liveScrollPane1.setBounds(X * 0 / 1366, Y * 30 / 768, X * 1000 / 1366,
 				Y * 500 / 768);
 		liveScrollPane1
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1152,13 +1020,11 @@ if(gamePO.getCurrentPeriod()!=null){
 		liveScrollPane1.getViewport().setOpaque(false);
 		liveScrollPane1.setOpaque(false);
 		liveScrollPane1.setVisible(false);
-
+/*
 		if (gamePO.getCurrentPeriod().equals("1")) {
-
 			liveScrollPane1.setVisible(true);
-
 		}
-
+*/
 	}
 
 	public void live2(ArrayList<LiveTextPO> liveTextList) {
@@ -1215,13 +1081,13 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		liveTable2.setRowHeight(Y * 30 / 768);
 		liveTable2.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 70 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable2.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 40 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable2.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable2.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 315 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable2.setForeground(Color.WHITE);
 		liveTable2.setVisible(true);
 		liveTable2.setCellSelectionEnabled(true);
@@ -1230,7 +1096,10 @@ if(gamePO.getCurrentPeriod()!=null){
 		liveScrollPane2 = new JScrollPane(liveTable2);
 		liveScrollPane2.getVerticalScrollBar().setUI(
 				new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-		liveScrollPane2.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// liveScrollPane2.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// Y * 500 / 768);
+
+		liveScrollPane2.setBounds(X * 0 / 1366, Y * 30 / 768, X * 1000 / 1366,
 				Y * 500 / 768);
 		liveScrollPane2
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1238,10 +1107,11 @@ if(gamePO.getCurrentPeriod()!=null){
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		liveScrollPane2.getViewport().setOpaque(false);
 		liveScrollPane2.setOpaque(false);
+		/*
 		if (gamePO.getCurrentPeriod().equals("2")) {
 			liveScrollPane2.setVisible(true);
 		}
-
+*/
 	}
 
 	public void live3(ArrayList<LiveTextPO> liveTextList) {
@@ -1300,13 +1170,13 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		liveTable3.setRowHeight(Y * 30 / 768);
 		liveTable3.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 70 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable3.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 40 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable3.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable3.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 315 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable3.setForeground(Color.WHITE);
 		liveTable3.setVisible(true);
 		liveTable3.setCellSelectionEnabled(true);
@@ -1315,7 +1185,9 @@ if(gamePO.getCurrentPeriod()!=null){
 		liveScrollPane3 = new JScrollPane(liveTable3);
 		liveScrollPane3.getVerticalScrollBar().setUI(
 				new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-		liveScrollPane3.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// liveScrollPane3.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// Y * 500 / 768);
+		liveScrollPane3.setBounds(X * 0 / 1366, Y * 30 / 768, X * 1000 / 1366,
 				Y * 500 / 768);
 		liveScrollPane3
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1324,13 +1196,11 @@ if(gamePO.getCurrentPeriod()!=null){
 		liveScrollPane3.getViewport().setOpaque(false);
 		liveScrollPane3.setOpaque(false);
 		liveScrollPane3.setVisible(false);
-
+/*
 		if (gamePO.getCurrentPeriod().equals("3")) {
-
 			liveScrollPane3.setVisible(true);
-
 		}
-
+*/
 	}
 
 	public void live4(ArrayList<LiveTextPO> liveTextList) {
@@ -1388,13 +1258,13 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		liveTable4.setRowHeight(Y * 30 / 768);
 		liveTable4.getColumnModel().getColumn(0)
-				.setPreferredWidth(X * 70 / 1366);
+				.setPreferredWidth(X * 100 / 1366);
 		liveTable4.getColumnModel().getColumn(1)
-				.setPreferredWidth(X * 40 / 1366);
+				.setPreferredWidth(X * 70 / 1366);
 		liveTable4.getColumnModel().getColumn(2)
-				.setPreferredWidth(X * 60 / 1366);
+				.setPreferredWidth(X * 80 / 1366);
 		liveTable4.getColumnModel().getColumn(3)
-				.setPreferredWidth(X * 315 / 1366);
+				.setPreferredWidth(X * 750 / 1366);
 		liveTable4.setForeground(Color.WHITE);
 		liveTable4.setVisible(true);
 		liveTable4.setCellSelectionEnabled(true);
@@ -1403,7 +1273,10 @@ if(gamePO.getCurrentPeriod()!=null){
 		liveScrollPane4 = new JScrollPane(liveTable4);
 		liveScrollPane4.getVerticalScrollBar().setUI(
 				new MyScrollBarUI(Color.LIGHT_GRAY, Color.GRAY));
-		liveScrollPane4.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// liveScrollPane4.setBounds(X * 0 / 1366, Y * 30 / 768, X * 485 / 1366,
+		// Y * 500 / 768);
+
+		liveScrollPane4.setBounds(X * 0 / 1366, Y * 30 / 768, X * 1000 / 1366,
 				Y * 500 / 768);
 		liveScrollPane4
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1412,12 +1285,11 @@ if(gamePO.getCurrentPeriod()!=null){
 		liveScrollPane4.getViewport().setOpaque(false);
 		liveScrollPane4.setOpaque(false);
 		liveScrollPane4.setVisible(false);
-
+/*
 		if (gamePO.getCurrentPeriod().equals("4")) {
-
 			liveScrollPane4.setVisible(true);
-
 		}
+*/
 	}
 
 	public void teamDataLive(TeamPO guestTeamPo, TeamPO hostTeamPo) {
@@ -1738,7 +1610,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			lblHostAssistance.setOpaque(true);
 			summarylbl.add(lblHostAssistance);
 		}
-		bgLabel.add(summarylbl);
+		// bgLabel.add(summarylbl);
 
 		VisionController(currentState);
 	}
@@ -1788,8 +1660,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			guestRowData.clear();
 		}
 		guestColumn = new Vector<String>();
-		guestColumn.add("球员");
-		guestColumn.add("姓名");
+		guestColumn.add("球员姓名");
 		guestColumn.add("位置");
 		guestColumn.add("分钟");
 		guestColumn.add("命中率");
@@ -1814,7 +1685,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			for (int i = 0; i < guestPlayerDataList.size(); i++) {
 				// -------------------steven Jin!!!------------------
 				Vector<String> a = new Vector<String>();
-				a.add("");
+
 				a.add(guestPlayerDataList.get(i).getCnName());
 				a.add(guestPlayerDataList.get(i).getPosition());
 				a.add(guestPlayerDataList.get(i).getTimeOnCourt());
@@ -1852,7 +1723,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 		} else {
 			Vector<String> a = new Vector<String>();
-			a.add("");
+
 			a.add("");
 			a.add("");
 			a.add("");
@@ -1911,8 +1782,7 @@ if(gamePO.getCurrentPeriod()!=null){
 		guestTable.setForeground(Color.WHITE);
 
 		guestTable.setIntercellSpacing(new Dimension(0, 0));
-		guestTable.getColumnModel().getColumn(0).setPreferredWidth(65);
-		guestTable.getColumnModel().getColumn(1).setPreferredWidth(120);
+		guestTable.getColumnModel().getColumn(0).setPreferredWidth(185);
 		guestTable.setRowHeight(48);
 		guestTable.setVisible(true);
 		guestTable.setCellSelectionEnabled(true);
@@ -1947,8 +1817,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			hostRowData.clear();
 		}
 		hostColumn = new Vector<String>();
-		hostColumn.add("球员");
-		hostColumn.add("姓名");
+		hostColumn.add("球员姓名");
 		hostColumn.add("位置");
 		hostColumn.add("分钟");
 		hostColumn.add("命中率");
@@ -1973,7 +1842,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			for (int i = 0; i < hostPlayerDataList.size(); i++) {
 				Vector<String> a = new Vector<String>();
 				// -------------------steven Jin!!!------------------
-				a.add("");
+
 				a.add(hostPlayerDataList.get(i).getCnName());
 				a.add(hostPlayerDataList.get(i).getPosition());
 				a.add(hostPlayerDataList.get(i).getTimeOnCourt());
@@ -2009,7 +1878,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 		} else {
 			Vector<String> a = new Vector<String>();
-			a.add("");
+
 			a.add("");
 			a.add("");
 			a.add("");
@@ -2066,8 +1935,8 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		hostTable.setForeground(Color.WHITE);
 		hostTable.setIntercellSpacing(new Dimension(0, 0));
-		hostTable.getColumnModel().getColumn(0).setPreferredWidth(65);
-		hostTable.getColumnModel().getColumn(1).setPreferredWidth(120);
+
+		hostTable.getColumnModel().getColumn(0).setPreferredWidth(185);
 		hostTable.setRowHeight(48);
 		hostTable.setVisible(true);
 		hostTable.setCellSelectionEnabled(true);
@@ -2089,7 +1958,7 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		datalbl.add(hostScrollPane);
 
-		bgLabel.add(datalbl);
+		// bgLabel.add(datalbl);
 
 		VisionController(currentState);
 
@@ -2100,12 +1969,15 @@ if(gamePO.getCurrentPeriod()!=null){
 
 			if (courtlbl != null) {
 				courtlbl.setVisible(true);
+				bgLabel.add(courtlbl);
 			}
 			if (liveTextlbl != null) {
 				liveTextlbl.setVisible(true);
+				bgLabel.add(liveTextlbl);
 			}
 			if (livelbl != null) {
 				livelbl.setVisible(true);
+				bgLabel.add(livelbl);
 			}
 
 			if (summarylbl != null) {
@@ -2131,6 +2003,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 			if (datalbl != null) {
 				datalbl.setVisible(true);
+				bgLabel.add(datalbl);
 			}
 
 		} else if (label.equals("teamDataLive")) {
@@ -2146,6 +2019,7 @@ if(gamePO.getCurrentPeriod()!=null){
 			}
 			if (summarylbl != null) {
 				summarylbl.setVisible(true);
+				bgLabel.add(summarylbl);
 			}
 			if (datalbl != null) {
 				datalbl.setVisible(false);
@@ -2287,7 +2161,6 @@ if(gamePO.getCurrentPeriod()!=null){
 
 		}
 	}
-
 
 	public void PlayerButtonHighLight(String gorh, int i) {
 		ImageIcon initialPlayerPortraitG1 = new ImageIcon(new ImageIcon(
@@ -2463,13 +2336,13 @@ if(gamePO.getCurrentPeriod()!=null){
 	}
 
 	public void refresh() {
-	
+
 		playerDataLive(infoDaoImpl.getGuestPlayers(),
 				infoDaoImpl.getHostPlayers());
 		teamDataLive(infoDaoImpl.getGuestTeam(), infoDaoImpl.getHostTeam());
 		live();
 		gameDataLive(infoDaoImpl.getGame());
-		courtLive(infoDaoImpl.getGame());
+		// courtLive(infoDaoImpl.getGame());
 
 		VisionController(currentState);
 	}
@@ -2497,7 +2370,7 @@ if(gamePO.getCurrentPeriod()!=null){
 
 			// if (table.getRowHeight(row) != getPreferredSize().height) //
 			// 少了这行则处理器瞎忙
-			table.setRowHeight(row, 50);
+			table.setRowHeight(row, 40);
 
 			setText(value == null ? "" : value.toString());
 			return this;

@@ -51,7 +51,7 @@ public class LiveFrame extends JFrame {
 		MyNBALives.init();
 		while (true){
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 
 				MyNBALives.live();
 				liveInfoPanel.refresh();
