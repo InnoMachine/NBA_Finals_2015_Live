@@ -23,7 +23,7 @@ public class GamePO extends Observable{
 	private Scoreboard score4th;
 	private ArrayList<Scoreboard> extratime;//加时赛
 	
-	private String currentPeriod;
+	private String currentPeriod = "1";
 	private String remainingTime;
 	private ArrayList<String> guestOnCourtPlayerLsit;
 	private ArrayList<String> homeOnCourtPlayerLsit;

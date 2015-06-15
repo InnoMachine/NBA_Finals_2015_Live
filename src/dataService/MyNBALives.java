@@ -83,13 +83,12 @@ public class MyNBALives {
 	}
 	
 	public static void live() {
+		int period = Integer.parseInt(Singleton.getInstance().getGame().getCurrentPeriod());
+		for(int i = 1; i <= period; i ++) {
+			Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(i))));
+		}
 		
-		Singleton.getInstance().setLiveText1(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(1))));
-		Singleton.getInstance().setLiveText2(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(2))));
-		Singleton.getInstance().setLiveText3(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(3))));
-		Singleton.getInstance().setLiveText4(new LiveTexts(getLiveTextsFromJsonArray(getPeriodLiveTextJsonArray(4))));
-		
-		String gameJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/snapshotlive_0041400404.json");
+		String gameJsonString = getJsonContent("http://china.nba.com/wap/static/data/game/snapshotlive_0041400405.json");
 		JSONObject gameJsonObject = JSON.parseObject(gameJsonString, JSONObject.class);
 		JSONObject gamePayload = gameJsonObject.getJSONObject("payload");
 		JSONObject awayteam = gamePayload.getJSONObject("awayTeam");
@@ -105,7 +104,7 @@ public class MyNBALives {
 	}
 	
 	public static JSONArray getPeriodLiveTextJsonArray(int period) {
-		String url = "http://china.nba.com/wap/static/data/game/playbyplay_0041400404_" + period + ".json";
+		String url = "http://china.nba.com/wap/static/data/game/playbyplay_0041400405_" + period + ".json";
 		JSONArray eventsJsonArray = JSON.parseObject(getJsonContent(url), JSONObject.class).getJSONObject("payload").getJSONArray("playByPlays").getJSONObject(0).getJSONArray("events");;
 		return eventsJsonArray;
 	}
